@@ -1,0 +1,33 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+
+.box {
+  font: 10px sans-serif;
+}
+
+.box line,
+.box rect,
+.box circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+
+
+.box .outlier {
+  fill: none;
+  stroke: #ccc;
+}
+
+#resultsTable
+{
+	font-size:14px;
+}
+
+.selectedWaterParameter
+{
+	font-size: 14px;
+}

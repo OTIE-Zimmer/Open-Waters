@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.xs > .altCol {
+    background-color: paleturquoise;
+}
+
+.small > .altCol {
+    background-color: palegreen;
+}
+
+.med > .altCol {
+    background-color: palevioletred;
+}
+
+.large > .altCol {
+    background-color: #CCC;
+}
+
+.col-xs-1 {
+    min-height: 50px;
+}
+
+.small > DIV, .med > DIV, .large > DIV {
+    min-height: 10px;
+}

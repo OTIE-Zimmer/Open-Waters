@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OpenEnvironmentModelStoreContainer" CdmEntityContainer="OpenEnvironmentEntities">
+    <EntitySetMapping Name="T_OE_APP_SETTINGS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_APP_SETTINGS">
+        <MappingFragment StoreEntitySet="T_OE_APP_SETTINGS">
+          <ScalarProperty Name="SETTING_DESC" ColumnName="SETTING_DESC" />
+          <ScalarProperty Name="MODIFY_DT" ColumnName="MODIFY_DT" />
+          <ScalarProperty Name="MODIFY_USERID" ColumnName="MODIFY_USERID" />
+          <ScalarProperty Name="SETTING_VALUE_SALT" ColumnName="SETTING_VALUE_SALT" />
+          <ScalarProperty Name="ENCRYPT_IND" ColumnName="ENCRYPT_IND" />
+          <ScalarProperty Name="SETTING_VALUE" ColumnName="SETTING_VALUE" />
+          <ScalarProperty Name="SETTING_NAME" ColumnName="SETTING_NAME" />
+          <ScalarProperty Name="SETTING_IDX" ColumnName="SETTING_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_APP_TASKS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_APP_TASKS">
+        <MappingFragment StoreEntitySet="T_OE_APP_TASKS">
+          <ScalarProperty Name="MODIFY_DT" ColumnName="MODIFY_DT" />
+          <ScalarProperty Name="MODIFY_USERID" ColumnName="MODIFY_USERID" />
+          <ScalarProperty Name="TASK_FREQ_MS" ColumnName="TASK_FREQ_MS" />
+          <ScalarProperty Name="TASK_STATUS" ColumnName="TASK_STATUS" />
+          <ScalarProperty Name="TASK_DESC" ColumnName="TASK_DESC" />
+          <ScalarProperty Name="TASK_NAME" ColumnName="TASK_NAME" />
+          <ScalarProperty Name="TASK_IDX" ColumnName="TASK_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_ROLES">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_ROLES">
+        <MappingFragment StoreEntitySet="T_OE_ROLES">
+          <ScalarProperty Name="MODIFY_DT" ColumnName="MODIFY_DT" />
+          <ScalarProperty Name="MODIFY_USERID" ColumnName="MODIFY_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ROLE_DESC" ColumnName="ROLE_DESC" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+          <ScalarProperty Name="ROLE_IDX" ColumnName="ROLE_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_USER_ROLES">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_USER_ROLES">
+        <MappingFragment StoreEntitySet="T_OE_USER_ROLES">
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ROLE_IDX" ColumnName="ROLE_IDX" />
+          <ScalarProperty Name="USER_IDX" ColumnName="USER_IDX" />
+          <ScalarProperty Name="USER_ROLE_IDX" ColumnName="USER_ROLE_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_USERS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_USERS">
+        <MappingFragment StoreEntitySet="T_OE_USERS">
+          <ScalarProperty Name="DEFAULT_ORG_ID" ColumnName="DEFAULT_ORG_ID" />
+          <ScalarProperty Name="MODIFY_DT" ColumnName="MODIFY_DT" />
+          <ScalarProperty Name="MODIFY_USERID" ColumnName="MODIFY_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="PHONE_EXT" ColumnName="PHONE_EXT" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="LASTLOGIN_DT" ColumnName="LASTLOGIN_DT" />
+          <ScalarProperty Name="EFFECTIVE_DT" ColumnName="EFFECTIVE_DT" />
+          <ScalarProperty Name="INITAL_PWD_FLAG" ColumnName="INITAL_PWD_FLAG" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+          <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+          <ScalarProperty Name="PWD_SALT" ColumnName="PWD_SALT" />
+          <ScalarProperty Name="PWD_HASH" ColumnName="PWD_HASH" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_IDX" ColumnName="USER_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_ACTIVITY_METRIC">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_ACTIVITY_METRIC">
+        <MappingFragment StoreEntitySet="T_WQX_ACTIVITY_METRIC">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="WQX_UPDATE_DT" ColumnName="WQX_UPDATE_DT" />
+          <ScalarProperty Name="WQX_SUBMIT_STATUS" ColumnName="WQX_SUBMIT_STATUS" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="BIO_HABITAT_INDEX_IDX" ColumnName="BIO_HABITAT_INDEX_IDX" />
+          <ScalarProperty Name="METRIC_COMMENT" ColumnName="METRIC_COMMENT" />
+          <ScalarProperty Name="METRIC_SCORE" ColumnName="METRIC_SCORE" />
+          <ScalarProperty Name="METRIC_VALUE_MSR_UNIT" ColumnName="METRIC_VALUE_MSR_UNIT" />
+          <ScalarProperty Name="METRIC_VALUE_MSR" ColumnName="METRIC_VALUE_MSR" />
+          <ScalarProperty Name="METRIC_FORMULA_DESC" ColumnName="METRIC_FORMULA_DESC" />
+          <ScalarProperty Name="METRIC_SCALE" ColumnName="METRIC_SCALE" />
+          <ScalarProperty Name="CITATION_ID" ColumnName="CITATION_ID" />
+          <ScalarProperty Name="CITATION_DATE" ColumnName="CITATION_DATE" />
+          <ScalarProperty Name="CITATION_PUBLISHER" ColumnName="CITATION_PUBLISHER" />
+          <ScalarProperty Name="CITATION_SUBJECT" ColumnName="CITATION_SUBJECT" />
+          <ScalarProperty Name="CITATION_CREATOR" ColumnName="CITATION_CREATOR" />
+          <ScalarProperty Name="CITATION_TITLE" ColumnName="CITATION_TITLE" />
+          <ScalarProperty Name="METRIC_TYPE_NAME" ColumnName="METRIC_TYPE_NAME" />
+          <ScalarProperty Name="METRIC_TYPE_ID_CONTEXT" ColumnName="METRIC_TYPE_ID_CONTEXT" />
+          <ScalarProperty Name="METRIC_TYPE_ID" ColumnName="METRIC_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_IDX" ColumnName="ACTIVITY_IDX" />
+          <ScalarProperty Name="ACTIVITY_METRIC_IDX" ColumnName="ACTIVITY_METRIC_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_BIO_HABITAT_INDEX">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_BIO_HABITAT_INDEX">
+        <MappingFragment StoreEntitySet="T_WQX_BIO_HABITAT_INDEX">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="WQX_UPDATE_DT" ColumnName="WQX_UPDATE_DT" />
+          <ScalarProperty Name="WQX_SUBMIT_STATUS" ColumnName="WQX_SUBMIT_STATUS" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="INDEX_CALC_DATE" ColumnName="INDEX_CALC_DATE" />
+          <ScalarProperty Name="INDEX_COMMENT" ColumnName="INDEX_COMMENT" />
+          <ScalarProperty Name="INDEX_QUAL_CD" ColumnName="INDEX_QUAL_CD" />
+          <ScalarProperty Name="INDEX_SCORE" ColumnName="INDEX_SCORE" />
+          <ScalarProperty Name="INDEX_TYPE_SCALE" ColumnName="INDEX_TYPE_SCALE" />
+          <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+          <ScalarProperty Name="RESOURCE_DATE" ColumnName="RESOURCE_DATE" />
+          <ScalarProperty Name="RESOURCE_PUBLISHER" ColumnName="RESOURCE_PUBLISHER" />
+          <ScalarProperty Name="RESOURCE_SUBJECT" ColumnName="RESOURCE_SUBJECT" />
+          <ScalarProperty Name="RESOURCE_CREATOR" ColumnName="RESOURCE_CREATOR" />
+          <ScalarProperty Name="RESOURCE_TITLE" ColumnName="RESOURCE_TITLE" />
+          <ScalarProperty Name="INDEX_TYPE_NAME" ColumnName="INDEX_TYPE_NAME" />
+          <ScalarProperty Name="INDEX_TYPE_ID_CONTEXT" ColumnName="INDEX_TYPE_ID_CONTEXT" />
+          <ScalarProperty Name="INDEX_TYPE_ID" ColumnName="INDEX_TYPE_ID" />
+          <ScalarProperty Name="INDEX_ID" ColumnName="INDEX_ID" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="BIO_HABITAT_INDEX_IDX" ColumnName="BIO_HABITAT_INDEX_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_MONLOC">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_MONLOC">
+        <MappingFragment StoreEntitySet="T_WQX_MONLOC">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="IMPORT_MONLOC_ID" ColumnName="IMPORT_MONLOC_ID" />
+          <ScalarProperty Name="WQX_UPDATE_DT" ColumnName="WQX_UPDATE_DT" />
+          <ScalarProperty Name="WQX_SUBMIT_STATUS" ColumnName="WQX_SUBMIT_STATUS" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="WELLHOLE_DEPTH_MSR_UNIT" ColumnName="WELLHOLE_DEPTH_MSR_UNIT" />
+          <ScalarProperty Name="WELLHOLE_DEPTH_MSR" ColumnName="WELLHOLE_DEPTH_MSR" />
+          <ScalarProperty Name="FORMATION_TYPE" ColumnName="FORMATION_TYPE" />
+          <ScalarProperty Name="AQUIFER_NAME" ColumnName="AQUIFER_NAME" />
+          <ScalarProperty Name="WELL_TYPE" ColumnName="WELL_TYPE" />
+          <ScalarProperty Name="COUNTY_CODE" ColumnName="COUNTY_CODE" />
+          <ScalarProperty Name="STATE_CODE" ColumnName="STATE_CODE" />
+          <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+          <ScalarProperty Name="VERT_REF_DATUM" ColumnName="VERT_REF_DATUM" />
+          <ScalarProperty Name="VERT_COLL_METHOD" ColumnName="VERT_COLL_METHOD" />
+          <ScalarProperty Name="VERT_MEASURE_UNIT" ColumnName="VERT_MEASURE_UNIT" />
+          <ScalarProperty Name="VERT_MEASURE" ColumnName="VERT_MEASURE" />
+          <ScalarProperty Name="HORIZ_REF_DATUM" ColumnName="HORIZ_REF_DATUM" />
+          <ScalarProperty Name="HORIZ_COLL_METHOD" ColumnName="HORIZ_COLL_METHOD" />
+          <ScalarProperty Name="HORIZ_ACCURACY_UNIT" ColumnName="HORIZ_ACCURACY_UNIT" />
+          <ScalarProperty Name="HORIZ_ACCURACY" ColumnName="HORIZ_ACCURACY" />
+          <ScalarProperty Name="SOURCE_MAP_SCALE" ColumnName="SOURCE_MAP_SCALE" />
+          <ScalarProperty Name="LONGITUDE_MSR" ColumnName="LONGITUDE_MSR" />
+          <ScalarProperty Name="LATITUDE_MSR" ColumnName="LATITUDE_MSR" />
+          <ScalarProperty Name="TRIBAL_LAND_NAME" ColumnName="TRIBAL_LAND_NAME" />
+          <ScalarProperty Name="TRIBAL_LAND_IND" ColumnName="TRIBAL_LAND_IND" />
+          <ScalarProperty Name="HUC_TWELVE" ColumnName="HUC_TWELVE" />
+          <ScalarProperty Name="HUC_EIGHT" ColumnName="HUC_EIGHT" />
+          <ScalarProperty Name="MONLOC_DESC" ColumnName="MONLOC_DESC" />
+          <ScalarProperty Name="MONLOC_TYPE" ColumnName="MONLOC_TYPE" />
+          <ScalarProperty Name="MONLOC_NAME" ColumnName="MONLOC_NAME" />
+          <ScalarProperty Name="MONLOC_ID" ColumnName="MONLOC_ID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_ORG_ADDRESS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_ORG_ADDRESS">
+        <MappingFragment StoreEntitySet="T_WQX_ORG_ADDRESS">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="COUNTY_CD" ColumnName="COUNTY_CD" />
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+          <ScalarProperty Name="POSTAL_CD" ColumnName="POSTAL_CD" />
+          <ScalarProperty Name="STATE_CD" ColumnName="STATE_CD" />
+          <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+          <ScalarProperty Name="SUPP_ADDRESS" ColumnName="SUPP_ADDRESS" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="ADDRESS_TYPE" ColumnName="ADDRESS_TYPE" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_PROJECT">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_PROJECT">
+        <MappingFragment StoreEntitySet="T_WQX_PROJECT">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="WQX_UPDATE_DT" ColumnName="WQX_UPDATE_DT" />
+          <ScalarProperty Name="WQX_SUBMIT_STATUS" ColumnName="WQX_SUBMIT_STATUS" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="QAPP_APPROVAL_AGENCY" ColumnName="QAPP_APPROVAL_AGENCY" />
+          <ScalarProperty Name="QAPP_APPROVAL_IND" ColumnName="QAPP_APPROVAL_IND" />
+          <ScalarProperty Name="SAMP_DESIGN_TYPE_CD" ColumnName="SAMP_DESIGN_TYPE_CD" />
+          <ScalarProperty Name="PROJECT_DESC" ColumnName="PROJECT_DESC" />
+          <ScalarProperty Name="PROJECT_NAME" ColumnName="PROJECT_NAME" />
+          <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="PROJECT_IDX" ColumnName="PROJECT_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_ANAL_METHOD">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_ANAL_METHOD">
+        <MappingFragment StoreEntitySet="T_WQX_REF_ANAL_METHOD">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="ANALYTIC_METHOD_DESC" ColumnName="ANALYTIC_METHOD_DESC" />
+          <ScalarProperty Name="ANALYTIC_METHOD_NAME" ColumnName="ANALYTIC_METHOD_NAME" />
+          <ScalarProperty Name="ANALYTIC_METHOD_CTX" ColumnName="ANALYTIC_METHOD_CTX" />
+          <ScalarProperty Name="ANALYTIC_METHOD_ID" ColumnName="ANALYTIC_METHOD_ID" />
+          <ScalarProperty Name="ANALYTIC_METHOD_IDX" ColumnName="ANALYTIC_METHOD_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_DATA">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_DATA">
+        <MappingFragment StoreEntitySet="T_WQX_REF_DATA">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="USED_IND" ColumnName="USED_IND" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="TEXT" ColumnName="TEXT" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="TABLE" ColumnName="TABLE" />
+          <ScalarProperty Name="REF_DATA_IDX" ColumnName="REF_DATA_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_CHARACTERISTIC">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_CHARACTERISTIC">
+        <MappingFragment StoreEntitySet="T_WQX_REF_CHARACTERISTIC">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="USED_IND" ColumnName="USED_IND" />
+          <ScalarProperty Name="DEFAULT_UNIT" ColumnName="DEFAULT_UNIT" />
+          <ScalarProperty Name="DEFAULT_DETECT_LIMIT" ColumnName="DEFAULT_DETECT_LIMIT" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="WQXAnalysis" FunctionName="OpenEnvironmentModel.Store.WQXAnalysis">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OpenEnvironmentModel.WQXAnalysis_Result">
+          <ScalarProperty Name="MONLOC_NAME" ColumnName="MONLOC_NAME" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+          <ScalarProperty Name="START_DT" ColumnName="START_DT" />
+          <ScalarProperty Name="RESULT_MSR" ColumnName="RESULT_MSR" />
+          <ScalarProperty Name="RESULT_MSR_UNIT" ColumnName="RESULT_MSR_UNIT" />
+          <ScalarProperty Name="DETECTION_LIMIT" ColumnName="DETECTION_LIMIT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="T_WQX_REF_CHAR_LIMITS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_CHAR_LIMITS">
+        <MappingFragment StoreEntitySet="T_WQX_REF_CHAR_LIMITS">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="UPPER_BOUND" ColumnName="UPPER_BOUND" />
+          <ScalarProperty Name="LOWER_BOUND" ColumnName="LOWER_BOUND" />
+          <ScalarProperty Name="UNIT_NAME" ColumnName="UNIT_NAME" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_WQX_ACTIVITY_LATEST">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.V_WQX_ACTIVITY_LATEST">
+        <MappingFragment StoreEntitySet="V_WQX_ACTIVITY_LATEST">
+          <ScalarProperty Name="Turbidity" ColumnName="Turbidity" />
+          <ScalarProperty Name="Total_Dissolved_Solids" ColumnName="Total Dissolved Solids" />
+          <ScalarProperty Name="Temperature__water" ColumnName="Temperature, water" />
+          <ScalarProperty Name="Temperature__air" ColumnName="Temperature, air" />
+          <ScalarProperty Name="Specific_Conductance" ColumnName="Specific Conductance" />
+          <ScalarProperty Name="Salinity" ColumnName="Salinity" />
+          <ScalarProperty Name="Phosphorus" ColumnName="Phosphorus" />
+          <ScalarProperty Name="pH" ColumnName="pH" />
+          <ScalarProperty Name="Nitrite" ColumnName="Nitrite" />
+          <ScalarProperty Name="Nitrate" ColumnName="Nitrate" />
+          <ScalarProperty Name="Escherichia_coli" ColumnName="Escherichia coli" />
+          <ScalarProperty Name="Dissolved_oxygen__DO_" ColumnName="Dissolved oxygen (DO)" />
+          <ScalarProperty Name="Ammonia" ColumnName="Ammonia" />
+          <ScalarProperty Name="Alkalinity__total" ColumnName="Alkalinity, total" />
+          <ScalarProperty Name="ACT_COMMENT" ColumnName="ACT_COMMENT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="ACT_START_DT" ColumnName="ACT_START_DT" />
+          <ScalarProperty Name="ACT_TYPE" ColumnName="ACT_TYPE" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="MONLOC_NAME" ColumnName="MONLOC_NAME" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+          <ScalarProperty Name="PROJECT_IDX" ColumnName="PROJECT_IDX" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="ACTIVITY_IDX" ColumnName="ACTIVITY_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_USER_ORGS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_USER_ORGS">
+        <MappingFragment StoreEntitySet="T_WQX_USER_ORGS">
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ROLE_CD" ColumnName="ROLE_CD" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="USER_IDX" ColumnName="USER_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GenWQXXML_Single" FunctionName="OpenEnvironmentModel.Store.GenWQXXML_Single" />
+    <FunctionImportMapping FunctionImportName="GenWQXXML_Org" FunctionName="OpenEnvironmentModel.Store.GenWQXXML_Org" />
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMPLATE">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMPLATE">
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="TEMPLATE_NAME" ColumnName="TEMPLATE_NAME" />
+          <ScalarProperty Name="TYPE_CD" ColumnName="TYPE_CD" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="TEMPLATE_ID" ColumnName="TEMPLATE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMPLATE_DTL">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE_DTL">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMPLATE_DTL">
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CHAR_DEFAULT_UNIT" ColumnName="CHAR_DEFAULT_UNIT" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+          <ScalarProperty Name="FIELD_MAP" ColumnName="FIELD_MAP" />
+          <ScalarProperty Name="COL_NUM" ColumnName="COL_NUM" />
+          <ScalarProperty Name="TEMPLATE_ID" ColumnName="TEMPLATE_ID" />
+          <ScalarProperty Name="TEMPLATE_DTL_ID" ColumnName="TEMPLATE_DTL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMP_SAMPLE">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_SAMPLE">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMP_SAMPLE">
+          <ScalarProperty Name="SAMP_PREP_NAME" ColumnName="SAMP_PREP_NAME" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_NAME" ColumnName="SAMP_COLL_METHOD_NAME" />
+          <ScalarProperty Name="SAMP_PREP_STORAGE_DESC" ColumnName="SAMP_PREP_STORAGE_DESC" />
+          <ScalarProperty Name="SAMP_PREP_THERM_PRESERV" ColumnName="SAMP_PREP_THERM_PRESERV" />
+          <ScalarProperty Name="SAMP_PREP_CHEM_PRESERV" ColumnName="SAMP_PREP_CHEM_PRESERV" />
+          <ScalarProperty Name="SAMP_PREP_CONT_COLOR" ColumnName="SAMP_PREP_CONT_COLOR" />
+          <ScalarProperty Name="SAMP_PREP_CONT_TYPE" ColumnName="SAMP_PREP_CONT_TYPE" />
+          <ScalarProperty Name="SAMP_PREP_CTX" ColumnName="SAMP_PREP_CTX" />
+          <ScalarProperty Name="SAMP_PREP_ID" ColumnName="SAMP_PREP_ID" />
+          <ScalarProperty Name="SAMP_PREP_IDX" ColumnName="SAMP_PREP_IDX" />
+          <ScalarProperty Name="SAMP_COLL_EQUIP_COMMENT" ColumnName="SAMP_COLL_EQUIP_COMMENT" />
+          <ScalarProperty Name="SAMP_COLL_EQUIP" ColumnName="SAMP_COLL_EQUIP" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_CTX" ColumnName="SAMP_COLL_METHOD_CTX" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_ID" ColumnName="SAMP_COLL_METHOD_ID" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_IDX" ColumnName="SAMP_COLL_METHOD_IDX" />
+          <ScalarProperty Name="BIO_TOXICITY_TEST_TYPE" ColumnName="BIO_TOXICITY_TEST_TYPE" />
+          <ScalarProperty Name="BIO_CURR_SPEED_MSR_UNIT" ColumnName="BIO_CURR_SPEED_MSR_UNIT" />
+          <ScalarProperty Name="BIO_CURR_SPEED_MSR" ColumnName="BIO_CURR_SPEED_MSR" />
+          <ScalarProperty Name="BIO_BOAT_SPEED_MSR_UNIT" ColumnName="BIO_BOAT_SPEED_MSR_UNIT" />
+          <ScalarProperty Name="BIO_BOAT_SPEED_MSR" ColumnName="BIO_BOAT_SPEED_MSR" />
+          <ScalarProperty Name="BIO_MESHSIZE_MSR_UNIT" ColumnName="BIO_MESHSIZE_MSR_UNIT" />
+          <ScalarProperty Name="BIO_NET_MESHSIZE_MSR" ColumnName="BIO_NET_MESHSIZE_MSR" />
+          <ScalarProperty Name="BIO_NET_AREA_MSR_UNIT" ColumnName="BIO_NET_AREA_MSR_UNIT" />
+          <ScalarProperty Name="BIO_NET_AREA_MSR" ColumnName="BIO_NET_AREA_MSR" />
+          <ScalarProperty Name="BIO_NET_TYPE" ColumnName="BIO_NET_TYPE" />
+          <ScalarProperty Name="BIO_PASS_COUNT" ColumnName="BIO_PASS_COUNT" />
+          <ScalarProperty Name="BIO_REACH_WID_MSR_UNIT" ColumnName="BIO_REACH_WID_MSR_UNIT" />
+          <ScalarProperty Name="BIO_REACH_WID_MSR" ColumnName="BIO_REACH_WID_MSR" />
+          <ScalarProperty Name="BIO_REACH_LEN_MSR_UNIT" ColumnName="BIO_REACH_LEN_MSR_UNIT" />
+          <ScalarProperty Name="BIO_REACH_LEN_MSR" ColumnName="BIO_REACH_LEN_MSR" />
+          <ScalarProperty Name="BIO_SAMP_COMPONENT_SEQ" ColumnName="BIO_SAMP_COMPONENT_SEQ" />
+          <ScalarProperty Name="BIO_SAMP_COMPONENT" ColumnName="BIO_SAMP_COMPONENT" />
+          <ScalarProperty Name="BIO_DURATION_MSR_UNIT" ColumnName="BIO_DURATION_MSR_UNIT" />
+          <ScalarProperty Name="BIO_DURATION_MSR" ColumnName="BIO_DURATION_MSR" />
+          <ScalarProperty Name="BIO_ASSEMBLAGE_SAMPLED" ColumnName="BIO_ASSEMBLAGE_SAMPLED" />
+          <ScalarProperty Name="DEPTH_REF_POINT" ColumnName="DEPTH_REF_POINT" />
+          <ScalarProperty Name="BOT_DEPTHHEIGHT_MSR_UNIT" ColumnName="BOT_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="BOT_DEPTHHEIGHT_MSR" ColumnName="BOT_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="TOP_DEPTHHEIGHT_MSR_UNIT" ColumnName="TOP_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="TOP_DEPTHHEIGHT_MSR" ColumnName="TOP_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="ACT_DEPTHHEIGHT_MSR_UNIT" ColumnName="ACT_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="ACT_DEPTHHEIGHT_MSR" ColumnName="ACT_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="RELATIVE_DEPTH_NAME" ColumnName="RELATIVE_DEPTH_NAME" />
+          <ScalarProperty Name="IMPORT_STATUS_DESC" ColumnName="IMPORT_STATUS_DESC" />
+          <ScalarProperty Name="IMPORT_STATUS_CD" ColumnName="IMPORT_STATUS_CD" />
+          <ScalarProperty Name="ACT_COMMENT" ColumnName="ACT_COMMENT" />
+          <ScalarProperty Name="ACT_TIME_ZONE" ColumnName="ACT_TIME_ZONE" />
+          <ScalarProperty Name="ACT_END_DT" ColumnName="ACT_END_DT" />
+          <ScalarProperty Name="ACT_START_DT" ColumnName="ACT_START_DT" />
+          <ScalarProperty Name="ACT_SUBMEDIA" ColumnName="ACT_SUBMEDIA" />
+          <ScalarProperty Name="ACT_MEDIA" ColumnName="ACT_MEDIA" />
+          <ScalarProperty Name="ACT_TYPE" ColumnName="ACT_TYPE" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="ACTIVITY_IDX" ColumnName="ACTIVITY_IDX" />
+          <ScalarProperty Name="MONLOC_ID" ColumnName="MONLOC_ID" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+          <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+          <ScalarProperty Name="PROJECT_IDX" ColumnName="PROJECT_IDX" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="TEMP_SAMPLE_IDX" ColumnName="TEMP_SAMPLE_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMP_MONLOC">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_MONLOC">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMP_MONLOC">
+          <ScalarProperty Name="IMPORT_STATUS_DESC" ColumnName="IMPORT_STATUS_DESC" />
+          <ScalarProperty Name="IMPORT_STATUS_CD" ColumnName="IMPORT_STATUS_CD" />
+          <ScalarProperty Name="WELLHOLE_DEPTH_MSR_UNIT" ColumnName="WELLHOLE_DEPTH_MSR_UNIT" />
+          <ScalarProperty Name="WELLHOLE_DEPTH_MSR" ColumnName="WELLHOLE_DEPTH_MSR" />
+          <ScalarProperty Name="FORMATION_TYPE" ColumnName="FORMATION_TYPE" />
+          <ScalarProperty Name="AQUIFER_NAME" ColumnName="AQUIFER_NAME" />
+          <ScalarProperty Name="WELL_TYPE" ColumnName="WELL_TYPE" />
+          <ScalarProperty Name="COUNTY_CODE" ColumnName="COUNTY_CODE" />
+          <ScalarProperty Name="STATE_CODE" ColumnName="STATE_CODE" />
+          <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+          <ScalarProperty Name="VERT_REF_DATUM" ColumnName="VERT_REF_DATUM" />
+          <ScalarProperty Name="VERT_COLL_METHOD" ColumnName="VERT_COLL_METHOD" />
+          <ScalarProperty Name="VERT_MEASURE_UNIT" ColumnName="VERT_MEASURE_UNIT" />
+          <ScalarProperty Name="VERT_MEASURE" ColumnName="VERT_MEASURE" />
+          <ScalarProperty Name="HORIZ_REF_DATUM" ColumnName="HORIZ_REF_DATUM" />
+          <ScalarProperty Name="HORIZ_COLL_METHOD" ColumnName="HORIZ_COLL_METHOD" />
+          <ScalarProperty Name="HORIZ_ACCURACY_UNIT" ColumnName="HORIZ_ACCURACY_UNIT" />
+          <ScalarProperty Name="HORIZ_ACCURACY" ColumnName="HORIZ_ACCURACY" />
+          <ScalarProperty Name="SOURCE_MAP_SCALE" ColumnName="SOURCE_MAP_SCALE" />
+          <ScalarProperty Name="LONGITUDE_MSR" ColumnName="LONGITUDE_MSR" />
+          <ScalarProperty Name="LATITUDE_MSR" ColumnName="LATITUDE_MSR" />
+          <ScalarProperty Name="TRIBAL_LAND_NAME" ColumnName="TRIBAL_LAND_NAME" />
+          <ScalarProperty Name="TRIBAL_LAND_IND" ColumnName="TRIBAL_LAND_IND" />
+          <ScalarProperty Name="HUC_TWELVE" ColumnName="HUC_TWELVE" />
+          <ScalarProperty Name="HUC_EIGHT" ColumnName="HUC_EIGHT" />
+          <ScalarProperty Name="MONLOC_DESC" ColumnName="MONLOC_DESC" />
+          <ScalarProperty Name="MONLOC_TYPE" ColumnName="MONLOC_TYPE" />
+          <ScalarProperty Name="MONLOC_NAME" ColumnName="MONLOC_NAME" />
+          <ScalarProperty Name="MONLOC_ID" ColumnName="MONLOC_ID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="TEMP_MONLOC_IDX" ColumnName="TEMP_MONLOC_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_ORGANIZATION">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_ORGANIZATION">
+        <MappingFragment StoreEntitySet="T_WQX_ORGANIZATION">
+          <ScalarProperty Name="DEFAULT_TIMEZONE" ColumnName="DEFAULT_TIMEZONE" />
+          <ScalarProperty Name="CDX_SUBMIT_IND" ColumnName="CDX_SUBMIT_IND" />
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CDX_SUBMITTER_PWD_SALT" ColumnName="CDX_SUBMITTER_PWD_SALT" />
+          <ScalarProperty Name="CDX_SUBMITTER_PWD_HASH" ColumnName="CDX_SUBMITTER_PWD_HASH" />
+          <ScalarProperty Name="CDX_SUBMITTER_ID" ColumnName="CDX_SUBMITTER_ID" />
+          <ScalarProperty Name="TELEPHONE_EXT" ColumnName="TELEPHONE_EXT" />
+          <ScalarProperty Name="TELEPHONE_NUM_TYPE" ColumnName="TELEPHONE_NUM_TYPE" />
+          <ScalarProperty Name="TELEPHONE_NUM" ColumnName="TELEPHONE_NUM" />
+          <ScalarProperty Name="ELECTRONICADDRESSTYPE" ColumnName="ELECTRONICADDRESSTYPE" />
+          <ScalarProperty Name="ELECTRONICADDRESS" ColumnName="ELECTRONICADDRESS" />
+          <ScalarProperty Name="TRIBAL_CODE" ColumnName="TRIBAL_CODE" />
+          <ScalarProperty Name="ORG_DESC" ColumnName="ORG_DESC" />
+          <ScalarProperty Name="ORG_FORMAL_NAME" ColumnName="ORG_FORMAL_NAME" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_SYS_LOG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_SYS_LOG">
+        <MappingFragment StoreEntitySet="T_OE_SYS_LOG">
+          <ScalarProperty Name="LOG_MSG" ColumnName="LOG_MSG" />
+          <ScalarProperty Name="LOG_TYPE" ColumnName="LOG_TYPE" />
+          <ScalarProperty Name="LOG_USERIDX" ColumnName="LOG_USERIDX" />
+          <ScalarProperty Name="LOG_DT" ColumnName="LOG_DT" />
+          <ScalarProperty Name="SYS_LOG_ID" ColumnName="SYS_LOG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_TRANSACTION_LOG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_TRANSACTION_LOG">
+        <MappingFragment StoreEntitySet="T_WQX_TRANSACTION_LOG">
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="CDX_SUBMIT_STATUS" ColumnName="CDX_SUBMIT_STATUS" />
+          <ScalarProperty Name="CDX_SUBMIT_TRANSID" ColumnName="CDX_SUBMIT_TRANSID" />
+          <ScalarProperty Name="RESPONSE_TXT" ColumnName="RESPONSE_TXT" />
+          <ScalarProperty Name="RESPONSE_FILE" ColumnName="RESPONSE_FILE" />
+          <ScalarProperty Name="SUBMIT_TYPE" ColumnName="SUBMIT_TYPE" />
+          <ScalarProperty Name="SUBMIT_DT" ColumnName="SUBMIT_DT" />
+          <ScalarProperty Name="TABLE_IDX" ColumnName="TABLE_IDX" />
+          <ScalarProperty Name="TABLE_CD" ColumnName="TABLE_CD" />
+          <ScalarProperty Name="LOG_ID" ColumnName="LOG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_WQX_TRANSACTION_LOG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.V_WQX_TRANSACTION_LOG">
+        <MappingFragment StoreEntitySet="V_WQX_TRANSACTION_LOG">
+          <ScalarProperty Name="RECORD" ColumnName="RECORD" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="CDX_SUBMIT_STATUS" ColumnName="CDX_SUBMIT_STATUS" />
+          <ScalarProperty Name="CDX_SUBMIT_TRANSID" ColumnName="CDX_SUBMIT_TRANSID" />
+          <ScalarProperty Name="RESPONSE_TXT" ColumnName="RESPONSE_TXT" />
+          <ScalarProperty Name="RESPONSE_FILE" ColumnName="RESPONSE_FILE" />
+          <ScalarProperty Name="SUBMIT_TYPE" ColumnName="SUBMIT_TYPE" />
+          <ScalarProperty Name="SUBMIT_DT" ColumnName="SUBMIT_DT" />
+          <ScalarProperty Name="TABLE_IDX" ColumnName="TABLE_IDX" />
+          <ScalarProperty Name="TABLE_CD" ColumnName="TABLE_CD" />
+          <ScalarProperty Name="LOG_ID" ColumnName="LOG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GenWQXXML_Single_Delete" FunctionName="OpenEnvironmentModel.Store.GenWQXXML_Single_Delete" />
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMP_PROJECT">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_PROJECT">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMP_PROJECT">
+          <ScalarProperty Name="IMPORT_STATUS_DESC" ColumnName="IMPORT_STATUS_DESC" />
+          <ScalarProperty Name="IMPORT_STATUS_CD" ColumnName="IMPORT_STATUS_CD" />
+          <ScalarProperty Name="QAPP_APPROVAL_AGENCY" ColumnName="QAPP_APPROVAL_AGENCY" />
+          <ScalarProperty Name="QAPP_APPROVAL_IND" ColumnName="QAPP_APPROVAL_IND" />
+          <ScalarProperty Name="SAMP_DESIGN_TYPE_CD" ColumnName="SAMP_DESIGN_TYPE_CD" />
+          <ScalarProperty Name="PROJECT_DESC" ColumnName="PROJECT_DESC" />
+          <ScalarProperty Name="PROJECT_NAME" ColumnName="PROJECT_NAME" />
+          <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="PROJECT_IDX" ColumnName="PROJECT_IDX" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="TEMP_PROJECT_IDX" ColumnName="TEMP_PROJECT_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_EPA_ORGS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_EPA_ORGS">
+        <MappingFragment StoreEntitySet="T_EPA_ORGS">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ORG_FORMAL_NAME" ColumnName="ORG_FORMAL_NAME" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_WQX_ALL_ORGS">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.V_WQX_ALL_ORGS">
+        <MappingFragment StoreEntitySet="V_WQX_ALL_ORGS">
+          <ScalarProperty Name="SRC" ColumnName="SRC" />
+          <ScalarProperty Name="ORG_FORMAL_NAME" ColumnName="ORG_FORMAL_NAME" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_DEFAULT_TIME_ZONE">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_DEFAULT_TIME_ZONE">
+        <MappingFragment StoreEntitySet="T_WQX_REF_DEFAULT_TIME_ZONE">
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="WQX_CODE_DAYLIGHT" ColumnName="WQX_CODE_DAYLIGHT" />
+          <ScalarProperty Name="WQX_CODE_STANDARD" ColumnName="WQX_CODE_STANDARD" />
+          <ScalarProperty Name="OFFICIAL_TIME_ZONE_NAME" ColumnName="OFFICIAL_TIME_ZONE_NAME" />
+          <ScalarProperty Name="TIME_ZONE_NAME" ColumnName="TIME_ZONE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_COUNTY">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_COUNTY">
+        <MappingFragment StoreEntitySet="T_WQX_REF_COUNTY">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="USED_IND" ColumnName="USED_IND" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="COUNTY_NAME" ColumnName="COUNTY_NAME" />
+          <ScalarProperty Name="COUNTY_CODE" ColumnName="COUNTY_CODE" />
+          <ScalarProperty Name="STATE_CODE" ColumnName="STATE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_SAMP_COL_METHOD">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_SAMP_COL_METHOD">
+        <MappingFragment StoreEntitySet="T_WQX_REF_SAMP_COL_METHOD">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_DESC" ColumnName="SAMP_COLL_METHOD_DESC" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_NAME" ColumnName="SAMP_COLL_METHOD_NAME" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_CTX" ColumnName="SAMP_COLL_METHOD_CTX" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_ID" ColumnName="SAMP_COLL_METHOD_ID" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_IDX" ColumnName="SAMP_COLL_METHOD_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_SAMP_PREP">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_SAMP_PREP">
+        <MappingFragment StoreEntitySet="T_WQX_REF_SAMP_PREP">
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="SAMP_PREP_METHOD_DESC" ColumnName="SAMP_PREP_METHOD_DESC" />
+          <ScalarProperty Name="SAMP_PREP_METHOD_NAME" ColumnName="SAMP_PREP_METHOD_NAME" />
+          <ScalarProperty Name="SAMP_PREP_METHOD_CTX" ColumnName="SAMP_PREP_METHOD_CTX" />
+          <ScalarProperty Name="SAMP_PREP_METHOD_ID" ColumnName="SAMP_PREP_METHOD_ID" />
+          <ScalarProperty Name="SAMP_PREP_IDX" ColumnName="SAMP_PREP_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_ACTIVITY">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_ACTIVITY">
+        <MappingFragment StoreEntitySet="T_WQX_ACTIVITY">
+          <ScalarProperty Name="ENTRY_TYPE" ColumnName="ENTRY_TYPE" />
+          <ScalarProperty Name="TEMP_SAMPLE_IDX" ColumnName="TEMP_SAMPLE_IDX" />
+          <ScalarProperty Name="SAMP_PREP_IDX" ColumnName="SAMP_PREP_IDX" />
+          <ScalarProperty Name="SAMP_COLL_METHOD_IDX" ColumnName="SAMP_COLL_METHOD_IDX" />
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="WQX_UPDATE_DT" ColumnName="WQX_UPDATE_DT" />
+          <ScalarProperty Name="WQX_SUBMIT_STATUS" ColumnName="WQX_SUBMIT_STATUS" />
+          <ScalarProperty Name="WQX_IND" ColumnName="WQX_IND" />
+          <ScalarProperty Name="SAMP_PREP_STORAGE_DESC" ColumnName="SAMP_PREP_STORAGE_DESC" />
+          <ScalarProperty Name="SAMP_PREP_THERM_PRESERV" ColumnName="SAMP_PREP_THERM_PRESERV" />
+          <ScalarProperty Name="SAMP_PREP_CHEM_PRESERV" ColumnName="SAMP_PREP_CHEM_PRESERV" />
+          <ScalarProperty Name="SAMP_PREP_CONT_COLOR" ColumnName="SAMP_PREP_CONT_COLOR" />
+          <ScalarProperty Name="SAMP_PREP_CONT_TYPE" ColumnName="SAMP_PREP_CONT_TYPE" />
+          <ScalarProperty Name="SAMP_COLL_EQUIP_COMMENT" ColumnName="SAMP_COLL_EQUIP_COMMENT" />
+          <ScalarProperty Name="SAMP_COLL_EQUIP" ColumnName="SAMP_COLL_EQUIP" />
+          <ScalarProperty Name="BIO_TOXICITY_TEST_TYPE" ColumnName="BIO_TOXICITY_TEST_TYPE" />
+          <ScalarProperty Name="BIO_CURR_SPEED_MSR_UNIT" ColumnName="BIO_CURR_SPEED_MSR_UNIT" />
+          <ScalarProperty Name="BIO_CURR_SPEED_MSR" ColumnName="BIO_CURR_SPEED_MSR" />
+          <ScalarProperty Name="BIO_BOAT_SPEED_MSR_UNIT" ColumnName="BIO_BOAT_SPEED_MSR_UNIT" />
+          <ScalarProperty Name="BIO_BOAT_SPEED_MSR" ColumnName="BIO_BOAT_SPEED_MSR" />
+          <ScalarProperty Name="BIO_MESHSIZE_MSR_UNIT" ColumnName="BIO_MESHSIZE_MSR_UNIT" />
+          <ScalarProperty Name="BIO_NET_MESHSIZE_MSR" ColumnName="BIO_NET_MESHSIZE_MSR" />
+          <ScalarProperty Name="BIO_NET_AREA_MSR_UNIT" ColumnName="BIO_NET_AREA_MSR_UNIT" />
+          <ScalarProperty Name="BIO_NET_AREA_MSR" ColumnName="BIO_NET_AREA_MSR" />
+          <ScalarProperty Name="BIO_NET_TYPE" ColumnName="BIO_NET_TYPE" />
+          <ScalarProperty Name="BIO_PASS_COUNT" ColumnName="BIO_PASS_COUNT" />
+          <ScalarProperty Name="BIO_REACH_WID_MSR_UNIT" ColumnName="BIO_REACH_WID_MSR_UNIT" />
+          <ScalarProperty Name="BIO_REACH_WID_MSR" ColumnName="BIO_REACH_WID_MSR" />
+          <ScalarProperty Name="BIO_REACH_LEN_MSR_UNIT" ColumnName="BIO_REACH_LEN_MSR_UNIT" />
+          <ScalarProperty Name="BIO_REACH_LEN_MSR" ColumnName="BIO_REACH_LEN_MSR" />
+          <ScalarProperty Name="BIO_SAMP_COMPONENT_SEQ" ColumnName="BIO_SAMP_COMPONENT_SEQ" />
+          <ScalarProperty Name="BIO_SAMP_COMPONENT" ColumnName="BIO_SAMP_COMPONENT" />
+          <ScalarProperty Name="BIO_DURATION_MSR_UNIT" ColumnName="BIO_DURATION_MSR_UNIT" />
+          <ScalarProperty Name="BIO_DURATION_MSR" ColumnName="BIO_DURATION_MSR" />
+          <ScalarProperty Name="BIO_ASSEMBLAGE_SAMPLED" ColumnName="BIO_ASSEMBLAGE_SAMPLED" />
+          <ScalarProperty Name="ACT_COMMENT" ColumnName="ACT_COMMENT" />
+          <ScalarProperty Name="DEPTH_REF_POINT" ColumnName="DEPTH_REF_POINT" />
+          <ScalarProperty Name="BOT_DEPTHHEIGHT_MSR_UNIT" ColumnName="BOT_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="BOT_DEPTHHEIGHT_MSR" ColumnName="BOT_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="TOP_DEPTHHEIGHT_MSR_UNIT" ColumnName="TOP_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="TOP_DEPTHHEIGHT_MSR" ColumnName="TOP_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="ACT_DEPTHHEIGHT_MSR_UNIT" ColumnName="ACT_DEPTHHEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="ACT_DEPTHHEIGHT_MSR" ColumnName="ACT_DEPTHHEIGHT_MSR" />
+          <ScalarProperty Name="RELATIVE_DEPTH_NAME" ColumnName="RELATIVE_DEPTH_NAME" />
+          <ScalarProperty Name="ACT_TIME_ZONE" ColumnName="ACT_TIME_ZONE" />
+          <ScalarProperty Name="ACT_END_DT" ColumnName="ACT_END_DT" />
+          <ScalarProperty Name="ACT_START_DT" ColumnName="ACT_START_DT" />
+          <ScalarProperty Name="ACT_SUBMEDIA" ColumnName="ACT_SUBMEDIA" />
+          <ScalarProperty Name="ACT_MEDIA" ColumnName="ACT_MEDIA" />
+          <ScalarProperty Name="ACT_TYPE" ColumnName="ACT_TYPE" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="MONLOC_IDX" ColumnName="MONLOC_IDX" />
+          <ScalarProperty Name="PROJECT_IDX" ColumnName="PROJECT_IDX" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="ACTIVITY_IDX" ColumnName="ACTIVITY_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_RESULT">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_RESULT">
+        <MappingFragment StoreEntitySet="T_WQX_RESULT">
+          <ScalarProperty Name="FREQ_CLASS_LOWER" ColumnName="FREQ_CLASS_LOWER" />
+          <ScalarProperty Name="FREQ_CLASS_UPPER" ColumnName="FREQ_CLASS_UPPER" />
+          <ScalarProperty Name="FREQ_CLASS_UNIT" ColumnName="FREQ_CLASS_UNIT" />
+          <ScalarProperty Name="FREQ_CLASS_CODE" ColumnName="FREQ_CLASS_CODE" />
+          <ScalarProperty Name="DILUTION_FACTOR" ColumnName="DILUTION_FACTOR" />
+          <ScalarProperty Name="LAB_SAMP_PREP_END_DT" ColumnName="LAB_SAMP_PREP_END_DT" />
+          <ScalarProperty Name="LAB_SAMP_PREP_START_DT" ColumnName="LAB_SAMP_PREP_START_DT" />
+          <ScalarProperty Name="LAB_SAMP_PREP_IDX" ColumnName="LAB_SAMP_PREP_IDX" />
+          <ScalarProperty Name="DETECTION_LIMIT_UNIT" ColumnName="DETECTION_LIMIT_UNIT" />
+          <ScalarProperty Name="UPPER_QUANT_LIMIT" ColumnName="UPPER_QUANT_LIMIT" />
+          <ScalarProperty Name="LOWER_QUANT_LIMIT" ColumnName="LOWER_QUANT_LIMIT" />
+          <ScalarProperty Name="PQL" ColumnName="PQL" />
+          <ScalarProperty Name="LAB_REPORTING_LEVEL" ColumnName="LAB_REPORTING_LEVEL" />
+          <ScalarProperty Name="LAB_TAXON_ACCRED_AUTHORITY" ColumnName="LAB_TAXON_ACCRED_AUTHORITY" />
+          <ScalarProperty Name="LAB_TAXON_ACCRED_IND" ColumnName="LAB_TAXON_ACCRED_IND" />
+          <ScalarProperty Name="DETECTION_LIMIT" ColumnName="DETECTION_LIMIT" />
+          <ScalarProperty Name="DETECTION_LIMIT_TYPE" ColumnName="DETECTION_LIMIT_TYPE" />
+          <ScalarProperty Name="RESULT_LAB_COMMENT_CODE" ColumnName="RESULT_LAB_COMMENT_CODE" />
+          <ScalarProperty Name="LAB_ANALYSIS_TIMEZONE" ColumnName="LAB_ANALYSIS_TIMEZONE" />
+          <ScalarProperty Name="LAB_ANALYSIS_END_DT" ColumnName="LAB_ANALYSIS_END_DT" />
+          <ScalarProperty Name="LAB_ANALYSIS_START_DT" ColumnName="LAB_ANALYSIS_START_DT" />
+          <ScalarProperty Name="LAB_IDX" ColumnName="LAB_IDX" />
+          <ScalarProperty Name="ANALYTIC_METHOD_IDX" ColumnName="ANALYTIC_METHOD_IDX" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP3" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP3" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP2" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP2" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP1" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP1" />
+          <ScalarProperty Name="TAX_DTL_TROPHIC_LEVEL" ColumnName="TAX_DTL_TROPHIC_LEVEL" />
+          <ScalarProperty Name="TAX_DTL_POLL_TOLERANCE_SCALE" ColumnName="TAX_DTL_POLL_TOLERANCE_SCALE" />
+          <ScalarProperty Name="TAX_DTL_POLL_TOLERANCE" ColumnName="TAX_DTL_POLL_TOLERANCE" />
+          <ScalarProperty Name="TAX_DTL_VOLTINISM" ColumnName="TAX_DTL_VOLTINISM" />
+          <ScalarProperty Name="TAX_DTL_HABIT" ColumnName="TAX_DTL_HABIT" />
+          <ScalarProperty Name="TAX_DTL_CELL_SHAPE" ColumnName="TAX_DTL_CELL_SHAPE" />
+          <ScalarProperty Name="TAX_DTL_CELL_FORM" ColumnName="TAX_DTL_CELL_FORM" />
+          <ScalarProperty Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" ColumnName="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="GRP_SUMM_COUNT_WEIGHT_MSR" ColumnName="GRP_SUMM_COUNT_WEIGHT_MSR" />
+          <ScalarProperty Name="BIO_SAMPLE_TISSUE_ANATOMY" ColumnName="BIO_SAMPLE_TISSUE_ANATOMY" />
+          <ScalarProperty Name="BIO_UNIDENTIFIED_SPECIES_ID" ColumnName="BIO_UNIDENTIFIED_SPECIES_ID" />
+          <ScalarProperty Name="BIO_SUBJECT_TAXONOMY" ColumnName="BIO_SUBJECT_TAXONOMY" />
+          <ScalarProperty Name="BIO_INDIVIDUAL_ID" ColumnName="BIO_INDIVIDUAL_ID" />
+          <ScalarProperty Name="BIO_INTENT_NAME" ColumnName="BIO_INTENT_NAME" />
+          <ScalarProperty Name="RESULT_SAMP_POINT" ColumnName="RESULT_SAMP_POINT" />
+          <ScalarProperty Name="DEPTHALTITUDEREFPOINT" ColumnName="DEPTHALTITUDEREFPOINT" />
+          <ScalarProperty Name="DEPTH_HEIGHT_MSR_UNIT" ColumnName="DEPTH_HEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="DEPTH_HEIGHT_MSR" ColumnName="DEPTH_HEIGHT_MSR" />
+          <ScalarProperty Name="RESULT_COMMENT" ColumnName="RESULT_COMMENT" />
+          <ScalarProperty Name="LOWER_CONFIDENCE_LIMIT" ColumnName="LOWER_CONFIDENCE_LIMIT" />
+          <ScalarProperty Name="UPPER_CONFIDENCE_LIMIT" ColumnName="UPPER_CONFIDENCE_LIMIT" />
+          <ScalarProperty Name="CONFIDENCE_INTERVAL_VALUE" ColumnName="CONFIDENCE_INTERVAL_VALUE" />
+          <ScalarProperty Name="BIAS_VALUE" ColumnName="BIAS_VALUE" />
+          <ScalarProperty Name="PRECISION_VALUE" ColumnName="PRECISION_VALUE" />
+          <ScalarProperty Name="PARTICLESIZE_BASIS" ColumnName="PARTICLESIZE_BASIS" />
+          <ScalarProperty Name="TEMP_BASIS" ColumnName="TEMP_BASIS" />
+          <ScalarProperty Name="TIME_BASIS" ColumnName="TIME_BASIS" />
+          <ScalarProperty Name="WEIGHT_BASIS" ColumnName="WEIGHT_BASIS" />
+          <ScalarProperty Name="RESULT_VALUE_TYPE" ColumnName="RESULT_VALUE_TYPE" />
+          <ScalarProperty Name="STATISTIC_BASE_CODE" ColumnName="STATISTIC_BASE_CODE" />
+          <ScalarProperty Name="RESULT_STATUS" ColumnName="RESULT_STATUS" />
+          <ScalarProperty Name="RESULT_MSR_QUAL" ColumnName="RESULT_MSR_QUAL" />
+          <ScalarProperty Name="RESULT_MSR_UNIT" ColumnName="RESULT_MSR_UNIT" />
+          <ScalarProperty Name="RESULT_MSR" ColumnName="RESULT_MSR" />
+          <ScalarProperty Name="RESULT_SAMP_FRACTION" ColumnName="RESULT_SAMP_FRACTION" />
+          <ScalarProperty Name="METHOD_SPECIATION_NAME" ColumnName="METHOD_SPECIATION_NAME" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+          <ScalarProperty Name="RESULT_DETECT_CONDITION" ColumnName="RESULT_DETECT_CONDITION" />
+          <ScalarProperty Name="DATA_LOGGER_LINE" ColumnName="DATA_LOGGER_LINE" />
+          <ScalarProperty Name="ACTIVITY_IDX" ColumnName="ACTIVITY_IDX" />
+          <ScalarProperty Name="RESULT_IDX" ColumnName="RESULT_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_IMPORT_LOG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_LOG">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_LOG">
+          <ScalarProperty Name="IMPORT_PROGRESS_MSG" ColumnName="IMPORT_PROGRESS_MSG" />
+          <ScalarProperty Name="IMPORT_PROGRESS" ColumnName="IMPORT_PROGRESS" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="IMPORT_FILE" ColumnName="IMPORT_FILE" />
+          <ScalarProperty Name="IMPORT_STATUS" ColumnName="IMPORT_STATUS" />
+          <ScalarProperty Name="FILE_SIZE" ColumnName="FILE_SIZE" />
+          <ScalarProperty Name="FILE_NAME" ColumnName="FILE_NAME" />
+          <ScalarProperty Name="TYPE_CD" ColumnName="TYPE_CD" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="IMPORT_ID" ColumnName="IMPORT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_LAB">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_LAB">
+        <MappingFragment StoreEntitySet="T_WQX_REF_LAB">
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="UPDATE_USERID" ColumnName="UPDATE_USERID" />
+          <ScalarProperty Name="UPDATE_DT" ColumnName="UPDATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="ACT_IND" ColumnName="ACT_IND" />
+          <ScalarProperty Name="LAB_ACCRED_AUTHORITY" ColumnName="LAB_ACCRED_AUTHORITY" />
+          <ScalarProperty Name="LAB_ACCRED_IND" ColumnName="LAB_ACCRED_IND" />
+          <ScalarProperty Name="LAB_NAME" ColumnName="LAB_NAME" />
+          <ScalarProperty Name="LAB_IDX" ColumnName="LAB_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_TAXA_ORG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_TAXA_ORG">
+        <MappingFragment StoreEntitySet="T_WQX_REF_TAXA_ORG">
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="BIO_SUBJECT_TAXONOMY" ColumnName="BIO_SUBJECT_TAXONOMY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_REF_CHAR_ORG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_REF_CHAR_ORG">
+        <MappingFragment StoreEntitySet="T_WQX_REF_CHAR_ORG">
+          <ScalarProperty Name="DEFAULT_RESULT_VALUE_TYPE" ColumnName="DEFAULT_RESULT_VALUE_TYPE" />
+          <ScalarProperty Name="DEFAULT_RESULT_STATUS" ColumnName="DEFAULT_RESULT_STATUS" />
+          <ScalarProperty Name="DEFAULT_SAMP_FRACTION" ColumnName="DEFAULT_SAMP_FRACTION" />
+          <ScalarProperty Name="DEFAULT_ANAL_METHOD_IDX" ColumnName="DEFAULT_ANAL_METHOD_IDX" />
+          <ScalarProperty Name="DEFAULT_UNIT" ColumnName="DEFAULT_UNIT" />
+          <ScalarProperty Name="DEFAULT_DETECT_LIMIT" ColumnName="DEFAULT_DETECT_LIMIT" />
+          <ScalarProperty Name="CREATE_DT" ColumnName="CREATE_DT" />
+          <ScalarProperty Name="CREATE_USERID" ColumnName="CREATE_USERID" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_WQX_IMPORT_TEMP_RESULT">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_RESULT">
+        <MappingFragment StoreEntitySet="T_WQX_IMPORT_TEMP_RESULT">
+          <ScalarProperty Name="FREQ_CLASS_LOWER" ColumnName="FREQ_CLASS_LOWER" />
+          <ScalarProperty Name="FREQ_CLASS_UPPER" ColumnName="FREQ_CLASS_UPPER" />
+          <ScalarProperty Name="FREQ_CLASS_UNIT" ColumnName="FREQ_CLASS_UNIT" />
+          <ScalarProperty Name="FREQ_CLASS_CODE" ColumnName="FREQ_CLASS_CODE" />
+          <ScalarProperty Name="IMPORT_STATUS_DESC" ColumnName="IMPORT_STATUS_DESC" />
+          <ScalarProperty Name="IMPORT_STATUS_CD" ColumnName="IMPORT_STATUS_CD" />
+          <ScalarProperty Name="DILUTION_FACTOR" ColumnName="DILUTION_FACTOR" />
+          <ScalarProperty Name="LAB_SAMP_PREP_END_DT" ColumnName="LAB_SAMP_PREP_END_DT" />
+          <ScalarProperty Name="LAB_SAMP_PREP_START_DT" ColumnName="LAB_SAMP_PREP_START_DT" />
+          <ScalarProperty Name="LAB_SAMP_PREP_CTX" ColumnName="LAB_SAMP_PREP_CTX" />
+          <ScalarProperty Name="LAB_SAMP_PREP_ID" ColumnName="LAB_SAMP_PREP_ID" />
+          <ScalarProperty Name="LAB_SAMP_PREP_IDX" ColumnName="LAB_SAMP_PREP_IDX" />
+          <ScalarProperty Name="DETECTION_LIMIT_UNIT" ColumnName="DETECTION_LIMIT_UNIT" />
+          <ScalarProperty Name="UPPER_QUANT_LIMIT" ColumnName="UPPER_QUANT_LIMIT" />
+          <ScalarProperty Name="LOWER_QUANT_LIMIT" ColumnName="LOWER_QUANT_LIMIT" />
+          <ScalarProperty Name="PQL" ColumnName="PQL" />
+          <ScalarProperty Name="LAB_REPORTING_LEVEL" ColumnName="LAB_REPORTING_LEVEL" />
+          <ScalarProperty Name="METHOD_DETECTION_LEVEL" ColumnName="METHOD_DETECTION_LEVEL" />
+          <ScalarProperty Name="RESULT_LAB_COMMENT_CODE" ColumnName="RESULT_LAB_COMMENT_CODE" />
+          <ScalarProperty Name="LAB_ANALYSIS_TIMEZONE" ColumnName="LAB_ANALYSIS_TIMEZONE" />
+          <ScalarProperty Name="LAB_ANALYSIS_END_DT" ColumnName="LAB_ANALYSIS_END_DT" />
+          <ScalarProperty Name="LAB_ANALYSIS_START_DT" ColumnName="LAB_ANALYSIS_START_DT" />
+          <ScalarProperty Name="LAB_NAME" ColumnName="LAB_NAME" />
+          <ScalarProperty Name="LAB_IDX" ColumnName="LAB_IDX" />
+          <ScalarProperty Name="ANALYTIC_METHOD_NAME" ColumnName="ANALYTIC_METHOD_NAME" />
+          <ScalarProperty Name="ANALYTIC_METHOD_CTX" ColumnName="ANALYTIC_METHOD_CTX" />
+          <ScalarProperty Name="ANALYTIC_METHOD_ID" ColumnName="ANALYTIC_METHOD_ID" />
+          <ScalarProperty Name="ANALYTIC_METHOD_IDX" ColumnName="ANALYTIC_METHOD_IDX" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP3" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP3" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP2" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP2" />
+          <ScalarProperty Name="TAX_DTL_FUNC_FEEDING_GROUP1" ColumnName="TAX_DTL_FUNC_FEEDING_GROUP1" />
+          <ScalarProperty Name="TAX_DTL_TROPHIC_LEVEL" ColumnName="TAX_DTL_TROPHIC_LEVEL" />
+          <ScalarProperty Name="TAX_DTL_POLL_TOLERANCE_SCALE" ColumnName="TAX_DTL_POLL_TOLERANCE_SCALE" />
+          <ScalarProperty Name="TAX_DTL_POLL_TOLERANCE" ColumnName="TAX_DTL_POLL_TOLERANCE" />
+          <ScalarProperty Name="TAX_DTL_VOLTINISM" ColumnName="TAX_DTL_VOLTINISM" />
+          <ScalarProperty Name="TAX_DTL_HABIT" ColumnName="TAX_DTL_HABIT" />
+          <ScalarProperty Name="TAX_DTL_CELL_SHAPE" ColumnName="TAX_DTL_CELL_SHAPE" />
+          <ScalarProperty Name="TAX_DTL_CELL_FORM" ColumnName="TAX_DTL_CELL_FORM" />
+          <ScalarProperty Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" ColumnName="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="GRP_SUMM_COUNT_WEIGHT_MSR" ColumnName="GRP_SUMM_COUNT_WEIGHT_MSR" />
+          <ScalarProperty Name="BIO_SAMPLE_TISSUE_ANATOMY" ColumnName="BIO_SAMPLE_TISSUE_ANATOMY" />
+          <ScalarProperty Name="BIO_UNIDENTIFIED_SPECIES_ID" ColumnName="BIO_UNIDENTIFIED_SPECIES_ID" />
+          <ScalarProperty Name="BIO_SUBJECT_TAXONOMY" ColumnName="BIO_SUBJECT_TAXONOMY" />
+          <ScalarProperty Name="BIO_INDIVIDUAL_ID" ColumnName="BIO_INDIVIDUAL_ID" />
+          <ScalarProperty Name="BIO_INTENT_NAME" ColumnName="BIO_INTENT_NAME" />
+          <ScalarProperty Name="DEPTHALTITUDEREFPOINT" ColumnName="DEPTHALTITUDEREFPOINT" />
+          <ScalarProperty Name="DEPTH_HEIGHT_MSR_UNIT" ColumnName="DEPTH_HEIGHT_MSR_UNIT" />
+          <ScalarProperty Name="DEPTH_HEIGHT_MSR" ColumnName="DEPTH_HEIGHT_MSR" />
+          <ScalarProperty Name="RESULT_COMMENT" ColumnName="RESULT_COMMENT" />
+          <ScalarProperty Name="LOWER_CONFIDENCE_LIMIT" ColumnName="LOWER_CONFIDENCE_LIMIT" />
+          <ScalarProperty Name="UPPER_CONFIDENCE_LIMIT" ColumnName="UPPER_CONFIDENCE_LIMIT" />
+          <ScalarProperty Name="CONFIDENCE_INTERVAL_VALUE" ColumnName="CONFIDENCE_INTERVAL_VALUE" />
+          <ScalarProperty Name="BIAS_VALUE" ColumnName="BIAS_VALUE" />
+          <ScalarProperty Name="PRECISION_VALUE" ColumnName="PRECISION_VALUE" />
+          <ScalarProperty Name="PARTICLESIZE_BASIS" ColumnName="PARTICLESIZE_BASIS" />
+          <ScalarProperty Name="TEMP_BASIS" ColumnName="TEMP_BASIS" />
+          <ScalarProperty Name="TIME_BASIS" ColumnName="TIME_BASIS" />
+          <ScalarProperty Name="WEIGHT_BASIS" ColumnName="WEIGHT_BASIS" />
+          <ScalarProperty Name="RESULT_VALUE_TYPE" ColumnName="RESULT_VALUE_TYPE" />
+          <ScalarProperty Name="STATISTIC_BASE_CODE" ColumnName="STATISTIC_BASE_CODE" />
+          <ScalarProperty Name="RESULT_STATUS" ColumnName="RESULT_STATUS" />
+          <ScalarProperty Name="RESULT_MSR_QUAL" ColumnName="RESULT_MSR_QUAL" />
+          <ScalarProperty Name="RESULT_MSR_UNIT" ColumnName="RESULT_MSR_UNIT" />
+          <ScalarProperty Name="RESULT_MSR" ColumnName="RESULT_MSR" />
+          <ScalarProperty Name="RESULT_SAMP_FRACTION" ColumnName="RESULT_SAMP_FRACTION" />
+          <ScalarProperty Name="METHOD_SPECIATION_NAME" ColumnName="METHOD_SPECIATION_NAME" />
+          <ScalarProperty Name="CHAR_NAME" ColumnName="CHAR_NAME" />
+          <ScalarProperty Name="RESULT_DETECT_CONDITION" ColumnName="RESULT_DETECT_CONDITION" />
+          <ScalarProperty Name="DATA_LOGGER_LINE" ColumnName="DATA_LOGGER_LINE" />
+          <ScalarProperty Name="RESULT_IDX" ColumnName="RESULT_IDX" />
+          <ScalarProperty Name="TEMP_SAMPLE_IDX" ColumnName="TEMP_SAMPLE_IDX" />
+          <ScalarProperty Name="TEMP_RESULT_IDX" ColumnName="TEMP_RESULT_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_ANALYZECONFIG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_ANALYZECONFIG">
+        <MappingFragment StoreEntitySet="T_OE_ANALYZECONFIG">
+          <ScalarProperty Name="LOWER_THRESHOLD" ColumnName="LOWER_THRESHOLD" />
+          <ScalarProperty Name="UPPER_THRESHOLD" ColumnName="UPPER_THRESHOLD" />
+          <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+          <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+          <ScalarProperty Name="CHARACTERISTIC" ColumnName="CHARACTERISTIC" />
+          <ScalarProperty Name="SITES" ColumnName="SITES" />
+          <ScalarProperty Name="USER_IDX" ColumnName="USER_IDX" />
+          <ScalarProperty Name="ANALYZECONFIG_NAME" ColumnName="ANALYZECONFIG_NAME" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="ANALYZECONFIG_IDX" ColumnName="ANALYZECONFIG_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_COLUMNCONFIG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_COLUMNCONFIG">
+        <MappingFragment StoreEntitySet="T_OE_COLUMNCONFIG">
+          <ScalarProperty Name="MIN_VALUE" ColumnName="MIN_VALUE" />
+          <ScalarProperty Name="MAX_VALUE" ColumnName="MAX_VALUE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="COLUMN_DONT_SEND" ColumnName="COLUMN_DONT_SEND" />
+          <ScalarProperty Name="COLUMN_NAME" ColumnName="COLUMN_NAME" />
+          <ScalarProperty Name="COLUMNCONFIG_IDX" ColumnName="COLUMNCONFIG_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OE_SAVED_COLUMN_CONFIG">
+      <EntityTypeMapping TypeName="OpenEnvironmentModel.T_OE_SAVED_COLUMN_CONFIG">
+        <MappingFragment StoreEntitySet="T_OE_SAVED_COLUMN_CONFIG">
+          <ScalarProperty Name="WQX_COL_ID" ColumnName="WQX_COL_ID" />
+          <ScalarProperty Name="USER_COL_NAME" ColumnName="USER_COL_NAME" />
+          <ScalarProperty Name="CONFIG_NAME" ColumnName="CONFIG_NAME" />
+          <ScalarProperty Name="ORG_ID" ColumnName="ORG_ID" />
+          <ScalarProperty Name="CONFIG_IDX" ColumnName="CONFIG_IDX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ImportActivityFromTemp1" FunctionName="OpenEnvironmentModel.Store.ImportActivityFromTemp" />
+  </EntityContainerMapping>
+</Mapping>

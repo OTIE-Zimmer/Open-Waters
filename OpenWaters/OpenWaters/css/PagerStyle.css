@@ -1,0 +1,20 @@
+﻿/* Change GridView Pager Area */
+table tr td table {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  color: black;
+  text-align: left;
+}
+
+  table tr td table a {
+    border: solid .1em gray;
+    padding: .3em;
+    margin-left: .75em;
+    margin-right: .75em;
+  }
+
+  table tr td table span {
+    padding: .3em;
+    margin-left: .75em;
+    margin-right: .75em;
+  }

@@ -1,0 +1,1476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpenEnvironmentModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="OpenEnvironmentEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="T_OE_APP_SETTINGS" EntityType="OpenEnvironmentModel.T_OE_APP_SETTINGS" />
+    <EntitySet Name="T_OE_APP_TASKS" EntityType="OpenEnvironmentModel.T_OE_APP_TASKS" />
+    <EntitySet Name="T_OE_ROLES" EntityType="OpenEnvironmentModel.T_OE_ROLES" />
+    <EntitySet Name="T_OE_USER_ROLES" EntityType="OpenEnvironmentModel.T_OE_USER_ROLES" />
+    <EntitySet Name="T_OE_USERS" EntityType="OpenEnvironmentModel.T_OE_USERS" />
+    <EntitySet Name="T_WQX_ACTIVITY_METRIC" EntityType="OpenEnvironmentModel.T_WQX_ACTIVITY_METRIC" />
+    <EntitySet Name="T_WQX_BIO_HABITAT_INDEX" EntityType="OpenEnvironmentModel.T_WQX_BIO_HABITAT_INDEX" />
+    <EntitySet Name="T_WQX_MONLOC" EntityType="OpenEnvironmentModel.T_WQX_MONLOC" />
+    <EntitySet Name="T_WQX_ORG_ADDRESS" EntityType="OpenEnvironmentModel.T_WQX_ORG_ADDRESS" />
+    <EntitySet Name="T_WQX_PROJECT" EntityType="OpenEnvironmentModel.T_WQX_PROJECT" />
+    <EntitySet Name="T_WQX_REF_ANAL_METHOD" EntityType="OpenEnvironmentModel.T_WQX_REF_ANAL_METHOD" />
+    <EntitySet Name="T_WQX_REF_DATA" EntityType="OpenEnvironmentModel.T_WQX_REF_DATA" />
+    <AssociationSet Name="FK__T_OE_USER__ROLE___07F6335A" Association="OpenEnvironmentModel.FK__T_OE_USER__ROLE___07F6335A">
+      <End Role="T_OE_ROLES" EntitySet="T_OE_ROLES" />
+      <End Role="T_OE_USER_ROLES" EntitySet="T_OE_USER_ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_OE_USER__USER___08EA5793" Association="OpenEnvironmentModel.FK__T_OE_USER__USER___08EA5793">
+      <End Role="T_OE_USERS" EntitySet="T_OE_USERS" />
+      <End Role="T_OE_USER_ROLES" EntitySet="T_OE_USER_ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__BIO_H__239E4DCF" Association="OpenEnvironmentModel.FK__T_WQX_ACT__BIO_H__239E4DCF">
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+      <End Role="T_WQX_ACTIVITY_METRIC" EntitySet="T_WQX_ACTIVITY_METRIC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_BIO__MONLO__1ED998B2" Association="OpenEnvironmentModel.FK__T_WQX_BIO__MONLO__1ED998B2">
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_REF_CHARACTERISTIC" EntityType="OpenEnvironmentModel.T_WQX_REF_CHARACTERISTIC" />
+    <FunctionImport Name="WQXAnalysis" ReturnType="Collection(OpenEnvironmentModel.WQXAnalysis_Result)">
+      <Parameter Name="TypeText" Mode="In" Type="String" />
+      <Parameter Name="OrgID" Mode="In" Type="String" />
+      <Parameter Name="MonLocID" Mode="In" Type="String" />
+      <Parameter Name="CharName" Mode="In" Type="String" />
+      <Parameter Name="StartDt" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="T_WQX_REF_CHAR_LIMITS" EntityType="OpenEnvironmentModel.T_WQX_REF_CHAR_LIMITS" />
+    <AssociationSet Name="FK__T_WQX_REF__CHAR___46E78A0C" Association="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___46E78A0C">
+      <End Role="T_WQX_REF_CHARACTERISTIC" EntitySet="T_WQX_REF_CHARACTERISTIC" />
+      <End Role="T_WQX_REF_CHAR_LIMITS" EntitySet="T_WQX_REF_CHAR_LIMITS" />
+    </AssociationSet>
+    <EntitySet Name="V_WQX_ACTIVITY_LATEST" EntityType="OpenEnvironmentModel.V_WQX_ACTIVITY_LATEST" />
+    <EntitySet Name="T_WQX_USER_ORGS" EntityType="OpenEnvironmentModel.T_WQX_USER_ORGS" />
+    <AssociationSet Name="FK__T_WQX_USE__USER___0E6E26BF" Association="OpenEnvironmentModel.FK__T_WQX_USE__USER___0E6E26BF">
+      <End Role="T_OE_USERS" EntitySet="T_OE_USERS" />
+      <End Role="T_WQX_USER_ORGS" EntitySet="T_WQX_USER_ORGS" />
+    </AssociationSet>
+    <FunctionImport Name="GenWQXXML_Single" ReturnType="Collection(String)">
+      <Parameter Name="TypeText" Mode="In" Type="String" />
+      <Parameter Name="RecordIDX" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GenWQXXML_Org" ReturnType="Collection(String)">
+      <Parameter Name="OrgID" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="T_WQX_IMPORT_TEMPLATE" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE" />
+    <EntitySet Name="T_WQX_IMPORT_TEMPLATE_DTL" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE_DTL" />
+    <AssociationSet Name="FK__T_WQX_IMP__TEMPL__66603565" Association="OpenEnvironmentModel.FK__T_WQX_IMP__TEMPL__66603565">
+      <End Role="T_WQX_IMPORT_TEMPLATE" EntitySet="T_WQX_IMPORT_TEMPLATE" />
+      <End Role="T_WQX_IMPORT_TEMPLATE_DTL" EntitySet="T_WQX_IMPORT_TEMPLATE_DTL" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_IMPORT_TEMP_SAMPLE" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_SAMPLE" />
+    <EntitySet Name="T_WQX_IMPORT_TEMP_MONLOC" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_MONLOC" />
+    <EntitySet Name="T_WQX_ORGANIZATION" EntityType="OpenEnvironmentModel.T_WQX_ORGANIZATION" />
+    <AssociationSet Name="FK__T_WQX_BIO__ORG_I__34C8D9D1" Association="OpenEnvironmentModel.FK__T_WQX_BIO__ORG_I__34C8D9D1">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_IMP__ORG_I__4F7CD00D" Association="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__4F7CD00D">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_IMPORT_TEMPLATE" EntitySet="T_WQX_IMPORT_TEMPLATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_MON__ORG_I__2C3393D0" Association="OpenEnvironmentModel.FK__T_WQX_MON__ORG_I__2C3393D0">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ORG__ORG_I__22AA2996" Association="OpenEnvironmentModel.FK__T_WQX_ORG__ORG_I__22AA2996">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_ORG_ADDRESS" EntitySet="T_WQX_ORG_ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_PRO__ORG_I__29572725" Association="OpenEnvironmentModel.FK__T_WQX_PRO__ORG_I__29572725">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_PROJECT" EntitySet="T_WQX_PROJECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_USE__ORG_I__25869641" Association="OpenEnvironmentModel.FK__T_WQX_USE__ORG_I__25869641">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_USER_ORGS" EntitySet="T_WQX_USER_ORGS" />
+    </AssociationSet>
+    <EntitySet Name="T_OE_SYS_LOG" EntityType="OpenEnvironmentModel.T_OE_SYS_LOG" />
+    <EntitySet Name="T_WQX_TRANSACTION_LOG" EntityType="OpenEnvironmentModel.T_WQX_TRANSACTION_LOG" />
+    <EntitySet Name="V_WQX_TRANSACTION_LOG" EntityType="OpenEnvironmentModel.V_WQX_TRANSACTION_LOG" />
+    <FunctionImport Name="GenWQXXML_Single_Delete" ReturnType="Collection(String)">
+      <Parameter Name="TypeText" Mode="In" Type="String" />
+      <Parameter Name="RecordIDX" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="T_WQX_IMPORT_TEMP_PROJECT" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_PROJECT" />
+    <EntitySet Name="T_EPA_ORGS" EntityType="OpenEnvironmentModel.T_EPA_ORGS" />
+    <EntitySet Name="V_WQX_ALL_ORGS" EntityType="OpenEnvironmentModel.V_WQX_ALL_ORGS" />
+    <EntitySet Name="T_WQX_REF_DEFAULT_TIME_ZONE" EntityType="OpenEnvironmentModel.T_WQX_REF_DEFAULT_TIME_ZONE" />
+    <EntitySet Name="T_WQX_REF_COUNTY" EntityType="OpenEnvironmentModel.T_WQX_REF_COUNTY" />
+    <EntitySet Name="T_WQX_REF_SAMP_COL_METHOD" EntityType="OpenEnvironmentModel.T_WQX_REF_SAMP_COL_METHOD" />
+    <EntitySet Name="T_WQX_REF_SAMP_PREP" EntityType="OpenEnvironmentModel.T_WQX_REF_SAMP_PREP" />
+    <EntitySet Name="T_WQX_ACTIVITY" EntityType="OpenEnvironmentModel.T_WQX_ACTIVITY" />
+    <EntitySet Name="T_WQX_RESULT" EntityType="OpenEnvironmentModel.T_WQX_RESULT" />
+    <AssociationSet Name="FK__T_WQX_ACT__ACTIV__44FF419A" Association="OpenEnvironmentModel.FK__T_WQX_ACT__ACTIV__44FF419A">
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+      <End Role="T_WQX_ACTIVITY_METRIC" EntitySet="T_WQX_ACTIVITY_METRIC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__MONLO__3D5E1FD2" Association="OpenEnvironmentModel.FK__T_WQX_ACT__MONLO__3D5E1FD2">
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__ORG_I__3E52440B" Association="OpenEnvironmentModel.FK__T_WQX_ACT__ORG_I__3E52440B">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__PROJE__3C69FB99" Association="OpenEnvironmentModel.FK__T_WQX_ACT__PROJE__3C69FB99">
+      <End Role="T_WQX_PROJECT" EntitySet="T_WQX_PROJECT" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_RES__ACTIV__48CFD27E" Association="OpenEnvironmentModel.FK__T_WQX_RES__ACTIV__48CFD27E">
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_RES__ANALY__4AB81AF0" Association="OpenEnvironmentModel.FK__T_WQX_RES__ANALY__4AB81AF0">
+      <End Role="T_WQX_REF_ANAL_METHOD" EntitySet="T_WQX_REF_ANAL_METHOD" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_IMPORT_LOG" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_LOG" />
+    <AssociationSet Name="FK__T_WQX_IMP__ORG_I__534D60F1" Association="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__534D60F1">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_IMPORT_LOG" EntitySet="T_WQX_IMPORT_LOG" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_REF_LAB" EntityType="OpenEnvironmentModel.T_WQX_REF_LAB" />
+    <AssociationSet Name="FK__T_WQX_RES__LAB_I__2A164134" Association="OpenEnvironmentModel.FK__T_WQX_RES__LAB_I__2A164134">
+      <End Role="T_WQX_REF_LAB" EntitySet="T_WQX_REF_LAB" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <FunctionImport Name="ImportActivityFromTemp">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="WQXInd" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="T_WQX_REF_TAXA_ORG" EntityType="OpenEnvironmentModel.T_WQX_REF_TAXA_ORG" />
+    <AssociationSet Name="FK__T_WQX_REF__ORG_I__756D6ECB" Association="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__756D6ECB">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_REF_TAXA_ORG" EntitySet="T_WQX_REF_TAXA_ORG" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_REF_CHAR_ORG" EntityType="OpenEnvironmentModel.T_WQX_REF_CHAR_ORG" />
+    <AssociationSet Name="FK__T_WQX_REF__ORG_I__4D94879B" Association="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__4D94879B">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_WQX_REF_CHAR_ORG" Association="OpenEnvironmentModel.FK_T_WQX_REF_CHAR_ORG">
+      <End Role="T_WQX_REF_ANAL_METHOD" EntitySet="T_WQX_REF_ANAL_METHOD" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_REF__CHAR___4E88ABD4" Association="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___4E88ABD4">
+      <End Role="T_WQX_REF_CHARACTERISTIC" EntitySet="T_WQX_REF_CHARACTERISTIC" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+    <EntitySet Name="T_WQX_IMPORT_TEMP_RESULT" EntityType="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_RESULT" />
+    <AssociationSet Name="FK__T_WQX_IMP__TEMP___3C34F16F" Association="OpenEnvironmentModel.FK__T_WQX_IMP__TEMP___3C34F16F">
+      <End Role="T_WQX_IMPORT_TEMP_SAMPLE" EntitySet="T_WQX_IMPORT_TEMP_SAMPLE" />
+      <End Role="T_WQX_IMPORT_TEMP_RESULT" EntitySet="T_WQX_IMPORT_TEMP_RESULT" />
+    </AssociationSet>
+    <EntitySet Name="T_OE_ANALYZECONFIG" EntityType="OpenEnvironmentModel.T_OE_ANALYZECONFIG" />
+    <EntitySet Name="T_OE_COLUMNCONFIG" EntityType="OpenEnvironmentModel.T_OE_COLUMNCONFIG" />
+    <EntitySet Name="T_OE_SAVED_COLUMN_CONFIG" EntityType="OpenEnvironmentModel.T_OE_SAVED_COLUMN_CONFIG" />
+    <FunctionImport Name="ImportActivityFromTemp1">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="WQXInd" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="T_OE_APP_SETTINGS">
+    <Key>
+      <PropertyRef Name="SETTING_IDX" />
+    </Key>
+    <Property Type="Int32" Name="SETTING_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="SETTING_NAME" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SETTING_VALUE" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ENCRYPT_IND" />
+    <Property Type="String" Name="SETTING_VALUE_SALT" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MODIFY_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MODIFY_DT" Precision="0" />
+    <Property Name="SETTING_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_OE_APP_TASKS">
+    <Key>
+      <PropertyRef Name="TASK_IDX" />
+    </Key>
+    <Property Type="Int32" Name="TASK_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="TASK_NAME" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TASK_DESC" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TASK_STATUS" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="TASK_FREQ_MS" Nullable="false" />
+    <Property Type="String" Name="MODIFY_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MODIFY_DT" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_OE_ROLES">
+    <Key>
+      <PropertyRef Name="ROLE_IDX" />
+    </Key>
+    <Property Type="Int32" Name="ROLE_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="ROLE_NAME" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ROLE_DESC" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="0" />
+    <Property Type="String" Name="MODIFY_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MODIFY_DT" Precision="0" />
+    <NavigationProperty Name="T_OE_USER_ROLES" Relationship="OpenEnvironmentModel.FK__T_OE_USER__ROLE___07F6335A" FromRole="T_OE_ROLES" ToRole="T_OE_USER_ROLES" />
+  </EntityType>
+  <EntityType Name="T_OE_USER_ROLES">
+    <Key>
+      <PropertyRef Name="USER_ROLE_IDX" />
+    </Key>
+    <Property Type="Int32" Name="USER_ROLE_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="USER_IDX" Nullable="false" />
+    <Property Type="Int32" Name="ROLE_IDX" Nullable="false" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="0" />
+    <NavigationProperty Name="T_OE_ROLES" Relationship="OpenEnvironmentModel.FK__T_OE_USER__ROLE___07F6335A" FromRole="T_OE_USER_ROLES" ToRole="T_OE_ROLES" />
+    <NavigationProperty Name="T_OE_USERS" Relationship="OpenEnvironmentModel.FK__T_OE_USER__USER___08EA5793" FromRole="T_OE_USER_ROLES" ToRole="T_OE_USERS" />
+  </EntityType>
+  <EntityType Name="T_OE_USERS">
+    <Key>
+      <PropertyRef Name="USER_IDX" />
+    </Key>
+    <Property Type="Int32" Name="USER_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="USER_ID" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PWD_HASH" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PWD_SALT" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FNAME" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LNAME" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EMAIL" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="INITAL_PWD_FLAG" Nullable="false" />
+    <Property Type="DateTime" Name="EFFECTIVE_DT" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="LASTLOGIN_DT" Precision="0" />
+    <Property Type="String" Name="PHONE" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PHONE_EXT" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ACT_IND" Nullable="false" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="0" />
+    <Property Type="String" Name="MODIFY_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MODIFY_DT" Precision="0" />
+    <NavigationProperty Name="T_OE_USER_ROLES" Relationship="OpenEnvironmentModel.FK__T_OE_USER__USER___08EA5793" FromRole="T_OE_USERS" ToRole="T_OE_USER_ROLES" />
+    <Property Type="String" Name="DEFAULT_ORG_ID" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_USER_ORGS" Relationship="OpenEnvironmentModel.FK__T_WQX_USE__USER___0E6E26BF" FromRole="T_OE_USERS" ToRole="T_WQX_USER_ORGS" />
+  </EntityType>
+  <EntityType Name="T_WQX_ACTIVITY_METRIC">
+    <Key>
+      <PropertyRef Name="ACTIVITY_METRIC_IDX" />
+    </Key>
+    <Property Type="Int32" Name="ACTIVITY_METRIC_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="ACTIVITY_IDX" Nullable="false" />
+    <Property Type="String" Name="METRIC_TYPE_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_TYPE_ID_CONTEXT" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_TYPE_NAME" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CITATION_TITLE" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CITATION_CREATOR" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CITATION_SUBJECT" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CITATION_PUBLISHER" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CITATION_DATE" Precision="3" />
+    <Property Type="String" Name="CITATION_ID" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_SCALE" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_FORMULA_DESC" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_VALUE_MSR" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_VALUE_MSR_UNIT" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_SCORE" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="METRIC_COMMENT" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="BIO_HABITAT_INDEX_IDX" />
+    <Property Type="Boolean" Name="WQX_IND" />
+    <Property Type="String" Name="WQX_SUBMIT_STATUS" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="WQX_UPDATE_DT" Precision="3" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_BIO_HABITAT_INDEX" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__BIO_H__239E4DCF" FromRole="T_WQX_ACTIVITY_METRIC" ToRole="T_WQX_BIO_HABITAT_INDEX" />
+    <NavigationProperty Name="T_WQX_ACTIVITY" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__ACTIV__44FF419A" FromRole="T_WQX_ACTIVITY_METRIC" ToRole="T_WQX_ACTIVITY" />
+  </EntityType>
+  <EntityType Name="T_WQX_BIO_HABITAT_INDEX">
+    <Key>
+      <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+    </Key>
+    <Property Type="Int32" Name="BIO_HABITAT_INDEX_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="MONLOC_IDX" />
+    <Property Type="String" Name="INDEX_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_TYPE_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_TYPE_ID_CONTEXT" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_TYPE_NAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RESOURCE_TITLE" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RESOURCE_CREATOR" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RESOURCE_SUBJECT" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RESOURCE_PUBLISHER" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="RESOURCE_DATE" Precision="3" />
+    <Property Type="String" Name="RESOURCE_ID" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_TYPE_SCALE" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_SCORE" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_QUAL_CD" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="INDEX_COMMENT" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="INDEX_CALC_DATE" Precision="3" />
+    <Property Type="Boolean" Name="WQX_IND" />
+    <Property Type="String" Name="WQX_SUBMIT_STATUS" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="WQX_UPDATE_DT" Precision="3" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ACTIVITY_METRIC" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__BIO_H__239E4DCF" FromRole="T_WQX_BIO_HABITAT_INDEX" ToRole="T_WQX_ACTIVITY_METRIC" />
+    <NavigationProperty Name="T_WQX_MONLOC" Relationship="OpenEnvironmentModel.FK__T_WQX_BIO__MONLO__1ED998B2" FromRole="T_WQX_BIO_HABITAT_INDEX" ToRole="T_WQX_MONLOC" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_BIO__ORG_I__34C8D9D1" FromRole="T_WQX_BIO_HABITAT_INDEX" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <EntityType Name="T_WQX_MONLOC">
+    <Key>
+      <PropertyRef Name="MONLOC_IDX" />
+    </Key>
+    <Property Type="Int32" Name="MONLOC_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MONLOC_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MONLOC_NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MONLOC_TYPE" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MONLOC_DESC" MaxLength="1999" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HUC_EIGHT" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HUC_TWELVE" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TRIBAL_LAND_IND" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="TRIBAL_LAND_NAME" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LATITUDE_MSR" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LONGITUDE_MSR" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SOURCE_MAP_SCALE" />
+    <Property Type="String" Name="HORIZ_ACCURACY" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HORIZ_ACCURACY_UNIT" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HORIZ_COLL_METHOD" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HORIZ_REF_DATUM" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VERT_MEASURE" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VERT_MEASURE_UNIT" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VERT_COLL_METHOD" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VERT_REF_DATUM" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="COUNTRY_CODE" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="STATE_CODE" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="COUNTY_CODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WELL_TYPE" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AQUIFER_NAME" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FORMATION_TYPE" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WELLHOLE_DEPTH_MSR" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WELLHOLE_DEPTH_MSR_UNIT" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="WQX_IND" />
+    <Property Type="String" Name="WQX_SUBMIT_STATUS" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="WQX_UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="IMPORT_MONLOC_ID" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_BIO_HABITAT_INDEX" Relationship="OpenEnvironmentModel.FK__T_WQX_BIO__MONLO__1ED998B2" FromRole="T_WQX_MONLOC" ToRole="T_WQX_BIO_HABITAT_INDEX" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_MON__ORG_I__2C3393D0" FromRole="T_WQX_MONLOC" ToRole="T_WQX_ORGANIZATION" />
+    <NavigationProperty Name="T_WQX_ACTIVITY" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__MONLO__3D5E1FD2" FromRole="T_WQX_MONLOC" ToRole="T_WQX_ACTIVITY" />
+  </EntityType>
+  <EntityType Name="T_WQX_ORG_ADDRESS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="ADDRESS_TYPE" />
+    </Key>
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ADDRESS_TYPE" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ADDRESS" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SUPP_ADDRESS" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LOCALITY" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="STATE_CD" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="POSTAL_CD" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="COUNTRY_CD" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="COUNTY_CD" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_ORG__ORG_I__22AA2996" FromRole="T_WQX_ORG_ADDRESS" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <EntityType Name="T_WQX_PROJECT">
+    <Key>
+      <PropertyRef Name="PROJECT_IDX" />
+    </Key>
+    <Property Type="Int32" Name="PROJECT_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROJECT_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROJECT_NAME" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PROJECT_DESC" MaxLength="1999" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SAMP_DESIGN_TYPE_CD" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="QAPP_APPROVAL_IND" />
+    <Property Type="String" Name="QAPP_APPROVAL_AGENCY" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="WQX_IND" />
+    <Property Type="String" Name="WQX_SUBMIT_STATUS" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="WQX_UPDATE_DT" Precision="3" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_PRO__ORG_I__29572725" FromRole="T_WQX_PROJECT" ToRole="T_WQX_ORGANIZATION" />
+    <NavigationProperty Name="T_WQX_ACTIVITY" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__PROJE__3C69FB99" FromRole="T_WQX_PROJECT" ToRole="T_WQX_ACTIVITY" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_ANAL_METHOD">
+    <Key>
+      <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+    </Key>
+    <Property Type="Int32" Name="ANALYTIC_METHOD_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="ANALYTIC_METHOD_ID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ANALYTIC_METHOD_CTX" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ANALYTIC_METHOD_NAME" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ANALYTIC_METHOD_DESC" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <NavigationProperty Name="T_WQX_RESULT" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__ANALY__4AB81AF0" FromRole="T_WQX_REF_ANAL_METHOD" ToRole="T_WQX_RESULT" />
+    <NavigationProperty Name="T_WQX_REF_CHAR_ORG" Relationship="OpenEnvironmentModel.FK_T_WQX_REF_CHAR_ORG" FromRole="T_WQX_REF_ANAL_METHOD" ToRole="T_WQX_REF_CHAR_ORG" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_DATA">
+    <Key>
+      <PropertyRef Name="REF_DATA_IDX" />
+    </Key>
+    <Property Type="Int32" Name="REF_DATA_IDX" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="TABLE" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="VALUE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TEXT" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="Boolean" Name="USED_IND" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+  </EntityType>
+  <Association Name="FK__T_OE_USER__ROLE___07F6335A">
+    <End Type="OpenEnvironmentModel.T_OE_ROLES" Role="T_OE_ROLES" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_OE_USER_ROLES" Role="T_OE_USER_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_ROLES">
+        <PropertyRef Name="ROLE_IDX" />
+      </Principal>
+      <Dependent Role="T_OE_USER_ROLES">
+        <PropertyRef Name="ROLE_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_OE_USER__USER___08EA5793">
+    <End Type="OpenEnvironmentModel.T_OE_USERS" Role="T_OE_USERS" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_OE_USER_ROLES" Role="T_OE_USER_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_USERS">
+        <PropertyRef Name="USER_IDX" />
+      </Principal>
+      <Dependent Role="T_OE_USER_ROLES">
+        <PropertyRef Name="USER_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__BIO_H__239E4DCF">
+    <End Type="OpenEnvironmentModel.T_WQX_BIO_HABITAT_INDEX" Role="T_WQX_BIO_HABITAT_INDEX" Multiplicity="0..1" />
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY_METRIC" Role="T_WQX_ACTIVITY_METRIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY_METRIC">
+        <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_BIO__MONLO__1ED998B2">
+    <End Type="OpenEnvironmentModel.T_WQX_MONLOC" Role="T_WQX_MONLOC" Multiplicity="0..1" />
+    <End Type="OpenEnvironmentModel.T_WQX_BIO_HABITAT_INDEX" Role="T_WQX_BIO_HABITAT_INDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_MONLOC">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_REF_CHARACTERISTIC">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+    </Key>
+    <Property Type="String" Name="CHAR_NAME" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="DEFAULT_DETECT_LIMIT" Precision="12" Scale="5" />
+    <Property Type="String" Name="DEFAULT_UNIT" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="USED_IND" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <NavigationProperty Name="T_WQX_REF_CHAR_LIMITS" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___46E78A0C" FromRole="T_WQX_REF_CHARACTERISTIC" ToRole="T_WQX_REF_CHAR_LIMITS" />
+    <NavigationProperty Name="T_WQX_REF_CHAR_ORG" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___4E88ABD4" FromRole="T_WQX_REF_CHARACTERISTIC" ToRole="T_WQX_REF_CHAR_ORG" />
+  </EntityType>
+  <ComplexType Name="WQXAnalysis_Result">
+    <Property Type="String" Name="MONLOC_NAME" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CHAR_NAME" Nullable="true" MaxLength="120" />
+    <Property Type="DateTime" Name="START_DT" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="RESULT_MSR" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="String" Name="RESULT_MSR_UNIT" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="DETECTION_LIMIT" Nullable="true" MaxLength="12" />
+  </ComplexType>
+  <EntityType Name="T_WQX_REF_CHAR_LIMITS">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+      <PropertyRef Name="UNIT_NAME" />
+    </Key>
+    <Property Type="String" Name="CHAR_NAME" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UNIT_NAME" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="LOWER_BOUND" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="UPPER_BOUND" Precision="18" Scale="0" />
+    <Property Type="Boolean" Name="ACT_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATE_DT" Precision="3" />
+    <Property Type="String" Name="UPDATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_REF_CHARACTERISTIC" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___46E78A0C" FromRole="T_WQX_REF_CHAR_LIMITS" ToRole="T_WQX_REF_CHARACTERISTIC" />
+  </EntityType>
+  <Association Name="FK__T_WQX_REF__CHAR___46E78A0C">
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHARACTERISTIC" Role="T_WQX_REF_CHARACTERISTIC" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHAR_LIMITS" Role="T_WQX_REF_CHAR_LIMITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_CHARACTERISTIC">
+        <PropertyRef Name="CHAR_NAME" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_LIMITS">
+        <PropertyRef Name="CHAR_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="V_WQX_ACTIVITY_LATEST">
+    <Key>
+      <PropertyRef Name="ACTIVITY_IDX" />
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="PROJECT_IDX" />
+      <PropertyRef Name="MONLOC_NAME" />
+      <PropertyRef Name="ACTIVITY_ID" />
+      <PropertyRef Name="ACT_TYPE" />
+      <PropertyRef Name="ACT_START_DT" />
+    </Key>
+    <Property Type="Int32" Name="ACTIVITY_IDX" Nullable="false" />
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="PROJECT_IDX" Nullable="false" />
+    <Property Type="Int32" Name="MONLOC_IDX" />
+    <Property Type="String" Name="MONLOC_NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACTIVITY_ID" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACT_TYPE" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="ACT_START_DT" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="WQX_IND" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="3" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ACT_COMMENT" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Alkalinity__total" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Ammonia" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dissolved_oxygen__DO_" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Escherichia_coli" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Nitrate" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Nitrite" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pH" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phosphorus" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Salinity" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Specific_Conductance" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Temperature__air" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Temperature__water" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Total_Dissolved_Solids" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Turbidity" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_USER_ORGS">
+    <Key>
+      <PropertyRef Name="USER_IDX" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Type="Int32" Name="USER_IDX" Nullable="false" />
+    <Property Type="String" Name="ORG_ID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ROLE_CD" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CREATE_USERID" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CREATE_DT" Precision="0" />
+    <NavigationProperty Name="T_OE_USERS" Relationship="OpenEnvironmentModel.FK__T_WQX_USE__USER___0E6E26BF" FromRole="T_WQX_USER_ORGS" ToRole="T_OE_USERS" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_USE__ORG_I__25869641" FromRole="T_WQX_USER_ORGS" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <Association Name="FK__T_WQX_USE__USER___0E6E26BF">
+    <End Type="OpenEnvironmentModel.T_OE_USERS" Role="T_OE_USERS" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_WQX_USER_ORGS" Role="T_WQX_USER_ORGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_USERS">
+        <PropertyRef Name="USER_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_USER_ORGS">
+        <PropertyRef Name="USER_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_IMPORT_TEMPLATE">
+    <Key>
+      <PropertyRef Name="TEMPLATE_ID" />
+    </Key>
+    <Property Name="TEMPLATE_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TEMPLATE_NAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_IMPORT_TEMPLATE_DTL" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__TEMPL__66603565" FromRole="T_WQX_IMPORT_TEMPLATE" ToRole="T_WQX_IMPORT_TEMPLATE_DTL" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__4F7CD00D" FromRole="T_WQX_IMPORT_TEMPLATE" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMPLATE_DTL">
+    <Key>
+      <PropertyRef Name="TEMPLATE_DTL_ID" />
+    </Key>
+    <Property Name="TEMPLATE_DTL_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TEMPLATE_ID" Type="Int32" Nullable="false" />
+    <Property Name="COL_NUM" Type="Int32" Nullable="false" />
+    <Property Name="FIELD_MAP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CHAR_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="CHAR_DEFAULT_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_IMPORT_TEMPLATE" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__TEMPL__66603565" FromRole="T_WQX_IMPORT_TEMPLATE_DTL" ToRole="T_WQX_IMPORT_TEMPLATE" />
+  </EntityType>
+  <Association Name="FK__T_WQX_IMP__TEMPL__66603565">
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE" Role="T_WQX_IMPORT_TEMPLATE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE_DTL" Role="T_WQX_IMPORT_TEMPLATE_DTL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_IMPORT_TEMPLATE">
+        <PropertyRef Name="TEMPLATE_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMPLATE_DTL">
+        <PropertyRef Name="TEMPLATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_IMPORT_TEMP_SAMPLE">
+    <Key>
+      <PropertyRef Name="TEMP_SAMPLE_IDX" />
+    </Key>
+    <Property Name="TEMP_SAMPLE_IDX" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_IDX" Type="Int32" />
+    <Property Name="PROJECT_ID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_IDX" Type="Int32" />
+    <Property Name="MONLOC_ID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ACTIVITY_IDX" Type="Int32" />
+    <Property Name="ACTIVITY_ID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_TYPE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_MEDIA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_SUBMEDIA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_START_DT" Type="DateTime" Precision="3" />
+    <Property Name="ACT_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="ACT_TIME_ZONE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RELATIVE_DEPTH_NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_REF_POINT" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_ASSEMBLAGE_SAMPLED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_DURATION_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_DURATION_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMP_COMPONENT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMP_COMPONENT_SEQ" Type="Int32" />
+    <Property Name="BIO_REACH_LEN_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_LEN_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_WID_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_WID_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_PASS_COUNT" Type="Int32" />
+    <Property Name="BIO_NET_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_AREA_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_AREA_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_MESHSIZE_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_MESHSIZE_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_BOAT_SPEED_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_BOAT_SPEED_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_CURR_SPEED_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_CURR_SPEED_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_TOXICITY_TEST_TYPE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="Int32" />
+    <Property Name="SAMP_COLL_METHOD_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_CTX" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_EQUIP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_EQUIP_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_IDX" Type="Int32" />
+    <Property Name="SAMP_PREP_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CTX" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CONT_TYPE" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CONT_COLOR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CHEM_PRESERV" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_THERM_PRESERV" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_STORAGE_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_IMPORT_TEMP_RESULT" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__TEMP___3C34F16F" FromRole="T_WQX_IMPORT_TEMP_SAMPLE" ToRole="T_WQX_IMPORT_TEMP_RESULT" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_MONLOC">
+    <Key>
+      <PropertyRef Name="TEMP_MONLOC_IDX" />
+    </Key>
+    <Property Name="TEMP_MONLOC_IDX" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_IDX" Type="Int32" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_ID" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_TYPE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MONLOC_DESC" Type="String" MaxLength="1999" FixedLength="false" Unicode="false" />
+    <Property Name="HUC_EIGHT" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="HUC_TWELVE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TRIBAL_LAND_IND" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TRIBAL_LAND_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LATITUDE_MSR" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LONGITUDE_MSR" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SOURCE_MAP_SCALE" Type="Int32" />
+    <Property Name="HORIZ_ACCURACY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="HORIZ_ACCURACY_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="HORIZ_COLL_METHOD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="HORIZ_REF_DATUM" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="VERT_MEASURE" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="VERT_MEASURE_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="VERT_COLL_METHOD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VERT_REF_DATUM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="STATE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTY_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="WELL_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AQUIFER_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="FORMATION_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WELLHOLE_DEPTH_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="WELLHOLE_DEPTH_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_ORGANIZATION">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_DESC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TRIBAL_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ELECTRONICADDRESS" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ELECTRONICADDRESSTYPE" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE_NUM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE_NUM_TYPE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TELEPHONE_EXT" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMITTER_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMITTER_PWD_HASH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMITTER_PWD_SALT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMIT_IND" Type="Boolean" />
+    <NavigationProperty Name="T_WQX_BIO_HABITAT_INDEX" Relationship="OpenEnvironmentModel.FK__T_WQX_BIO__ORG_I__34C8D9D1" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_BIO_HABITAT_INDEX" />
+    <NavigationProperty Name="T_WQX_IMPORT_TEMPLATE" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__4F7CD00D" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_IMPORT_TEMPLATE" />
+    <NavigationProperty Name="T_WQX_MONLOC" Relationship="OpenEnvironmentModel.FK__T_WQX_MON__ORG_I__2C3393D0" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_MONLOC" />
+    <NavigationProperty Name="T_WQX_ORG_ADDRESS" Relationship="OpenEnvironmentModel.FK__T_WQX_ORG__ORG_I__22AA2996" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_ORG_ADDRESS" />
+    <NavigationProperty Name="T_WQX_PROJECT" Relationship="OpenEnvironmentModel.FK__T_WQX_PRO__ORG_I__29572725" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_PROJECT" />
+    <NavigationProperty Name="T_WQX_USER_ORGS" Relationship="OpenEnvironmentModel.FK__T_WQX_USE__ORG_I__25869641" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_USER_ORGS" />
+    <Property Name="DEFAULT_TIMEZONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ACTIVITY" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__ORG_I__3E52440B" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_ACTIVITY" />
+    <NavigationProperty Name="T_WQX_IMPORT_LOG" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__534D60F1" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_IMPORT_LOG" />
+    <NavigationProperty Name="T_WQX_REF_TAXA_ORG" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__756D6ECB" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_REF_TAXA_ORG" />
+    <NavigationProperty Name="T_WQX_REF_CHAR_ORG" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__4D94879B" FromRole="T_WQX_ORGANIZATION" ToRole="T_WQX_REF_CHAR_ORG" />
+  </EntityType>
+  <Association Name="FK__T_WQX_BIO__ORG_I__34C8D9D1">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_WQX_BIO_HABITAT_INDEX" Role="T_WQX_BIO_HABITAT_INDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_IMP__ORG_I__4F7CD00D">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_TEMPLATE" Role="T_WQX_IMPORT_TEMPLATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMPLATE">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_MON__ORG_I__2C3393D0">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_MONLOC" Role="T_WQX_MONLOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_MONLOC">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ORG__ORG_I__22AA2996">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_ORG_ADDRESS" Role="T_WQX_ORG_ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_ORG_ADDRESS">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_PRO__ORG_I__29572725">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_PROJECT" Role="T_WQX_PROJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_PROJECT">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_USE__ORG_I__25869641">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_USER_ORGS" Role="T_WQX_USER_ORGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_USER_ORGS">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_OE_SYS_LOG">
+    <Key>
+      <PropertyRef Name="SYS_LOG_ID" />
+    </Key>
+    <Property Name="SYS_LOG_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="LOG_DT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LOG_USERIDX" Type="Int32" />
+    <Property Name="LOG_TYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOG_MSG" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_TRANSACTION_LOG">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TABLE_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TABLE_IDX" Type="Int32" Nullable="false" />
+    <Property Name="SUBMIT_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SUBMIT_TYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RESPONSE_FILE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="RESPONSE_TXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMIT_TRANSID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMIT_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="V_WQX_TRANSACTION_LOG">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+      <PropertyRef Name="TABLE_CD" />
+      <PropertyRef Name="TABLE_IDX" />
+      <PropertyRef Name="SUBMIT_DT" />
+      <PropertyRef Name="SUBMIT_TYPE" />
+    </Key>
+    <Property Name="LOG_ID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TABLE_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="TABLE_IDX" Type="Int32" Nullable="false" />
+    <Property Name="SUBMIT_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SUBMIT_TYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RESPONSE_FILE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="RESPONSE_TXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMIT_TRANSID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CDX_SUBMIT_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RECORD" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_PROJECT">
+    <Key>
+      <PropertyRef Name="TEMP_PROJECT_IDX" />
+    </Key>
+    <Property Name="TEMP_PROJECT_IDX" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="USER_ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_IDX" Type="Int32" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_ID" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_NAME" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_DESC" Type="String" MaxLength="1999" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_DESIGN_TYPE_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="QAPP_APPROVAL_IND" Type="Boolean" />
+    <Property Name="QAPP_APPROVAL_AGENCY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_EPA_ORGS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="V_WQX_ALL_ORGS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="ORG_FORMAL_NAME" />
+    </Key>
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SRC" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_DEFAULT_TIME_ZONE">
+    <Key>
+      <PropertyRef Name="TIME_ZONE_NAME" />
+    </Key>
+    <Property Name="TIME_ZONE_NAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OFFICIAL_TIME_ZONE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WQX_CODE_STANDARD" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="WQX_CODE_DAYLIGHT" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_COUNTY">
+    <Key>
+      <PropertyRef Name="STATE_CODE" />
+      <PropertyRef Name="COUNTY_CODE" />
+    </Key>
+    <Property Name="STATE_CODE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTY_CODE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTY_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="USED_IND" Type="Boolean" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_SAMP_COL_METHOD">
+    <Key>
+      <PropertyRef Name="SAMP_COLL_METHOD_IDX" />
+    </Key>
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SAMP_COLL_METHOD_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_CTX" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_SAMP_PREP">
+    <Key>
+      <PropertyRef Name="SAMP_PREP_IDX" />
+    </Key>
+    <Property Name="SAMP_PREP_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SAMP_PREP_METHOD_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_METHOD_CTX" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_METHOD_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_METHOD_DESC" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_WQX_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ACTIVITY_IDX" />
+    </Key>
+    <Property Name="ACTIVITY_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PROJECT_IDX" Type="Int32" Nullable="false" />
+    <Property Name="MONLOC_IDX" Type="Int32" />
+    <Property Name="ACTIVITY_ID" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_TYPE" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_MEDIA" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_SUBMEDIA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_START_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ACT_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="ACT_TIME_ZONE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RELATIVE_DEPTH_NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_REF_POINT" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_ASSEMBLAGE_SAMPLED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_DURATION_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_DURATION_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMP_COMPONENT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMP_COMPONENT_SEQ" Type="Int32" />
+    <Property Name="BIO_REACH_LEN_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_LEN_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_WID_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_REACH_WID_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_PASS_COUNT" Type="Int32" />
+    <Property Name="BIO_NET_TYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_AREA_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_AREA_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_NET_MESHSIZE_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_MESHSIZE_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_BOAT_SPEED_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_BOAT_SPEED_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_CURR_SPEED_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_CURR_SPEED_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_TOXICITY_TEST_TYPE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_EQUIP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_EQUIP_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CONT_TYPE" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CONT_COLOR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_CHEM_PRESERV" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_THERM_PRESERV" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_PREP_STORAGE_DESC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="WQX_IND" Type="Boolean" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="WQX_UPDATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="Int32" />
+    <Property Name="SAMP_PREP_IDX" Type="Int32" />
+    <NavigationProperty Name="T_WQX_ACTIVITY_METRIC" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__ACTIV__44FF419A" FromRole="T_WQX_ACTIVITY" ToRole="T_WQX_ACTIVITY_METRIC" />
+    <NavigationProperty Name="T_WQX_MONLOC" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__MONLO__3D5E1FD2" FromRole="T_WQX_ACTIVITY" ToRole="T_WQX_MONLOC" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__ORG_I__3E52440B" FromRole="T_WQX_ACTIVITY" ToRole="T_WQX_ORGANIZATION" />
+    <NavigationProperty Name="T_WQX_PROJECT" Relationship="OpenEnvironmentModel.FK__T_WQX_ACT__PROJE__3C69FB99" FromRole="T_WQX_ACTIVITY" ToRole="T_WQX_PROJECT" />
+    <NavigationProperty Name="T_WQX_RESULT" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__ACTIV__48CFD27E" FromRole="T_WQX_ACTIVITY" ToRole="T_WQX_RESULT" />
+    <Property Name="TEMP_SAMPLE_IDX" Type="Int32" />
+    <Property Name="ENTRY_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_WQX_RESULT">
+    <Key>
+      <PropertyRef Name="RESULT_IDX" />
+    </Key>
+    <Property Name="RESULT_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACTIVITY_IDX" Type="Int32" Nullable="false" />
+    <Property Name="DATA_LOGGER_LINE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_DETECT_CONDITION" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="CHAR_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="METHOD_SPECIATION_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_SAMP_FRACTION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR_QUAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_STATUS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="STATISTIC_BASE_CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_VALUE_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WEIGHT_BASIS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TIME_BASIS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TEMP_BASIS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PARTICLESIZE_BASIS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PRECISION_VALUE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="BIAS_VALUE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CONFIDENCE_INTERVAL_VALUE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="UPPER_CONFIDENCE_LIMIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOWER_CONFIDENCE_LIMIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_HEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_HEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTHALTITUDEREFPOINT" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_SAMP_POINT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_INTENT_NAME" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_INDIVIDUAL_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_UNIDENTIFIED_SPECIES_ID" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMPLE_TISSUE_ANATOMY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_CELL_FORM" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_CELL_SHAPE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_HABIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_VOLTINISM" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE_SCALE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_TROPHIC_LEVEL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP2" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP3" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ANALYTIC_METHOD_IDX" Type="Int32" />
+    <Property Name="LAB_IDX" Type="Int32" />
+    <Property Name="LAB_ANALYSIS_START_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_ANALYSIS_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_ANALYSIS_TIMEZONE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_LAB_COMMENT_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="DETECTION_LIMIT_TYPE" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="DETECTION_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_TAXON_ACCRED_IND" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LAB_TAXON_ACCRED_AUTHORITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ACTIVITY" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__ACTIV__48CFD27E" FromRole="T_WQX_RESULT" ToRole="T_WQX_ACTIVITY" />
+    <NavigationProperty Name="T_WQX_REF_ANAL_METHOD" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__ANALY__4AB81AF0" FromRole="T_WQX_RESULT" ToRole="T_WQX_REF_ANAL_METHOD" />
+    <NavigationProperty Name="T_WQX_REF_LAB" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__LAB_I__2A164134" FromRole="T_WQX_RESULT" ToRole="T_WQX_REF_LAB" />
+    <Property Name="LAB_REPORTING_LEVEL" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PQL" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LOWER_QUANT_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="UPPER_QUANT_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DETECTION_LIMIT_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_SAMP_PREP_IDX" Type="Int32" />
+    <Property Name="LAB_SAMP_PREP_START_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_SAMP_PREP_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="DILUTION_FACTOR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_UPPER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_LOWER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__T_WQX_ACT__ACTIV__44FF419A">
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY" Role="T_WQX_ACTIVITY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY_METRIC" Role="T_WQX_ACTIVITY_METRIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY_METRIC">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__MONLO__3D5E1FD2">
+    <End Type="OpenEnvironmentModel.T_WQX_MONLOC" Role="T_WQX_MONLOC" Multiplicity="0..1" />
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY" Role="T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_MONLOC">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__ORG_I__3E52440B">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY" Role="T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__PROJE__3C69FB99">
+    <End Type="OpenEnvironmentModel.T_WQX_PROJECT" Role="T_WQX_PROJECT" Multiplicity="1" />
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY" Role="T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_PROJECT">
+        <PropertyRef Name="PROJECT_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="PROJECT_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_RES__ACTIV__48CFD27E">
+    <End Type="OpenEnvironmentModel.T_WQX_ACTIVITY" Role="T_WQX_ACTIVITY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_RESULT" Role="T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_RES__ANALY__4AB81AF0">
+    <End Type="OpenEnvironmentModel.T_WQX_REF_ANAL_METHOD" Role="T_WQX_REF_ANAL_METHOD" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_RESULT" Role="T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_ANAL_METHOD">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_IMPORT_LOG">
+    <Key>
+      <PropertyRef Name="IMPORT_ID" />
+    </Key>
+    <Property Name="IMPORT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="FILE_NAME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="FILE_SIZE" Type="Int32" Nullable="false" />
+    <Property Name="IMPORT_STATUS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_FILE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_PROGRESS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_PROGRESS_MSG" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__ORG_I__534D60F1" FromRole="T_WQX_IMPORT_LOG" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <Association Name="FK__T_WQX_IMP__ORG_I__534D60F1">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_LOG" Role="T_WQX_IMPORT_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_LOG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_REF_LAB">
+    <Key>
+      <PropertyRef Name="LAB_IDX" />
+    </Key>
+    <Property Name="LAB_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LAB_NAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_ACCRED_IND" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LAB_ACCRED_AUTHORITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_IND" Type="Boolean" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DT" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_RESULT" Relationship="OpenEnvironmentModel.FK__T_WQX_RES__LAB_I__2A164134" FromRole="T_WQX_REF_LAB" ToRole="T_WQX_RESULT" />
+  </EntityType>
+  <Association Name="FK__T_WQX_RES__LAB_I__2A164134">
+    <End Type="OpenEnvironmentModel.T_WQX_REF_LAB" Role="T_WQX_REF_LAB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_RESULT" Role="T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_LAB">
+        <PropertyRef Name="LAB_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="LAB_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_REF_TAXA_ORG">
+    <Key>
+      <PropertyRef Name="BIO_SUBJECT_TAXONOMY" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__756D6ECB" FromRole="T_WQX_REF_TAXA_ORG" ToRole="T_WQX_ORGANIZATION" />
+  </EntityType>
+  <Association Name="FK__T_WQX_REF__ORG_I__756D6ECB">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_REF_TAXA_ORG" Role="T_WQX_REF_TAXA_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_TAXA_ORG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_REF_CHAR_ORG">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="CHAR_NAME" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ORG_ID" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_USERID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DT" Type="DateTime" Precision="0" />
+    <Property Name="DEFAULT_DETECT_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEFAULT_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEFAULT_ANAL_METHOD_IDX" Type="Int32" />
+    <Property Name="DEFAULT_SAMP_FRACTION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DEFAULT_RESULT_STATUS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEFAULT_RESULT_VALUE_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_ORGANIZATION" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__ORG_I__4D94879B" FromRole="T_WQX_REF_CHAR_ORG" ToRole="T_WQX_ORGANIZATION" />
+    <NavigationProperty Name="T_WQX_REF_ANAL_METHOD" Relationship="OpenEnvironmentModel.FK_T_WQX_REF_CHAR_ORG" FromRole="T_WQX_REF_CHAR_ORG" ToRole="T_WQX_REF_ANAL_METHOD" />
+    <NavigationProperty Name="T_WQX_REF_CHARACTERISTIC" Relationship="OpenEnvironmentModel.FK__T_WQX_REF__CHAR___4E88ABD4" FromRole="T_WQX_REF_CHAR_ORG" ToRole="T_WQX_REF_CHARACTERISTIC" />
+  </EntityType>
+  <Association Name="FK__T_WQX_REF__ORG_I__4D94879B">
+    <End Type="OpenEnvironmentModel.T_WQX_ORGANIZATION" Role="T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHAR_ORG" Role="T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_WQX_REF_CHAR_ORG">
+    <End Type="OpenEnvironmentModel.T_WQX_REF_ANAL_METHOD" Role="T_WQX_REF_ANAL_METHOD" Multiplicity="0..1" />
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHAR_ORG" Role="T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_ANAL_METHOD">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="DEFAULT_ANAL_METHOD_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_REF__CHAR___4E88ABD4">
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHARACTERISTIC" Role="T_WQX_REF_CHARACTERISTIC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_REF_CHAR_ORG" Role="T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_CHARACTERISTIC">
+        <PropertyRef Name="CHAR_NAME" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="CHAR_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_WQX_IMPORT_TEMP_RESULT">
+    <Key>
+      <PropertyRef Name="TEMP_RESULT_IDX" />
+    </Key>
+    <Property Name="TEMP_RESULT_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEMP_SAMPLE_IDX" Type="Int32" Nullable="false" />
+    <Property Name="RESULT_IDX" Type="Int32" />
+    <Property Name="DATA_LOGGER_LINE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_DETECT_CONDITION" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="CHAR_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="METHOD_SPECIATION_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_SAMP_FRACTION" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_MSR_QUAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_STATUS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="STATISTIC_BASE_CODE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_VALUE_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="WEIGHT_BASIS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TIME_BASIS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TEMP_BASIS" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PARTICLESIZE_BASIS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="PRECISION_VALUE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="BIAS_VALUE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CONFIDENCE_INTERVAL_VALUE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="UPPER_CONFIDENCE_LIMIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LOWER_CONFIDENCE_LIMIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_COMMENT" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_HEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTH_HEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DEPTHALTITUDEREFPOINT" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_INTENT_NAME" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_INDIVIDUAL_ID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_UNIDENTIFIED_SPECIES_ID" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="BIO_SAMPLE_TISSUE_ANATOMY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_CELL_FORM" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_CELL_SHAPE" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_HABIT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_VOLTINISM" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE_SCALE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_TROPHIC_LEVEL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP1" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP2" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP3" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ANALYTIC_METHOD_IDX" Type="Int32" />
+    <Property Name="ANALYTIC_METHOD_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ANALYTIC_METHOD_CTX" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ANALYTIC_METHOD_NAME" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_IDX" Type="Int32" />
+    <Property Name="LAB_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_ANALYSIS_START_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_ANALYSIS_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_ANALYSIS_TIMEZONE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="RESULT_LAB_COMMENT_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="METHOD_DETECTION_LEVEL" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_REPORTING_LEVEL" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PQL" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LOWER_QUANT_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="UPPER_QUANT_LIMIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DETECTION_LIMIT_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_SAMP_PREP_IDX" Type="Int32" />
+    <Property Name="LAB_SAMP_PREP_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_SAMP_PREP_CTX" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="LAB_SAMP_PREP_START_DT" Type="DateTime" Precision="3" />
+    <Property Name="LAB_SAMP_PREP_END_DT" Type="DateTime" Precision="3" />
+    <Property Name="DILUTION_FACTOR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IMPORT_STATUS_DESC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_UNIT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_UPPER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FREQ_CLASS_LOWER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_WQX_IMPORT_TEMP_SAMPLE" Relationship="OpenEnvironmentModel.FK__T_WQX_IMP__TEMP___3C34F16F" FromRole="T_WQX_IMPORT_TEMP_RESULT" ToRole="T_WQX_IMPORT_TEMP_SAMPLE" />
+  </EntityType>
+  <Association Name="FK__T_WQX_IMP__TEMP___3C34F16F">
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_SAMPLE" Role="T_WQX_IMPORT_TEMP_SAMPLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="OpenEnvironmentModel.T_WQX_IMPORT_TEMP_RESULT" Role="T_WQX_IMPORT_TEMP_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_IMPORT_TEMP_SAMPLE">
+        <PropertyRef Name="TEMP_SAMPLE_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMP_RESULT">
+        <PropertyRef Name="TEMP_SAMPLE_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="T_OE_ANALYZECONFIG">
+    <Key>
+      <PropertyRef Name="ANALYZECONFIG_IDX" />
+    </Key>
+    <Property Name="ANALYZECONFIG_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ANALYZECONFIG_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_IDX" Type="Int32" />
+    <Property Name="SITES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CHARACTERISTIC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="END_DATE" Type="DateTime" Precision="0" />
+    <Property Name="UPPER_THRESHOLD" Type="Double" />
+    <Property Name="LOWER_THRESHOLD" Type="Double" />
+  </EntityType>
+  <EntityType Name="T_OE_COLUMNCONFIG">
+    <Key>
+      <PropertyRef Name="COLUMNCONFIG_IDX" />
+    </Key>
+    <Property Name="COLUMNCONFIG_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COLUMN_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COLUMN_DONT_SEND" Type="Boolean" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAX_VALUE" Type="Double" />
+    <Property Name="MIN_VALUE" Type="Double" />
+  </EntityType>
+  <EntityType Name="T_OE_SAVED_COLUMN_CONFIG">
+    <Key>
+      <PropertyRef Name="CONFIG_IDX" />
+    </Key>
+    <Property Name="CONFIG_IDX" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORG_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CONFIG_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_COL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WQX_COL_ID" Type="Int32" />
+  </EntityType>
+</Schema>

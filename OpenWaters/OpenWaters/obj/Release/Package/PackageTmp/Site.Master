@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="OpenEnvironment.SiteMaster" %>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TFerst Mvskogee Open Waters - Environmental Data Management</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+      
+        <div class="mainPnl">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        Copyright ©2012-2015 open-environment.org | 
+        Version: <asp:Label ID="lblVer" runat="server"></asp:Label> | 
+        <asp:HyperLink runat="server" NavigateUrl="~/App_Pages/Public/License.aspx" Text="License"></asp:HyperLink> 
+    </div>
+    </form>
+</body>
+</html>

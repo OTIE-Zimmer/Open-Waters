@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="OpenEnvironment.SiteMaster" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Open Waters - Environmental Data Management</title>
+    <!--link href="~/Styles/Site.css" rel="stylesheet" type="text/css" /-->
+    <link href="~/Styles/styles2.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+   
+
+    <style>
+    body { 
+     background: url('App_Images/green2.jpg') no-repeat center center fixed; 
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+    }
+
+    </style>
+
+     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+
+
+    <form runat="server">
+    <div class="page">
+
+        <div class="clear hideSkiplink">
+            <asp:Menu ID="NavigationMenu" runat="server" IncludeStyleBlock="false" CssClass="menu" Orientation="Horizontal">
+                <StaticHoverStyle BackColor="#666666" />
+                <StaticMenuItemStyle HorizontalPadding="12px" VerticalPadding="8px" CssClass="menuitem"  />
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Account/Register.aspx" Text="Create an Account"/>
+                </Items>
+            </asp:Menu>
+        </div>
+        <div class="mainPnl">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        Copyright ©2015 OTIE | 
+        Version: <asp:Label ID="lblVer" runat="server"></asp:Label> | 
+        <asp:HyperLink runat="server" NavigateUrl="~/App_Pages/Public/License.aspx" Text="License"></asp:HyperLink> 
+    </div>
+    </form>
+</body>
+</html>

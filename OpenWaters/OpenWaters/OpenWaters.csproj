@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F34E29C-B9D1-44F7-BC6C-EABDE6871B75}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenEnvironment</RootNamespace>
+    <AssemblyName>OpenEnvironment</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <DesktopBuildPackageLocation>..\..\..\..\..\..\..\..\..\..\..\tmp\OpenWaters.zip</DesktopBuildPackageLocation>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60501.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AntiXSSLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60501\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.2.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SendGrid.SmtpApi.1.2.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGridMail">
+      <HintPath>..\packages\Sendgrid.5.1.0\lib\SendGridMail.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="App_Images\App_Data\Create_DB.sql" />
+    <Content Include="App_Images\App_Data\DatabasePatch_v1.3.sql" />
+    <Content Include="App_Images\App_Data\DatabasePatch_v1.5.sql" />
+    <Content Include="App_Images\App_Data\DatabasePatch_v1.6.1.sql" />
+    <Content Include="App_Images\App_Data\DatabasePatch_v1.6.sql" />
+    <Content Include="App_Images\green.png" />
+    <Content Include="App_Images\green2.jpg" />
+    <Content Include="App_Images\ico_chart.png" />
+    <Content Include="App_Images\ico_save2.png" />
+    <Content Include="App_Images\selectbutton.png" />
+    <Content Include="App_Pages\Public\Terms.aspx" />
+    <Content Include="App_Pages\Secure\assets\ajax-sidebar.html" />
+    <Content Include="App_Pages\Secure\AnalyzeAdmin.aspx" />
+    <Content Include="App_Pages\Secure\ColumnAdmin.aspx" />
+    <Content Include="App_Pages\Secure\RoleList.aspx" />
+    <Content Include="App_Pages\Secure\SearchAnalyze.aspx" />
+    <Content Include="App_Pages\Secure\UserList.aspx" />
+    <Content Include="App_Pages\Secure\WQXAnalyze.aspx" />
+    <Content Include="App_Pages\Secure\WQXConfigurations.aspx" />
+    <Content Include="App_Pages\Secure\WQXESRIMap.aspx" />
+    <Content Include="App_Pages\Secure\WQXUploadExcel.aspx" />
+    <Content Include="css\bootstrap-editable\bootstrap-editable.css" />
+    <Content Include="css\bootstrap.vertical-tabs.min.css" />
+    <Content Include="css\bootstrapmap.css" />
+    <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\codemirror\codemirror.css" />
+    <Content Include="css\dropzone\dropzone.css" />
+    <Content Include="css\elfinder\elfinder.min.css" />
+    <Content Include="css\fancybox\jquery.fancybox.css" />
+    <Content Include="css\fontawesome\font-awesome.min.css" />
+    <Content Include="css\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\fullcalendar\fullcalendar.css" />
+    <Content Include="css\icheck\flat.css" />
+    <Content Include="css\jquery\jquery-ui.min.css" />
+    <Content Include="css\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="css\mcustomscrollbar\jquery.mCustomScrollbar.css" />
+    <Content Include="css\PagerStyle.css" />
+    <Content Include="css\rickshaw\rickshaw.css" />
+    <Content Include="css\SearchAnalyze.css" />
+    <Content Include="css\select2\select2.css" />
+    <Content Include="css\SiteOld.css" />
+    <Content Include="css\smoothness\bootstrapmap.css" />
+    <Content Include="css\smoothness\images\animated-overlay.gif" />
+    <Content Include="css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\smoothness\jquery-ui-1.10.4.custom.css" />
+    <Content Include="css\smoothness\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="css\styles2.css" />
+    <Content Include="css\summernote\summernote.css" />
+    <Content Include="css\uset.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="js\actions.js" />
+    <Content Include="js\ajax-content.js" />
+    <Content Include="js\bootstrapmap.js" />
+    <Content Include="js\charts.js" />
+    <Content Include="js\demo-editable.js" />
+    <Content Include="js\demo.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="js\jquery.placeholder.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\maps.js" />
+    <Content Include="js\modernizr-latest.js" />
+    <Content Include="js\placeholders.custom.js" />
+    <Content Include="js\plugins.js" />
+    <Content Include="js\plugins\bootstra-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="js\plugins\bootstrap-editable\bootstrap-editable.min.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\address\address.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\typeaheadjs\lib\typeahead.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\typeaheadjs\lib\typeahead.js-bootstrap.css" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\typeaheadjs\typeaheadjs.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.css" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.min.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.min.js" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
+    <Content Include="js\plugins\bootstrap-editable\inputs-ext\wysihtml5\wysihtml5.js" />
+    <Content Include="js\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="js\plugins\chained\jquery.chained.min.js" />
+    <Content Include="js\plugins\chained\jquery.chained.remote.min.js" />
+    <Content Include="js\plugins\codemirror\addon\comment\comment.js" />
+    <Content Include="js\plugins\codemirror\addon\comment\continuecomment.js" />
+    <Content Include="js\plugins\codemirror\addon\dialog\dialog.css" />
+    <Content Include="js\plugins\codemirror\addon\dialog\dialog.js" />
+    <Content Include="js\plugins\codemirror\addon\display\fullscreen.css" />
+    <Content Include="js\plugins\codemirror\addon\display\fullscreen.js" />
+    <Content Include="js\plugins\codemirror\addon\display\placeholder.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\closetag.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\continuelist.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\matchtags.js" />
+    <Content Include="js\plugins\codemirror\addon\edit\trailingspace.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\brace-fold.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\comment-fold.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\foldcode.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="js\plugins\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\indent-fold.js" />
+    <Content Include="js\plugins\codemirror\addon\fold\xml-fold.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\anyword-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\css-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\html-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\javascript-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\pig-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\python-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\show-hint.css" />
+    <Content Include="js\plugins\codemirror\addon\hint\show-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\sql-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\hint\xml-hint.js" />
+    <Content Include="js\plugins\codemirror\addon\lint\coffeescript-lint.js" />
+    <Content Include="js\plugins\codemirror\addon\lint\css-lint.js" />
+    <Content Include="js\plugins\codemirror\addon\lint\javascript-lint.js" />
+    <Content Include="js\plugins\codemirror\addon\lint\json-lint.js" />
+    <Content Include="js\plugins\codemirror\addon\lint\lint.css" />
+    <Content Include="js\plugins\codemirror\addon\lint\lint.js" />
+    <Content Include="js\plugins\codemirror\addon\merge\dep\diff_match_patch.js" />
+    <Content Include="js\plugins\codemirror\addon\merge\merge.css" />
+    <Content Include="js\plugins\codemirror\addon\merge\merge.js" />
+    <Content Include="js\plugins\codemirror\addon\mode\loadmode.js" />
+    <Content Include="js\plugins\codemirror\addon\mode\multiplex.js" />
+    <Content Include="js\plugins\codemirror\addon\mode\multiplex_test.js" />
+    <Content Include="js\plugins\codemirror\addon\mode\overlay.js" />
+    <Content Include="js\plugins\codemirror\addon\runmode\colorize.js" />
+    <Content Include="js\plugins\codemirror\addon\runmode\runmode-standalone.js" />
+    <Content Include="js\plugins\codemirror\addon\runmode\runmode.js" />
+    <Content Include="js\plugins\codemirror\addon\runmode\runmode.node.js" />
+    <Content Include="js\plugins\codemirror\addon\scroll\scrollpastend.js" />
+    <Content Include="js\plugins\codemirror\addon\search\match-highlighter.js" />
+    <Content Include="js\plugins\codemirror\addon\search\search.js" />
+    <Content Include="js\plugins\codemirror\addon\search\searchcursor.js" />
+    <Content Include="js\plugins\codemirror\addon\selection\active-line.js" />
+    <Content Include="js\plugins\codemirror\addon\selection\mark-selection.js" />
+    <Content Include="js\plugins\codemirror\addon\tern\tern.css" />
+    <Content Include="js\plugins\codemirror\addon\tern\tern.js" />
+    <Content Include="js\plugins\codemirror\addon\tern\worker.js" />
+    <Content Include="js\plugins\codemirror\addon\wrap\hardwrap.js" />
+    <Content Include="js\plugins\codemirror\codemirror.js" />
+    <Content Include="js\plugins\codemirror\mode\apl\apl.js" />
+    <Content Include="js\plugins\codemirror\mode\apl\index.html" />
+    <Content Include="js\plugins\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="js\plugins\codemirror\mode\asterisk\index.html" />
+    <Content Include="js\plugins\codemirror\mode\clike\clike.js" />
+    <Content Include="js\plugins\codemirror\mode\clike\index.html" />
+    <Content Include="js\plugins\codemirror\mode\clike\scala.html" />
+    <Content Include="js\plugins\codemirror\mode\clojure\clojure.js" />
+    <Content Include="js\plugins\codemirror\mode\clojure\index.html" />
+    <Content Include="js\plugins\codemirror\mode\cobol\cobol.js" />
+    <Content Include="js\plugins\codemirror\mode\cobol\index.html" />
+    <Content Include="js\plugins\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="js\plugins\codemirror\mode\coffeescript\index.html" />
+    <Content Include="js\plugins\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="js\plugins\codemirror\mode\commonlisp\index.html" />
+    <Content Include="js\plugins\codemirror\mode\css\css.js" />
+    <Content Include="js\plugins\codemirror\mode\css\index.html" />
+    <Content Include="js\plugins\codemirror\mode\css\scss.html" />
+    <Content Include="js\plugins\codemirror\mode\css\scss_test.js" />
+    <Content Include="js\plugins\codemirror\mode\css\test.js" />
+    <Content Include="js\plugins\codemirror\mode\diff\diff.js" />
+    <Content Include="js\plugins\codemirror\mode\diff\index.html" />
+    <Content Include="js\plugins\codemirror\mode\dtd\dtd.js" />
+    <Content Include="js\plugins\codemirror\mode\dtd\index.html" />
+    <Content Include="js\plugins\codemirror\mode\d\d.js" />
+    <Content Include="js\plugins\codemirror\mode\d\index.html" />
+    <Content Include="js\plugins\codemirror\mode\ecl\ecl.js" />
+    <Content Include="js\plugins\codemirror\mode\ecl\index.html" />
+    <Content Include="js\plugins\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="js\plugins\codemirror\mode\eiffel\index.html" />
+    <Content Include="js\plugins\codemirror\mode\erlang\erlang.js" />
+    <Content Include="js\plugins\codemirror\mode\erlang\index.html" />
+    <Content Include="js\plugins\codemirror\mode\fortran\fortran.js" />
+    <Content Include="js\plugins\codemirror\mode\fortran\index.html" />
+    <Content Include="js\plugins\codemirror\mode\gas\gas.js" />
+    <Content Include="js\plugins\codemirror\mode\gas\index.html" />
+    <Content Include="js\plugins\codemirror\mode\gfm\gfm.js" />
+    <Content Include="js\plugins\codemirror\mode\gfm\index.html" />
+    <Content Include="js\plugins\codemirror\mode\gfm\test.js" />
+    <Content Include="js\plugins\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="js\plugins\codemirror\mode\gherkin\index.html" />
+    <Content Include="js\plugins\codemirror\mode\go\go.js" />
+    <Content Include="js\plugins\codemirror\mode\go\index.html" />
+    <Content Include="js\plugins\codemirror\mode\groovy\groovy.js" />
+    <Content Include="js\plugins\codemirror\mode\groovy\index.html" />
+    <Content Include="js\plugins\codemirror\mode\haml\haml.js" />
+    <Content Include="js\plugins\codemirror\mode\haml\index.html" />
+    <Content Include="js\plugins\codemirror\mode\haml\test.js" />
+    <Content Include="js\plugins\codemirror\mode\haskell\haskell.js" />
+    <Content Include="js\plugins\codemirror\mode\haskell\index.html" />
+    <Content Include="js\plugins\codemirror\mode\haxe\haxe.js" />
+    <Content Include="js\plugins\codemirror\mode\haxe\index.html" />
+    <Content Include="js\plugins\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="js\plugins\codemirror\mode\htmlembedded\index.html" />
+    <Content Include="js\plugins\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="js\plugins\codemirror\mode\htmlmixed\index.html" />
+    <Content Include="js\plugins\codemirror\mode\http\http.js" />
+    <Content Include="js\plugins\codemirror\mode\http\index.html" />
+    <Content Include="js\plugins\codemirror\mode\index.html" />
+    <Content Include="js\plugins\codemirror\mode\jade\index.html" />
+    <Content Include="js\plugins\codemirror\mode\jade\jade.js" />
+    <Content Include="js\plugins\codemirror\mode\javascript\index.html" />
+    <Content Include="js\plugins\codemirror\mode\javascript\javascript.js" />
+    <Content Include="js\plugins\codemirror\mode\javascript\test.js" />
+    <Content Include="js\plugins\codemirror\mode\javascript\typescript.html" />
+    <Content Include="js\plugins\codemirror\mode\jinja2\index.html" />
+    <Content Include="js\plugins\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="js\plugins\codemirror\mode\julia\index.html" />
+    <Content Include="js\plugins\codemirror\mode\julia\julia.js" />
+    <Content Include="js\plugins\codemirror\mode\less\index.html" />
+    <Content Include="js\plugins\codemirror\mode\less\less.js" />
+    <Content Include="js\plugins\codemirror\mode\livescript\index.html" />
+    <Content Include="js\plugins\codemirror\mode\livescript\livescript.js" />
+    <Content Include="js\plugins\codemirror\mode\lua\index.html" />
+    <Content Include="js\plugins\codemirror\mode\lua\lua.js" />
+    <Content Include="js\plugins\codemirror\mode\markdown\index.html" />
+    <Content Include="js\plugins\codemirror\mode\markdown\markdown.js" />
+    <Content Include="js\plugins\codemirror\mode\markdown\test.js" />
+    <Content Include="js\plugins\codemirror\mode\meta.js" />
+    <Content Include="js\plugins\codemirror\mode\mirc\index.html" />
+    <Content Include="js\plugins\codemirror\mode\mirc\mirc.js" />
+    <Content Include="js\plugins\codemirror\mode\nginx\index.html" />
+    <Content Include="js\plugins\codemirror\mode\nginx\nginx.js" />
+    <Content Include="js\plugins\codemirror\mode\ntriples\index.html" />
+    <Content Include="js\plugins\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="js\plugins\codemirror\mode\ocaml\index.html" />
+    <Content Include="js\plugins\codemirror\mode\ocaml\ocaml.js" />
+    <Content Include="js\plugins\codemirror\mode\octave\index.html" />
+    <Content Include="js\plugins\codemirror\mode\octave\octave.js" />
+    <Content Include="js\plugins\codemirror\mode\pascal\index.html" />
+    <Content Include="js\plugins\codemirror\mode\pascal\pascal.js" />
+    <Content Include="js\plugins\codemirror\mode\pegjs\index.html" />
+    <Content Include="js\plugins\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="js\plugins\codemirror\mode\perl\index.html" />
+    <Content Include="js\plugins\codemirror\mode\perl\perl.js" />
+    <Content Include="js\plugins\codemirror\mode\php\index.html" />
+    <Content Include="js\plugins\codemirror\mode\php\php.js" />
+    <Content Include="js\plugins\codemirror\mode\pig\index.html" />
+    <Content Include="js\plugins\codemirror\mode\pig\pig.js" />
+    <Content Include="js\plugins\codemirror\mode\properties\index.html" />
+    <Content Include="js\plugins\codemirror\mode\properties\properties.js" />
+    <Content Include="js\plugins\codemirror\mode\python\index.html" />
+    <Content Include="js\plugins\codemirror\mode\python\python.js" />
+    <Content Include="js\plugins\codemirror\mode\q\index.html" />
+    <Content Include="js\plugins\codemirror\mode\q\q.js" />
+    <Content Include="js\plugins\codemirror\mode\rpm\changes\changes.js" />
+    <Content Include="js\plugins\codemirror\mode\rpm\changes\index.html" />
+    <Content Include="js\plugins\codemirror\mode\rpm\spec\index.html" />
+    <Content Include="js\plugins\codemirror\mode\rpm\spec\spec.css" />
+    <Content Include="js\plugins\codemirror\mode\rpm\spec\spec.js" />
+    <Content Include="js\plugins\codemirror\mode\rst\index.html" />
+    <Content Include="js\plugins\codemirror\mode\rst\rst.js" />
+    <Content Include="js\plugins\codemirror\mode\ruby\index.html" />
+    <Content Include="js\plugins\codemirror\mode\ruby\ruby.js" />
+    <Content Include="js\plugins\codemirror\mode\rust\index.html" />
+    <Content Include="js\plugins\codemirror\mode\rust\rust.js" />
+    <Content Include="js\plugins\codemirror\mode\r\index.html" />
+    <Content Include="js\plugins\codemirror\mode\r\r.js" />
+    <Content Include="js\plugins\codemirror\mode\sass\index.html" />
+    <Content Include="js\plugins\codemirror\mode\sass\sass.js" />
+    <Content Include="js\plugins\codemirror\mode\scheme\index.html" />
+    <Content Include="js\plugins\codemirror\mode\scheme\scheme.js" />
+    <Content Include="js\plugins\codemirror\mode\shell\index.html" />
+    <Content Include="js\plugins\codemirror\mode\shell\shell.js" />
+    <Content Include="js\plugins\codemirror\mode\sieve\index.html" />
+    <Content Include="js\plugins\codemirror\mode\sieve\sieve.js" />
+    <Content Include="js\plugins\codemirror\mode\smalltalk\index.html" />
+    <Content Include="js\plugins\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="js\plugins\codemirror\mode\smartymixed\index.html" />
+    <Content Include="js\plugins\codemirror\mode\smartymixed\smartymixed.js" />
+    <Content Include="js\plugins\codemirror\mode\smarty\index.html" />
+    <Content Include="js\plugins\codemirror\mode\smarty\smarty.js" />
+    <Content Include="js\plugins\codemirror\mode\sparql\index.html" />
+    <Content Include="js\plugins\codemirror\mode\sparql\sparql.js" />
+    <Content Include="js\plugins\codemirror\mode\sql\index.html" />
+    <Content Include="js\plugins\codemirror\mode\sql\sql.js" />
+    <Content Include="js\plugins\codemirror\mode\stex\index.html" />
+    <Content Include="js\plugins\codemirror\mode\stex\stex.js" />
+    <Content Include="js\plugins\codemirror\mode\stex\test.js" />
+    <Content Include="js\plugins\codemirror\mode\tcl\index.html" />
+    <Content Include="js\plugins\codemirror\mode\tcl\tcl.js" />
+    <Content Include="js\plugins\codemirror\mode\tiddlywiki\index.html" />
+    <Content Include="js\plugins\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="js\plugins\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="js\plugins\codemirror\mode\tiki\index.html" />
+    <Content Include="js\plugins\codemirror\mode\tiki\tiki.css" />
+    <Content Include="js\plugins\codemirror\mode\tiki\tiki.js" />
+    <Content Include="js\plugins\codemirror\mode\toml\index.html" />
+    <Content Include="js\plugins\codemirror\mode\toml\toml.js" />
+    <Content Include="js\plugins\codemirror\mode\turtle\index.html" />
+    <Content Include="js\plugins\codemirror\mode\turtle\turtle.js" />
+    <Content Include="js\plugins\codemirror\mode\vbscript\index.html" />
+    <Content Include="js\plugins\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="js\plugins\codemirror\mode\vb\index.html" />
+    <Content Include="js\plugins\codemirror\mode\vb\vb.js" />
+    <Content Include="js\plugins\codemirror\mode\velocity\index.html" />
+    <Content Include="js\plugins\codemirror\mode\velocity\velocity.js" />
+    <Content Include="js\plugins\codemirror\mode\verilog\index.html" />
+    <Content Include="js\plugins\codemirror\mode\verilog\verilog.js" />
+    <Content Include="js\plugins\codemirror\mode\xml\index.html" />
+    <Content Include="js\plugins\codemirror\mode\xml\xml.js" />
+    <Content Include="js\plugins\codemirror\mode\xquery\index.html" />
+    <Content Include="js\plugins\codemirror\mode\xquery\test.js" />
+    <Content Include="js\plugins\codemirror\mode\xquery\xquery.js" />
+    <Content Include="js\plugins\codemirror\mode\yaml\index.html" />
+    <Content Include="js\plugins\codemirror\mode\yaml\yaml.js" />
+    <Content Include="js\plugins\codemirror\mode\z80\index.html" />
+    <Content Include="js\plugins\codemirror\mode\z80\z80.js" />
+    <Content Include="js\plugins\cookies\jquery.cookies.2.2.0.min.js" />
+    <Content Include="js\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="js\plugins\daterangepicker\moment.min.js" />
+    <Content Include="js\plugins\dropzone\dropzone.js" />
+    <Content Include="js\plugins\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="js\plugins\filetree\jqueryFileTree.js" />
+    <Content Include="js\plugins\flot\excanvas.min.js" />
+    <Content Include="js\plugins\flot\jquery.colorhelpers.js" />
+    <Content Include="js\plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="js\plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="js\plugins\flot\jquery.flot.image.js" />
+    <Content Include="js\plugins\flot\jquery.flot.js" />
+    <Content Include="js\plugins\flot\jquery.flot.navigate.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="js\plugins\flot\jquery.flot.selection.js" />
+    <Content Include="js\plugins\flot\jquery.flot.stack.js" />
+    <Content Include="js\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="js\plugins\flot\jquery.flot.threshold.js" />
+    <Content Include="js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="js\plugins\highlight\jquery.highlight-4.js" />
+    <Content Include="js\plugins\icheck\jquery.icheck.min.js" />
+    <Content Include="js\plugins\imgareaselect\jquery.imgareaselect.min.js" />
+    <Content Include="js\plugins\jquery-validation\additional-methods.min.js" />
+    <Content Include="js\plugins\jquery-validation\jquery.validate.min.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ar.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_bg.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ca.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_cs.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_da.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_de.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_el.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_es.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_et.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_eu.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_fa.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_fi.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_fr.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_he.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_hr.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_hu.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_it.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ja.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ka.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_kk.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ko.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_lt.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_lv.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_my.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_nl.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_no.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_pl.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ro.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_ru.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_si.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_sk.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_sl.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_sr.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_sv.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_th.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_tr.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_uk.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_vi.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_zh.js" />
+    <Content Include="js\plugins\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="js\plugins\jquery-validation\localization\methods_de.js" />
+    <Content Include="js\plugins\jquery-validation\localization\methods_nl.js" />
+    <Content Include="js\plugins\jquery-validation\localization\methods_pt.js" />
+    <Content Include="js\plugins\jquery\jquery-migrate.min.js" />
+    <Content Include="js\plugins\jquery\jquery-ui-timepicker-addon.js" />
+    <Content Include="js\plugins\jquery\jquery-ui.min.js" />
+    <Content Include="js\plugins\jquery\jquery.min.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-europe-mill-en.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-uakraine-merc-en.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="js\plugins\knob\jquery.knob.js" />
+    <Content Include="js\plugins\less\less.min.js" />
+    <Content Include="js\plugins\maskedinput\jquery.maskedinput.min.js" />
+    <Content Include="js\plugins\mcustomscrollbar\jquery.mCustomScrollbar.min.js" />
+    <Content Include="js\plugins\mockjax\jquery.mockjax.js" />
+    <Content Include="js\plugins\nestable\jquery.nestable.js" />
+    <Content Include="js\plugins\noty\jquery.noty.js" />
+    <Content Include="js\plugins\noty\layouts\bottom.js" />
+    <Content Include="js\plugins\noty\layouts\bottomCenter.js" />
+    <Content Include="js\plugins\noty\layouts\bottomLeft.js" />
+    <Content Include="js\plugins\noty\layouts\bottomRight.js" />
+    <Content Include="js\plugins\noty\layouts\center.js" />
+    <Content Include="js\plugins\noty\layouts\centerLeft.js" />
+    <Content Include="js\plugins\noty\layouts\centerRight.js" />
+    <Content Include="js\plugins\noty\layouts\inline.js" />
+    <Content Include="js\plugins\noty\layouts\top.js" />
+    <Content Include="js\plugins\noty\layouts\topCenter.js" />
+    <Content Include="js\plugins\noty\layouts\topLeft.js" />
+    <Content Include="js\plugins\noty\layouts\topRight.js" />
+    <Content Include="js\plugins\noty\promise.js" />
+    <Content Include="js\plugins\noty\themes\default.js" />
+    <Content Include="js\plugins\other\faq.js" />
+    <Content Include="js\plugins\plupload\i18n\cs.js" />
+    <Content Include="js\plugins\plupload\i18n\da.js" />
+    <Content Include="js\plugins\plupload\i18n\de.js" />
+    <Content Include="js\plugins\plupload\i18n\el.js" />
+    <Content Include="js\plugins\plupload\i18n\es.js" />
+    <Content Include="js\plugins\plupload\i18n\et.js" />
+    <Content Include="js\plugins\plupload\i18n\fa.js" />
+    <Content Include="js\plugins\plupload\i18n\fi.js" />
+    <Content Include="js\plugins\plupload\i18n\fr-ca.js" />
+    <Content Include="js\plugins\plupload\i18n\fr.js" />
+    <Content Include="js\plugins\plupload\i18n\hr.js" />
+    <Content Include="js\plugins\plupload\i18n\hu.js" />
+    <Content Include="js\plugins\plupload\i18n\it.js" />
+    <Content Include="js\plugins\plupload\i18n\ja.js" />
+    <Content Include="js\plugins\plupload\i18n\ko.js" />
+    <Content Include="js\plugins\plupload\i18n\lv.js" />
+    <Content Include="js\plugins\plupload\i18n\nl.js" />
+    <Content Include="js\plugins\plupload\i18n\pl.js" />
+    <Content Include="js\plugins\plupload\i18n\pt-br.js" />
+    <Content Include="js\plugins\plupload\i18n\ro.js" />
+    <Content Include="js\plugins\plupload\i18n\ru.js" />
+    <Content Include="js\plugins\plupload\i18n\sr.js" />
+    <Content Include="js\plugins\plupload\i18n\sv.js" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\css\jquery.plupload.queue.css" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\backgrounds.gif" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\buttons-disabled.png" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\buttons.png" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\delete.gif" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\done.gif" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\error.gif" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\throbber.gif" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\img\transp50.png" />
+    <Content Include="js\plugins\plupload\jquery.plupload.queue\jquery.plupload.queue.js" />
+    <Content Include="js\plugins\plupload\jquery.ui.plupload\css\jquery.ui.plupload.css" />
+    <Content Include="js\plugins\plupload\jquery.ui.plupload\img\plupload-bw.png" />
+    <Content Include="js\plugins\plupload\jquery.ui.plupload\img\plupload.png" />
+    <Content Include="js\plugins\plupload\jquery.ui.plupload\jquery.ui.plupload.js" />
+    <Content Include="js\plugins\plupload\plupload.browserplus.js" />
+    <Content Include="js\plugins\plupload\plupload.flash.js" />
+    <Content Include="js\plugins\plupload\plupload.flash.swf" />
+    <Content Include="js\plugins\plupload\plupload.full.js" />
+    <Content Include="js\plugins\plupload\plupload.gears.js" />
+    <Content Include="js\plugins\plupload\plupload.html4.js" />
+    <Content Include="js\plugins\plupload\plupload.html5.js" />
+    <Content Include="js\plugins\plupload\plupload.js" />
+    <Content Include="js\plugins\plupload\plupload.silverlight.js" />
+    <Content Include="js\plugins\plupload\plupload.silverlight.xap" />
+    <Content Include="js\plugins\rickshaw\d3.layout.min.js" />
+    <Content Include="js\plugins\rickshaw\d3.min.js" />
+    <Content Include="js\plugins\rickshaw\d3.v2.js" />
+    <Content Include="js\plugins\rickshaw\d3.v3.js" />
+    <Content Include="js\plugins\rickshaw\rickshaw.min.js" />
+    <Content Include="js\plugins\select2\select2.min.js" />
+    <Content Include="js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="js\plugins\summernote\summernote.min.js" />
+    <Content Include="js\plugins\tagsinput\jquery.tagsinput.min.js" />
+    <Content Include="js\plugins\validation\jquery.validationEngine.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-ca.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-cz.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-da.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-de.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-el.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-en.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-es.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-et.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-fa.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-fi.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-fr.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-hr.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-hu.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-id.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-it.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-ja.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-lt.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-nl.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-no.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-pl.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-pt.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-pt_BR.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-ro.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-ru.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-sv.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-tr.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-vi.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-zh_CN.js" />
+    <Content Include="js\plugins\validation\languages\jquery.validationEngine-zh_TW.js" />
+    <Content Include="js\respond.min.js" />
+    <Content Include="PubMap.aspx" />
+    <Content Include="App_Pages\Secure\Charting.aspx" />
+    <Content Include="App_Pages\Secure\WQXOrgEdit.aspx" />
+    <Content Include="Account\UserEdit.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="App_Pages\Secure\Maps.aspx" />
+    <Content Include="App_Pages\Secure\WQXImportMonLoc.aspx" />
+    <Content Include="App_Pages\Secure\WQXImportSample.aspx" />
+    <Content Include="App_Pages\Secure\WQXImportConfig.aspx" />
+    <Content Include="App_Pages\Secure\WQXImportProject.aspx" />
+    <Content Include="App_Pages\Secure\AdmAdminTools.aspx" />
+    <Content Include="Account\Verify.aspx" />
+    <Content Include="Account\Redirect.aspx" />
+    <Content Include="App_Pages\Secure\WQXOrgNew.aspx" />
+    <Content Include="App_Pages\Secure\AdmDataSynch.aspx" />
+    <Content Include="App_Pages\Secure\WQXOrgSettings.aspx" />
+    <Content Include="App_Pages\Secure\Help.aspx" />
+    <Content Include="App_Images\0.png" />
+    <Content Include="App_Images\grd_alt.png" />
+    <Content Include="App_Images\grd_head.png" />
+    <Content Include="App_Images\grd_pgr.png" />
+    <Content Include="App_Images\ico_alert.png" />
+    <Content Include="App_Images\ico_arrow_r.png" />
+    <Content Include="App_Images\ico_del.png" />
+    <Content Include="App_Images\ico_edit.png" />
+    <Content Include="App_Images\ico_fail.png" />
+    <Content Include="App_Images\ico_info.png" />
+    <Content Include="App_Images\ico_map.png" />
+    <Content Include="App_Images\ico_pass.png" />
+    <Content Include="App_Images\ico_plus.png" />
+    <Content Include="App_Images\ico_resize.png" />
+    <Content Include="App_Images\ico_save.png" />
+    <Content Include="App_Images\ico_config.png" />
+    <Content Include="App_Images\ico_xls.png" />
+    <Content Include="App_Images\menubg.jpg" />
+    <Content Include="App_Images\progress.gif" />
+    <Content Include="App_Pages\Secure\RefData.aspx" />
+    <Content Include="App_Pages\Secure\WQXActivityEdit.aspx" />
+    <Content Include="App_Pages\Secure\WQXImport.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chosen-sprite.png" />
+    <Content Include="Scripts\chosen.css" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="css\bootstrap\bootstrap.css.map" />
+    <Content Include="css\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\fonts\FontAwesome.otf" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="js\plugins\codemirror\mode\livescript\livescript.ls" />
+    <Content Include="js\plugins\jquery\jquery-2.0.3.min.map" />
+    <Content Include="App_Pages\Secure\SiteAuth.Master" />
+    <Content Include="EBCIUploads\Logs\ErrorLog2013123" />
+    <Content Include="App_Docs\SampleFile.xls" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jQueryAssets\FipsCountyCodes.js" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\jQueryAssets\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jQueryAssets\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jQueryAssets\jquery-ui-1.9.2.button.custom.min.js" />
+    <Content Include="Scripts\jQueryAssets\jquery-ui-1.9.2.datepicker.custom.min.js" />
+    <Content Include="Scripts\jQueryAssets\jquery-ui-1.9.2.dialog.custom.min.js" />
+    <Content Include="Scripts\jQueryAssets\jquery-ui-1.9.2.tabs.custom.min.js" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.button.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.core.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.datepicker.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.dialog.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.resizable.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.tabs.min.css" />
+    <Content Include="Scripts\jQueryAssets\jquery.ui.theme.min.css" />
+    <Content Include="Scripts\jQueryAssets\uset.js" />
+    <Content Include="Scripts\SearchAnalyze.js" />
+    <Content Include="Site.Master" />
+    <Content Include="Styles\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\bootstrap_site.css" />
+    <Content Include="Styles\simple.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Styles\styles2.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="App_Pages\Public\License.aspx" />
+    <Content Include="App_Pages\Secure\Dashboard.aspx" />
+    <Content Include="App_Pages\Secure\WQXMonLoc.aspx" />
+    <Content Include="App_Pages\Secure\WQX_Hist.aspx" />
+    <Content Include="App_Pages\Secure\MyAccount.aspx" />
+    <Content Include="App_Pages\Secure\AppSettings.aspx" />
+    <Content Include="App_Pages\Secure\WQXMonLocEdit.aspx" />
+    <Content Include="App_Pages\Public\AccessDenied.aspx" />
+    <Content Include="Account\RoleEdit.aspx" />
+    <Content Include="Account\RoleAdd.aspx" />
+    <Content Include="App_Pages\Secure\WQXOrg.aspx" />
+    <Content Include="App_Pages\Secure\WQXProject.aspx" />
+    <Content Include="App_Pages\Secure\WQXActivity.aspx" />
+    <Content Include="App_Pages\Secure\WQX_Mgmt.aspx" />
+    <Content Include="App_Pages\Secure\WQXProjectEdit.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CustomMembership.cs" />
+    <Compile Include="Account\CustomRoleProvider.cs" />
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\BusinessLogicLayer\Crypto.cs" />
+    <Compile Include="App_Logic\BusinessLogicLayer\SendGridHelper.cs" />
+    <Compile Include="App_Logic\BusinessLogicLayer\Utils.cs" />
+    <Compile Include="App_Logic\BusinessLogicLayer\WQXSubmit.cs" />
+    <Compile Include="App_Logic\DataAccessLayer\db_Accounts.cs" />
+    <Compile Include="App_Logic\DataAccessLayer\db_Config.cs" />
+    <Compile Include="App_Logic\DataAccessLayer\db_model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Logic\DataAccessLayer\db_Ref.cs" />
+    <Compile Include="App_Logic\DataAccessLayer\db_WQX.cs" />
+    <Compile Include="App_Pages\Public\Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Public\Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AnalyzeAdmin.aspx.cs">
+      <DependentUpon>AnalyzeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AnalyzeAdmin.aspx.designer.cs">
+      <DependentUpon>AnalyzeAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\ColumnAdmin.aspx.cs">
+      <DependentUpon>ColumnAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\ColumnAdmin.aspx.designer.cs">
+      <DependentUpon>ColumnAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\SearchAnalyze.aspx.cs">
+      <DependentUpon>SearchAnalyze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\SearchAnalyze.aspx.designer.cs">
+      <DependentUpon>SearchAnalyze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\SiteAuth.Master.cs">
+      <DependentUpon>SiteAuth.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\SiteAuth.Master.designer.cs">
+      <DependentUpon>SiteAuth.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXAnalyze.aspx.cs">
+      <DependentUpon>WQXAnalyze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXAnalyze.aspx.designer.cs">
+      <DependentUpon>WQXAnalyze.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXConfigurations.aspx.cs">
+      <DependentUpon>WQXConfigurations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXConfigurations.aspx.designer.cs">
+      <DependentUpon>WQXConfigurations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXESRIMap.aspx.cs">
+      <DependentUpon>WQXESRIMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXESRIMap.aspx.designer.cs">
+      <DependentUpon>WQXESRIMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXUploadExcel.aspx.cs">
+      <DependentUpon>WQXUploadExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXUploadExcel.aspx.designer.cs">
+      <DependentUpon>WQXUploadExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PubMap.aspx.cs">
+      <DependentUpon>PubMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PubMap.aspx.designer.cs">
+      <DependentUpon>PubMap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\gov.epa.cdx\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\net.epacdxnode.test\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Public\License.aspx.cs">
+      <DependentUpon>License.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Public\License.aspx.designer.cs">
+      <DependentUpon>License.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXMonLoc.aspx.cs">
+      <DependentUpon>WQXMonLoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXMonLoc.aspx.designer.cs">
+      <DependentUpon>WQXMonLoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQX_Hist.aspx.cs">
+      <DependentUpon>WQX_Hist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQX_Hist.aspx.designer.cs">
+      <DependentUpon>WQX_Hist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\RefData.aspx.cs">
+      <DependentUpon>RefData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\RefData.aspx.designer.cs">
+      <DependentUpon>RefData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AppSettings.aspx.cs">
+      <DependentUpon>AppSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AppSettings.aspx.designer.cs">
+      <DependentUpon>AppSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXMonLocEdit.aspx.cs">
+      <DependentUpon>WQXMonLocEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXMonLocEdit.aspx.designer.cs">
+      <DependentUpon>WQXMonLocEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Public\AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Public\AccessDenied.aspx.designer.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RoleEdit.aspx.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RoleEdit.aspx.designer.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RoleAdd.aspx.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RoleAdd.aspx.designer.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrg.aspx.cs">
+      <DependentUpon>WQXOrg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrg.aspx.designer.cs">
+      <DependentUpon>WQXOrg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXProject.aspx.cs">
+      <DependentUpon>WQXProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXProject.aspx.designer.cs">
+      <DependentUpon>WQXProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXActivity.aspx.cs">
+      <DependentUpon>WQXActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXActivity.aspx.designer.cs">
+      <DependentUpon>WQXActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXActivityEdit.aspx.cs">
+      <DependentUpon>WQXActivityEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXActivityEdit.aspx.designer.cs">
+      <DependentUpon>WQXActivityEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImport.aspx.cs">
+      <DependentUpon>WQXImport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImport.aspx.designer.cs">
+      <DependentUpon>WQXImport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQX_Mgmt.aspx.cs">
+      <DependentUpon>WQX_Mgmt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQX_Mgmt.aspx.designer.cs">
+      <DependentUpon>WQX_Mgmt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXProjectEdit.aspx.cs">
+      <DependentUpon>WQXProjectEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXProjectEdit.aspx.designer.cs">
+      <DependentUpon>WQXProjectEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Charting.aspx.cs">
+      <DependentUpon>Charting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Charting.aspx.designer.cs">
+      <DependentUpon>Charting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgEdit.aspx.cs">
+      <DependentUpon>WQXOrgEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgEdit.aspx.designer.cs">
+      <DependentUpon>WQXOrgEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Maps.aspx.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Maps.aspx.designer.cs">
+      <DependentUpon>Maps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportMonLoc.aspx.cs">
+      <DependentUpon>WQXImportMonLoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportMonLoc.aspx.designer.cs">
+      <DependentUpon>WQXImportMonLoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportSample.aspx.cs">
+      <DependentUpon>WQXImportSample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportSample.aspx.designer.cs">
+      <DependentUpon>WQXImportSample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportConfig.aspx.cs">
+      <DependentUpon>WQXImportConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportConfig.aspx.designer.cs">
+      <DependentUpon>WQXImportConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportProject.aspx.cs">
+      <DependentUpon>WQXImportProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXImportProject.aspx.designer.cs">
+      <DependentUpon>WQXImportProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AdmAdminTools.aspx.cs">
+      <DependentUpon>AdmAdminTools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AdmAdminTools.aspx.designer.cs">
+      <DependentUpon>AdmAdminTools.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Redirect.aspx.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Redirect.aspx.designer.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgNew.aspx.cs">
+      <DependentUpon>WQXOrgNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgNew.aspx.designer.cs">
+      <DependentUpon>WQXOrgNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AdmDataSynch.aspx.cs">
+      <DependentUpon>AdmDataSynch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\AdmDataSynch.aspx.designer.cs">
+      <DependentUpon>AdmDataSynch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgSettings.aspx.cs">
+      <DependentUpon>WQXOrgSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\WQXOrgSettings.aspx.designer.cs">
+      <DependentUpon>WQXOrgSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Pages\Secure\Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="App_Logic\DataAccessLayer\db_model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>db_model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="packages.config" />
+    <Content Include="App_Docs\UsersGuide.docx" />
+    <Content Include="App_Docs\MonLoc_ImportTemplate.xlsx" />
+    <Content Include="App_Docs\SampCT_ImportTemplate.xlsx" />
+    <Content Include="App_Docs\Samp_ImportTemplate.xlsx" />
+    <Content Include="App_Docs\SampBio_ImportTemplate.xlsx" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Styles\bootstrap.css.map" />
+    <None Include="Web References\gov.epa.cdx\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\gov.epa.cdx\services.wsdl" />
+    <None Include="Web References\net.epacdxnode.test\AuthenticateResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\ExecuteResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\GenericXmlType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\NetworkNode2.wsdl" />
+    <None Include="Web References\net.epacdxnode.test\NodeDocumentType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\NodePingResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\ResultSetType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\StatusResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\net.epacdxnode.test\xmlmime.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://cdx.epa.gov/WQXWeb/services.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\gov.epa.cdx\</RelPath>
+      <UpdateFromURL>http://cdx.epa.gov/WQXWeb/services.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OpenEnvironment_gov_epa_cdx_Domain_x0020_Values_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://testngn.epacdxnode.net/ngn-enws20/services/NetworkNode2Service%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\net.epacdxnode.test\</RelPath>
+      <UpdateFromURL>https://testngn.epacdxnode.net/ngn-enws20/services/NetworkNode2Service%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OpenEnvironment_net_epacdxnode_test_NetworkNode2</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logs\" />
+    <Folder Include="tmp\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59412</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/SiteAuth.Master" AutoEventWireup="true" CodeBehind="MasterAdmin.master.cs" Inherits="OpenEnvironment.MasterAdmin" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <link href="../../bootstrap.min.css" rel="stylesheet" type="text/css"/>
+     <script src="../../Scripts/jquery.js" type="text/javascript"></script>
+     <script src="../../Scripts/bootstrap.min.js" type="text/javascript"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <table cellpadding="0" cellspacing="0" style="min-height:490px">
+        <tr>
+            <td style="vertical-align: top; background-color: #efefef; width:180px;" >
+                <div class="leftMnu">
+                    <div class="leftMnuTitle">Admin</div>
+                    <div class="leftMnuBody">
+                        <asp:HyperLink runat="server" ID="lnkUserList" CssClass="leftLnk" NavigateUrl="~/Account/UserList.aspx">&bull; User Management</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="lnkRoleList" CssClass="leftLnk" NavigateUrl="~/Account/RoleList.aspx">&bull; Role Management</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="lnkAppSettings" CssClass="leftLnk" NavigateUrl="~/App_Pages/Secure/AppSettings.aspx">&bull; App Settings</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="lnkWQXList" CssClass="leftLnk" NavigateUrl="~/App_Pages/Secure/WQX_Mgmt.aspx">&bull; WQX Management</asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="lnkDataMgmt" CssClass="leftLnk" NavigateUrl="~/App_Pages/Secure/AdmDataSynch.aspx">&bull; Data Synch</asp:HyperLink>
+                    </div>
+                </div>
+            </td>
+            <!-- body portion --> 
+            <td class="mainPnl">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>

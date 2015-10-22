@@ -1,0 +1,35 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+#Tabs1
+{
+	width: 500px;
+}
+
+.tabContent
+{
+	height:600px;
+	padding:0px;
+	margin:0px;
+}
+
+#resultsTable
+{
+	font-size:14px;
+}
+
+.selectedWaterParameter
+{
+	font-size: 14px;
+}
+
+p
+{
+	font-weight:bold;	
+}
+
+#chart_div
+{
+	width:900px;
+}

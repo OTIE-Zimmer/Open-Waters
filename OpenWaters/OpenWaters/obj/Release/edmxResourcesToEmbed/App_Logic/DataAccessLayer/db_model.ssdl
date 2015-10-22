@@ -1,0 +1,1477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpenEnvironmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_EPA_ORGS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_OE_ANALYZECONFIG">
+    <Key>
+      <PropertyRef Name="ANALYZECONFIG_IDX" />
+    </Key>
+    <Property Name="ANALYZECONFIG_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="ANALYZECONFIG_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="USER_IDX" Type="int" />
+    <Property Name="SITES" Type="varchar" MaxLength="50" />
+    <Property Name="CHARACTERISTIC" Type="varchar" MaxLength="100" />
+    <Property Name="START_DATE" Type="datetime2" Precision="0" />
+    <Property Name="END_DATE" Type="datetime2" Precision="0" />
+    <Property Name="UPPER_THRESHOLD" Type="float" />
+    <Property Name="LOWER_THRESHOLD" Type="float" />
+  </EntityType>
+  <EntityType Name="T_OE_APP_SETTINGS">
+    <Key>
+      <PropertyRef Name="SETTING_IDX" />
+    </Key>
+    <Property Name="SETTING_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SETTING_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SETTING_DESC" Type="varchar" MaxLength="500" />
+    <Property Name="SETTING_VALUE" Type="varchar" MaxLength="200" />
+    <Property Name="ENCRYPT_IND" Type="bit" />
+    <Property Name="SETTING_VALUE_SALT" Type="varchar" MaxLength="100" />
+    <Property Name="MODIFY_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="MODIFY_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_OE_APP_TASKS">
+    <Key>
+      <PropertyRef Name="TASK_IDX" />
+    </Key>
+    <Property Name="TASK_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TASK_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TASK_DESC" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TASK_STATUS" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TASK_FREQ_MS" Type="int" Nullable="false" />
+    <Property Name="MODIFY_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="MODIFY_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_OE_COLUMNCONFIG">
+    <Key>
+      <PropertyRef Name="COLUMNCONFIG_IDX" />
+    </Key>
+    <Property Name="COLUMNCONFIG_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COLUMN_NAME" Type="varchar" MaxLength="100" />
+    <Property Name="COLUMN_DONT_SEND" Type="bit" />
+    <Property Name="UNIT" Type="varchar" MaxLength="50" />
+    <Property Name="MAX_VALUE" Type="float" />
+    <Property Name="MIN_VALUE" Type="float" />
+  </EntityType>
+  <EntityType Name="T_OE_ROLES">
+    <Key>
+      <PropertyRef Name="ROLE_IDX" />
+    </Key>
+    <Property Name="ROLE_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROLE_NAME" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ROLE_DESC" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+    <Property Name="MODIFY_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="MODIFY_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_OE_SAVED_COLUMN_CONFIG">
+    <Key>
+      <PropertyRef Name="CONFIG_IDX" />
+    </Key>
+    <Property Name="CONFIG_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="CONFIG_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="USER_COL_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="WQX_COL_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="T_OE_SYS_LOG">
+    <Key>
+      <PropertyRef Name="SYS_LOG_ID" />
+    </Key>
+    <Property Name="SYS_LOG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOG_DT" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="LOG_USERIDX" Type="int" />
+    <Property Name="LOG_TYPE" Type="varchar" MaxLength="15" />
+    <Property Name="LOG_MSG" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="T_OE_USER_ROLES">
+    <Key>
+      <PropertyRef Name="USER_ROLE_IDX" />
+    </Key>
+    <Property Name="USER_ROLE_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_IDX" Type="int" Nullable="false" />
+    <Property Name="ROLE_IDX" Type="int" Nullable="false" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_OE_USERS">
+    <Key>
+      <PropertyRef Name="USER_IDX" />
+    </Key>
+    <Property Name="USER_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="PWD_HASH" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PWD_SALT" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FNAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="LNAME" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="150" />
+    <Property Name="INITAL_PWD_FLAG" Type="bit" Nullable="false" />
+    <Property Name="EFFECTIVE_DT" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="LASTLOGIN_DT" Type="datetime2" Precision="0" />
+    <Property Name="PHONE" Type="varchar" MaxLength="12" />
+    <Property Name="PHONE_EXT" Type="varchar" MaxLength="4" />
+    <Property Name="DEFAULT_ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="ACT_IND" Type="bit" Nullable="false" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+    <Property Name="MODIFY_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="MODIFY_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_WQX_ACTIVITY">
+    <Key>
+      <PropertyRef Name="ACTIVITY_IDX" />
+    </Key>
+    <Property Name="ACTIVITY_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PROJECT_IDX" Type="int" Nullable="false" />
+    <Property Name="MONLOC_IDX" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="ACT_TYPE" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ACT_MEDIA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ACT_SUBMEDIA" Type="varchar" MaxLength="45" />
+    <Property Name="ACT_START_DT" Type="datetime" Nullable="false" />
+    <Property Name="ACT_END_DT" Type="datetime" />
+    <Property Name="ACT_TIME_ZONE" Type="varchar" MaxLength="4" />
+    <Property Name="RELATIVE_DEPTH_NAME" Type="varchar" MaxLength="15" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTH_REF_POINT" Type="varchar" MaxLength="125" />
+    <Property Name="ACT_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="BIO_ASSEMBLAGE_SAMPLED" Type="varchar" MaxLength="50" />
+    <Property Name="BIO_DURATION_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_DURATION_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_SAMP_COMPONENT" Type="varchar" MaxLength="15" />
+    <Property Name="BIO_SAMP_COMPONENT_SEQ" Type="int" />
+    <Property Name="BIO_REACH_LEN_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_LEN_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_WID_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_WID_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_PASS_COUNT" Type="int" />
+    <Property Name="BIO_NET_TYPE" Type="varchar" MaxLength="30" />
+    <Property Name="BIO_NET_AREA_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_NET_AREA_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_NET_MESHSIZE_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_MESHSIZE_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_BOAT_SPEED_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_BOAT_SPEED_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_CURR_SPEED_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_CURR_SPEED_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_TOXICITY_TEST_TYPE" Type="varchar" MaxLength="7" />
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="int" />
+    <Property Name="SAMP_COLL_EQUIP" Type="varchar" MaxLength="40" />
+    <Property Name="SAMP_COLL_EQUIP_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="SAMP_PREP_IDX" Type="int" />
+    <Property Name="SAMP_PREP_CONT_TYPE" Type="varchar" MaxLength="35" />
+    <Property Name="SAMP_PREP_CONT_COLOR" Type="varchar" MaxLength="15" />
+    <Property Name="SAMP_PREP_CHEM_PRESERV" Type="varchar" MaxLength="250" />
+    <Property Name="SAMP_PREP_THERM_PRESERV" Type="varchar" MaxLength="25" />
+    <Property Name="SAMP_PREP_STORAGE_DESC" Type="varchar" MaxLength="250" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="varchar" MaxLength="1" />
+    <Property Name="WQX_UPDATE_DT" Type="datetime" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="TEMP_SAMPLE_IDX" Type="int" />
+    <Property Name="ENTRY_TYPE" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="T_WQX_ACTIVITY_METRIC">
+    <Key>
+      <PropertyRef Name="ACTIVITY_METRIC_IDX" />
+    </Key>
+    <Property Name="ACTIVITY_METRIC_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACTIVITY_IDX" Type="int" Nullable="false" />
+    <Property Name="METRIC_TYPE_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="METRIC_TYPE_ID_CONTEXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="METRIC_TYPE_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="CITATION_TITLE" Type="varchar" MaxLength="120" />
+    <Property Name="CITATION_CREATOR" Type="varchar" MaxLength="120" />
+    <Property Name="CITATION_SUBJECT" Type="varchar" MaxLength="500" />
+    <Property Name="CITATION_PUBLISHER" Type="varchar" MaxLength="60" />
+    <Property Name="CITATION_DATE" Type="datetime" />
+    <Property Name="CITATION_ID" Type="varchar" MaxLength="255" />
+    <Property Name="METRIC_SCALE" Type="varchar" MaxLength="50" />
+    <Property Name="METRIC_FORMULA_DESC" Type="varchar" MaxLength="50" />
+    <Property Name="METRIC_VALUE_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="METRIC_VALUE_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="METRIC_SCORE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="METRIC_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="BIO_HABITAT_INDEX_IDX" Type="int" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="varchar" MaxLength="1" />
+    <Property Name="WQX_UPDATE_DT" Type="datetime" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_BIO_HABITAT_INDEX">
+    <Key>
+      <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+    </Key>
+    <Property Name="BIO_HABITAT_INDEX_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MONLOC_IDX" Type="int" />
+    <Property Name="INDEX_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="INDEX_TYPE_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="INDEX_TYPE_ID_CONTEXT" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="INDEX_TYPE_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RESOURCE_TITLE" Type="varchar" MaxLength="120" />
+    <Property Name="RESOURCE_CREATOR" Type="varchar" MaxLength="120" />
+    <Property Name="RESOURCE_SUBJECT" Type="varchar" MaxLength="400" />
+    <Property Name="RESOURCE_PUBLISHER" Type="varchar" MaxLength="60" />
+    <Property Name="RESOURCE_DATE" Type="datetime" />
+    <Property Name="RESOURCE_ID" Type="varchar" MaxLength="255" />
+    <Property Name="INDEX_TYPE_SCALE" Type="varchar" MaxLength="50" />
+    <Property Name="INDEX_SCORE" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="INDEX_QUAL_CD" Type="varchar" MaxLength="5" />
+    <Property Name="INDEX_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="INDEX_CALC_DATE" Type="datetime" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="varchar" MaxLength="1" />
+    <Property Name="WQX_UPDATE_DT" Type="datetime" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_LOG">
+    <Key>
+      <PropertyRef Name="IMPORT_ID" />
+    </Key>
+    <Property Name="IMPORT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TYPE_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="FILE_NAME" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="FILE_SIZE" Type="int" Nullable="false" />
+    <Property Name="IMPORT_STATUS" Type="varchar" MaxLength="15" />
+    <Property Name="IMPORT_PROGRESS" Type="varchar" MaxLength="10" />
+    <Property Name="IMPORT_PROGRESS_MSG" Type="varchar" MaxLength="1000" />
+    <Property Name="IMPORT_FILE" Type="varbinary(max)" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_MONLOC">
+    <Key>
+      <PropertyRef Name="TEMP_MONLOC_IDX" />
+    </Key>
+    <Property Name="TEMP_MONLOC_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MONLOC_IDX" Type="int" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="MONLOC_ID" Type="varchar" MaxLength="35" />
+    <Property Name="MONLOC_NAME" Type="varchar" MaxLength="255" />
+    <Property Name="MONLOC_TYPE" Type="varchar" MaxLength="45" />
+    <Property Name="MONLOC_DESC" Type="varchar" MaxLength="1999" />
+    <Property Name="HUC_EIGHT" Type="varchar" MaxLength="8" />
+    <Property Name="HUC_TWELVE" Type="varchar" MaxLength="12" />
+    <Property Name="TRIBAL_LAND_IND" Type="char" MaxLength="1" />
+    <Property Name="TRIBAL_LAND_NAME" Type="varchar" MaxLength="200" />
+    <Property Name="LATITUDE_MSR" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="LONGITUDE_MSR" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SOURCE_MAP_SCALE" Type="int" />
+    <Property Name="HORIZ_ACCURACY" Type="varchar" MaxLength="12" />
+    <Property Name="HORIZ_ACCURACY_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="HORIZ_COLL_METHOD" Type="varchar" MaxLength="150" />
+    <Property Name="HORIZ_REF_DATUM" Type="varchar" MaxLength="6" />
+    <Property Name="VERT_MEASURE" Type="varchar" MaxLength="12" />
+    <Property Name="VERT_MEASURE_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="VERT_COLL_METHOD" Type="varchar" MaxLength="50" />
+    <Property Name="VERT_REF_DATUM" Type="varchar" MaxLength="10" />
+    <Property Name="COUNTRY_CODE" Type="varchar" MaxLength="2" />
+    <Property Name="STATE_CODE" Type="varchar" MaxLength="2" />
+    <Property Name="COUNTY_CODE" Type="varchar" MaxLength="3" />
+    <Property Name="WELL_TYPE" Type="varchar" MaxLength="255" />
+    <Property Name="AQUIFER_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="FORMATION_TYPE" Type="varchar" MaxLength="50" />
+    <Property Name="WELLHOLE_DEPTH_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="WELLHOLE_DEPTH_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="IMPORT_STATUS_CD" Type="varchar" MaxLength="1" />
+    <Property Name="IMPORT_STATUS_DESC" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_PROJECT">
+    <Key>
+      <PropertyRef Name="TEMP_PROJECT_IDX" />
+    </Key>
+    <Property Name="TEMP_PROJECT_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="PROJECT_IDX" Type="int" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="PROJECT_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="PROJECT_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="PROJECT_DESC" Type="varchar" MaxLength="1999" />
+    <Property Name="SAMP_DESIGN_TYPE_CD" Type="varchar" MaxLength="20" />
+    <Property Name="QAPP_APPROVAL_IND" Type="bit" />
+    <Property Name="QAPP_APPROVAL_AGENCY" Type="varchar" MaxLength="50" />
+    <Property Name="IMPORT_STATUS_CD" Type="varchar" MaxLength="1" />
+    <Property Name="IMPORT_STATUS_DESC" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_RESULT">
+    <Key>
+      <PropertyRef Name="TEMP_RESULT_IDX" />
+    </Key>
+    <Property Name="TEMP_RESULT_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEMP_SAMPLE_IDX" Type="int" Nullable="false" />
+    <Property Name="RESULT_IDX" Type="int" />
+    <Property Name="DATA_LOGGER_LINE" Type="varchar" MaxLength="15" />
+    <Property Name="RESULT_DETECT_CONDITION" Type="varchar" MaxLength="35" />
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="METHOD_SPECIATION_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="RESULT_SAMP_FRACTION" Type="varchar" MaxLength="25" />
+    <Property Name="RESULT_MSR" Type="varchar" MaxLength="60" />
+    <Property Name="RESULT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="RESULT_MSR_QUAL" Type="varchar" MaxLength="5" />
+    <Property Name="RESULT_STATUS" Type="varchar" MaxLength="12" />
+    <Property Name="STATISTIC_BASE_CODE" Type="varchar" MaxLength="25" />
+    <Property Name="RESULT_VALUE_TYPE" Type="varchar" MaxLength="20" />
+    <Property Name="WEIGHT_BASIS" Type="varchar" MaxLength="15" />
+    <Property Name="TIME_BASIS" Type="varchar" MaxLength="12" />
+    <Property Name="TEMP_BASIS" Type="varchar" MaxLength="12" />
+    <Property Name="PARTICLESIZE_BASIS" Type="varchar" MaxLength="40" />
+    <Property Name="PRECISION_VALUE" Type="varchar" MaxLength="60" />
+    <Property Name="BIAS_VALUE" Type="varchar" MaxLength="60" />
+    <Property Name="CONFIDENCE_INTERVAL_VALUE" Type="varchar" MaxLength="15" />
+    <Property Name="UPPER_CONFIDENCE_LIMIT" Type="varchar" MaxLength="15" />
+    <Property Name="LOWER_CONFIDENCE_LIMIT" Type="varchar" MaxLength="15" />
+    <Property Name="RESULT_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="DEPTH_HEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTH_HEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTHALTITUDEREFPOINT" Type="varchar" MaxLength="125" />
+    <Property Name="BIO_INTENT_NAME" Type="varchar" MaxLength="35" />
+    <Property Name="BIO_INDIVIDUAL_ID" Type="varchar" MaxLength="4" />
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="varchar" MaxLength="120" />
+    <Property Name="BIO_UNIDENTIFIED_SPECIES_ID" Type="varchar" MaxLength="120" />
+    <Property Name="BIO_SAMPLE_TISSUE_ANATOMY" Type="varchar" MaxLength="30" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="TAX_DTL_CELL_FORM" Type="varchar" MaxLength="11" />
+    <Property Name="TAX_DTL_CELL_SHAPE" Type="varchar" MaxLength="18" />
+    <Property Name="TAX_DTL_HABIT" Type="varchar" MaxLength="15" />
+    <Property Name="TAX_DTL_VOLTINISM" Type="varchar" MaxLength="25" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE" Type="varchar" MaxLength="4" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE_SCALE" Type="varchar" MaxLength="50" />
+    <Property Name="TAX_DTL_TROPHIC_LEVEL" Type="varchar" MaxLength="4" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP1" Type="varchar" MaxLength="6" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP2" Type="varchar" MaxLength="6" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP3" Type="varchar" MaxLength="6" />
+    <Property Name="FREQ_CLASS_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="FREQ_CLASS_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="FREQ_CLASS_UPPER" Type="varchar" MaxLength="8" />
+    <Property Name="FREQ_CLASS_LOWER" Type="varchar" MaxLength="8" />
+    <Property Name="ANALYTIC_METHOD_IDX" Type="int" />
+    <Property Name="ANALYTIC_METHOD_ID" Type="varchar" MaxLength="20" />
+    <Property Name="ANALYTIC_METHOD_CTX" Type="varchar" MaxLength="120" />
+    <Property Name="ANALYTIC_METHOD_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="LAB_IDX" Type="int" />
+    <Property Name="LAB_NAME" Type="varchar" MaxLength="60" />
+    <Property Name="LAB_ANALYSIS_START_DT" Type="datetime" />
+    <Property Name="LAB_ANALYSIS_END_DT" Type="datetime" />
+    <Property Name="LAB_ANALYSIS_TIMEZONE" Type="varchar" MaxLength="4" />
+    <Property Name="RESULT_LAB_COMMENT_CODE" Type="varchar" MaxLength="3" />
+    <Property Name="METHOD_DETECTION_LEVEL" Type="varchar" MaxLength="12" />
+    <Property Name="LAB_REPORTING_LEVEL" Type="varchar" MaxLength="12" />
+    <Property Name="PQL" Type="varchar" MaxLength="12" />
+    <Property Name="LOWER_QUANT_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="UPPER_QUANT_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="DETECTION_LIMIT_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="LAB_SAMP_PREP_IDX" Type="int" />
+    <Property Name="LAB_SAMP_PREP_ID" Type="varchar" MaxLength="20" />
+    <Property Name="LAB_SAMP_PREP_CTX" Type="varchar" MaxLength="120" />
+    <Property Name="LAB_SAMP_PREP_START_DT" Type="datetime" />
+    <Property Name="LAB_SAMP_PREP_END_DT" Type="datetime" />
+    <Property Name="DILUTION_FACTOR" Type="varchar" MaxLength="10" />
+    <Property Name="IMPORT_STATUS_CD" Type="varchar" MaxLength="1" />
+    <Property Name="IMPORT_STATUS_DESC" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMP_SAMPLE">
+    <Key>
+      <PropertyRef Name="TEMP_SAMPLE_IDX" />
+    </Key>
+    <Property Name="TEMP_SAMPLE_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="PROJECT_IDX" Type="int" />
+    <Property Name="PROJECT_ID" Type="varchar" MaxLength="35" />
+    <Property Name="MONLOC_IDX" Type="int" />
+    <Property Name="MONLOC_ID" Type="varchar" MaxLength="35" />
+    <Property Name="ACTIVITY_IDX" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="varchar" MaxLength="35" />
+    <Property Name="ACT_TYPE" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ACT_MEDIA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ACT_SUBMEDIA" Type="varchar" MaxLength="45" />
+    <Property Name="ACT_START_DT" Type="datetime" />
+    <Property Name="ACT_END_DT" Type="datetime" />
+    <Property Name="ACT_TIME_ZONE" Type="varchar" MaxLength="4" />
+    <Property Name="RELATIVE_DEPTH_NAME" Type="varchar" MaxLength="15" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="ACT_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="TOP_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BOT_DEPTHHEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTH_REF_POINT" Type="varchar" MaxLength="125" />
+    <Property Name="ACT_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="BIO_ASSEMBLAGE_SAMPLED" Type="varchar" MaxLength="50" />
+    <Property Name="BIO_DURATION_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_DURATION_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_SAMP_COMPONENT" Type="varchar" MaxLength="15" />
+    <Property Name="BIO_SAMP_COMPONENT_SEQ" Type="int" />
+    <Property Name="BIO_REACH_LEN_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_LEN_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_WID_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_REACH_WID_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_PASS_COUNT" Type="int" />
+    <Property Name="BIO_NET_TYPE" Type="varchar" MaxLength="30" />
+    <Property Name="BIO_NET_AREA_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_NET_AREA_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_NET_MESHSIZE_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_MESHSIZE_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_BOAT_SPEED_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_BOAT_SPEED_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_CURR_SPEED_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_CURR_SPEED_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_TOXICITY_TEST_TYPE" Type="varchar" MaxLength="7" />
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="int" />
+    <Property Name="SAMP_COLL_METHOD_ID" Type="varchar" MaxLength="20" />
+    <Property Name="SAMP_COLL_METHOD_CTX" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_COLL_METHOD_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_COLL_EQUIP" Type="varchar" MaxLength="40" />
+    <Property Name="SAMP_COLL_EQUIP_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="SAMP_PREP_IDX" Type="int" />
+    <Property Name="SAMP_PREP_ID" Type="varchar" MaxLength="20" />
+    <Property Name="SAMP_PREP_CTX" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_PREP_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_PREP_CONT_TYPE" Type="varchar" MaxLength="35" />
+    <Property Name="SAMP_PREP_CONT_COLOR" Type="varchar" MaxLength="15" />
+    <Property Name="SAMP_PREP_CHEM_PRESERV" Type="varchar" MaxLength="250" />
+    <Property Name="SAMP_PREP_THERM_PRESERV" Type="varchar" MaxLength="25" />
+    <Property Name="SAMP_PREP_STORAGE_DESC" Type="varchar" MaxLength="250" />
+    <Property Name="IMPORT_STATUS_CD" Type="varchar" MaxLength="1" />
+    <Property Name="IMPORT_STATUS_DESC" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMPLATE">
+    <Key>
+      <PropertyRef Name="TEMPLATE_ID" />
+    </Key>
+    <Property Name="TEMPLATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TYPE_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TEMPLATE_NAME" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_IMPORT_TEMPLATE_DTL">
+    <Key>
+      <PropertyRef Name="TEMPLATE_DTL_ID" />
+    </Key>
+    <Property Name="TEMPLATE_DTL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TEMPLATE_ID" Type="int" Nullable="false" />
+    <Property Name="COL_NUM" Type="int" Nullable="false" />
+    <Property Name="FIELD_MAP" Type="varchar" MaxLength="50" />
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="CHAR_DEFAULT_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_MONLOC">
+    <Key>
+      <PropertyRef Name="MONLOC_IDX" />
+    </Key>
+    <Property Name="MONLOC_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MONLOC_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="MONLOC_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MONLOC_TYPE" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="MONLOC_DESC" Type="varchar" MaxLength="1999" />
+    <Property Name="HUC_EIGHT" Type="varchar" MaxLength="8" />
+    <Property Name="HUC_TWELVE" Type="varchar" MaxLength="12" />
+    <Property Name="TRIBAL_LAND_IND" Type="char" MaxLength="1" />
+    <Property Name="TRIBAL_LAND_NAME" Type="varchar" MaxLength="200" />
+    <Property Name="LATITUDE_MSR" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="LONGITUDE_MSR" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SOURCE_MAP_SCALE" Type="int" />
+    <Property Name="HORIZ_ACCURACY" Type="varchar" MaxLength="12" />
+    <Property Name="HORIZ_ACCURACY_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="HORIZ_COLL_METHOD" Type="varchar" MaxLength="150" />
+    <Property Name="HORIZ_REF_DATUM" Type="varchar" MaxLength="6" />
+    <Property Name="VERT_MEASURE" Type="varchar" MaxLength="12" />
+    <Property Name="VERT_MEASURE_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="VERT_COLL_METHOD" Type="varchar" MaxLength="50" />
+    <Property Name="VERT_REF_DATUM" Type="varchar" MaxLength="10" />
+    <Property Name="COUNTRY_CODE" Type="varchar" MaxLength="2" />
+    <Property Name="STATE_CODE" Type="varchar" MaxLength="2" />
+    <Property Name="COUNTY_CODE" Type="varchar" MaxLength="3" />
+    <Property Name="WELL_TYPE" Type="varchar" MaxLength="255" />
+    <Property Name="AQUIFER_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="FORMATION_TYPE" Type="varchar" MaxLength="50" />
+    <Property Name="WELLHOLE_DEPTH_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="WELLHOLE_DEPTH_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="varchar" MaxLength="1" />
+    <Property Name="WQX_UPDATE_DT" Type="datetime" />
+    <Property Name="IMPORT_MONLOC_ID" Type="varchar" MaxLength="35" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_ORG_ADDRESS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="ADDRESS_TYPE" />
+    </Key>
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ADDRESS_TYPE" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SUPP_ADDRESS" Type="varchar" MaxLength="120" />
+    <Property Name="LOCALITY" Type="varchar" MaxLength="30" />
+    <Property Name="STATE_CD" Type="varchar" MaxLength="2" />
+    <Property Name="POSTAL_CD" Type="varchar" MaxLength="10" />
+    <Property Name="COUNTRY_CD" Type="varchar" MaxLength="2" />
+    <Property Name="COUNTY_CD" Type="varchar" MaxLength="3" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_ORGANIZATION">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="ORG_DESC" Type="varchar" MaxLength="500" />
+    <Property Name="TRIBAL_CODE" Type="varchar" MaxLength="3" />
+    <Property Name="ELECTRONICADDRESS" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="ELECTRONICADDRESSTYPE" Type="varchar" MaxLength="8" />
+    <Property Name="TELEPHONE_NUM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="TELEPHONE_NUM_TYPE" Type="varchar" MaxLength="6" />
+    <Property Name="TELEPHONE_EXT" Type="varchar" MaxLength="6" />
+    <Property Name="CDX_SUBMITTER_ID" Type="varchar" MaxLength="100" />
+    <Property Name="CDX_SUBMITTER_PWD_HASH" Type="varchar" MaxLength="100" />
+    <Property Name="CDX_SUBMITTER_PWD_SALT" Type="varchar" MaxLength="100" />
+    <Property Name="CDX_SUBMIT_IND" Type="bit" />
+    <Property Name="DEFAULT_TIMEZONE" Type="varchar" MaxLength="20" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_PROJECT">
+    <Key>
+      <PropertyRef Name="PROJECT_IDX" />
+    </Key>
+    <Property Name="PROJECT_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PROJECT_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="PROJECT_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="PROJECT_DESC" Type="varchar" MaxLength="1999" />
+    <Property Name="SAMP_DESIGN_TYPE_CD" Type="varchar" MaxLength="20" />
+    <Property Name="QAPP_APPROVAL_IND" Type="bit" />
+    <Property Name="QAPP_APPROVAL_AGENCY" Type="varchar" MaxLength="50" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="WQX_SUBMIT_STATUS" Type="varchar" MaxLength="1" />
+    <Property Name="WQX_UPDATE_DT" Type="datetime" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_ANAL_METHOD">
+    <Key>
+      <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+    </Key>
+    <Property Name="ANALYTIC_METHOD_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ANALYTIC_METHOD_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ANALYTIC_METHOD_CTX" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="ANALYTIC_METHOD_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="ANALYTIC_METHOD_DESC" Type="varchar" MaxLength="4000" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_CHAR_LIMITS">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+      <PropertyRef Name="UNIT_NAME" />
+    </Key>
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="UNIT_NAME" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="LOWER_BOUND" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UPPER_BOUND" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_CHAR_ORG">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+    <Property Name="DEFAULT_DETECT_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEFAULT_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEFAULT_ANAL_METHOD_IDX" Type="int" />
+    <Property Name="DEFAULT_SAMP_FRACTION" Type="varchar" MaxLength="25" />
+    <Property Name="DEFAULT_RESULT_STATUS" Type="varchar" MaxLength="12" />
+    <Property Name="DEFAULT_RESULT_VALUE_TYPE" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_CHARACTERISTIC">
+    <Key>
+      <PropertyRef Name="CHAR_NAME" />
+    </Key>
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="DEFAULT_DETECT_LIMIT" Type="decimal" Precision="12" Scale="5" />
+    <Property Name="DEFAULT_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="USED_IND" Type="bit" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_COUNTY">
+    <Key>
+      <PropertyRef Name="STATE_CODE" />
+      <PropertyRef Name="COUNTY_CODE" />
+    </Key>
+    <Property Name="STATE_CODE" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="COUNTY_CODE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="COUNTY_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="USED_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_DATA">
+    <Key>
+      <PropertyRef Name="REF_DATA_IDX" />
+    </Key>
+    <Property Name="REF_DATA_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TABLE" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="VALUE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TEXT" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="USED_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_DEFAULT_TIME_ZONE">
+    <Key>
+      <PropertyRef Name="TIME_ZONE_NAME" />
+    </Key>
+    <Property Name="TIME_ZONE_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="OFFICIAL_TIME_ZONE_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="WQX_CODE_STANDARD" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="WQX_CODE_DAYLIGHT" Type="varchar" MaxLength="4" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_LAB">
+    <Key>
+      <PropertyRef Name="LAB_IDX" />
+    </Key>
+    <Property Name="LAB_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="LAB_NAME" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="LAB_ACCRED_IND" Type="char" MaxLength="1" />
+    <Property Name="LAB_ACCRED_AUTHORITY" Type="varchar" MaxLength="20" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+    <Property Name="UPDATE_USERID" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_SAMP_COL_METHOD">
+    <Key>
+      <PropertyRef Name="SAMP_COLL_METHOD_IDX" />
+    </Key>
+    <Property Name="SAMP_COLL_METHOD_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAMP_COLL_METHOD_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SAMP_COLL_METHOD_CTX" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="SAMP_COLL_METHOD_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_COLL_METHOD_DESC" Type="varchar" MaxLength="4000" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_SAMP_PREP">
+    <Key>
+      <PropertyRef Name="SAMP_PREP_IDX" />
+    </Key>
+    <Property Name="SAMP_PREP_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAMP_PREP_METHOD_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SAMP_PREP_METHOD_CTX" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="SAMP_PREP_METHOD_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="SAMP_PREP_METHOD_DESC" Type="varchar" MaxLength="4000" />
+    <Property Name="ACT_IND" Type="bit" />
+    <Property Name="UPDATE_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_WQX_REF_TAXA_ORG">
+    <Key>
+      <PropertyRef Name="BIO_SUBJECT_TAXONOMY" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_WQX_RESULT">
+    <Key>
+      <PropertyRef Name="RESULT_IDX" />
+    </Key>
+    <Property Name="RESULT_IDX" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACTIVITY_IDX" Type="int" Nullable="false" />
+    <Property Name="DATA_LOGGER_LINE" Type="varchar" MaxLength="15" />
+    <Property Name="RESULT_DETECT_CONDITION" Type="varchar" MaxLength="35" />
+    <Property Name="CHAR_NAME" Type="varchar" MaxLength="120" />
+    <Property Name="METHOD_SPECIATION_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="RESULT_SAMP_FRACTION" Type="varchar" MaxLength="25" />
+    <Property Name="RESULT_MSR" Type="varchar" MaxLength="60" />
+    <Property Name="RESULT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="RESULT_MSR_QUAL" Type="varchar" MaxLength="5" />
+    <Property Name="RESULT_STATUS" Type="varchar" MaxLength="12" />
+    <Property Name="STATISTIC_BASE_CODE" Type="varchar" MaxLength="25" />
+    <Property Name="RESULT_VALUE_TYPE" Type="varchar" MaxLength="20" />
+    <Property Name="WEIGHT_BASIS" Type="varchar" MaxLength="15" />
+    <Property Name="TIME_BASIS" Type="varchar" MaxLength="12" />
+    <Property Name="TEMP_BASIS" Type="varchar" MaxLength="12" />
+    <Property Name="PARTICLESIZE_BASIS" Type="varchar" MaxLength="15" />
+    <Property Name="PRECISION_VALUE" Type="varchar" MaxLength="60" />
+    <Property Name="BIAS_VALUE" Type="varchar" MaxLength="60" />
+    <Property Name="CONFIDENCE_INTERVAL_VALUE" Type="varchar" MaxLength="15" />
+    <Property Name="UPPER_CONFIDENCE_LIMIT" Type="varchar" MaxLength="15" />
+    <Property Name="LOWER_CONFIDENCE_LIMIT" Type="varchar" MaxLength="15" />
+    <Property Name="RESULT_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="DEPTH_HEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTH_HEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="DEPTHALTITUDEREFPOINT" Type="varchar" MaxLength="125" />
+    <Property Name="RESULT_SAMP_POINT" Type="varchar" MaxLength="12" />
+    <Property Name="BIO_INTENT_NAME" Type="varchar" MaxLength="35" />
+    <Property Name="BIO_INDIVIDUAL_ID" Type="varchar" MaxLength="4" />
+    <Property Name="BIO_SUBJECT_TAXONOMY" Type="varchar" MaxLength="120" />
+    <Property Name="BIO_UNIDENTIFIED_SPECIES_ID" Type="varchar" MaxLength="120" />
+    <Property Name="BIO_SAMPLE_TISSUE_ANATOMY" Type="varchar" MaxLength="30" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR" Type="varchar" MaxLength="12" />
+    <Property Name="GRP_SUMM_COUNT_WEIGHT_MSR_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="TAX_DTL_CELL_FORM" Type="varchar" MaxLength="11" />
+    <Property Name="TAX_DTL_CELL_SHAPE" Type="varchar" MaxLength="18" />
+    <Property Name="TAX_DTL_HABIT" Type="varchar" MaxLength="15" />
+    <Property Name="TAX_DTL_VOLTINISM" Type="varchar" MaxLength="25" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE" Type="varchar" MaxLength="4" />
+    <Property Name="TAX_DTL_POLL_TOLERANCE_SCALE" Type="varchar" MaxLength="50" />
+    <Property Name="TAX_DTL_TROPHIC_LEVEL" Type="varchar" MaxLength="4" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP1" Type="varchar" MaxLength="6" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP2" Type="varchar" MaxLength="6" />
+    <Property Name="TAX_DTL_FUNC_FEEDING_GROUP3" Type="varchar" MaxLength="6" />
+    <Property Name="FREQ_CLASS_CODE" Type="varchar" MaxLength="50" />
+    <Property Name="FREQ_CLASS_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="FREQ_CLASS_UPPER" Type="varchar" MaxLength="8" />
+    <Property Name="FREQ_CLASS_LOWER" Type="varchar" MaxLength="8" />
+    <Property Name="ANALYTIC_METHOD_IDX" Type="int" />
+    <Property Name="LAB_IDX" Type="int" />
+    <Property Name="LAB_ANALYSIS_START_DT" Type="datetime" />
+    <Property Name="LAB_ANALYSIS_END_DT" Type="datetime" />
+    <Property Name="LAB_ANALYSIS_TIMEZONE" Type="varchar" MaxLength="4" />
+    <Property Name="RESULT_LAB_COMMENT_CODE" Type="varchar" MaxLength="3" />
+    <Property Name="DETECTION_LIMIT_TYPE" Type="varchar" MaxLength="35" />
+    <Property Name="DETECTION_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="LAB_TAXON_ACCRED_IND" Type="char" MaxLength="1" />
+    <Property Name="LAB_TAXON_ACCRED_AUTHORITY" Type="varchar" MaxLength="20" />
+    <Property Name="LAB_REPORTING_LEVEL" Type="varchar" MaxLength="12" />
+    <Property Name="PQL" Type="varchar" MaxLength="12" />
+    <Property Name="LOWER_QUANT_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="UPPER_QUANT_LIMIT" Type="varchar" MaxLength="12" />
+    <Property Name="DETECTION_LIMIT_UNIT" Type="varchar" MaxLength="12" />
+    <Property Name="LAB_SAMP_PREP_IDX" Type="int" />
+    <Property Name="LAB_SAMP_PREP_START_DT" Type="datetime" />
+    <Property Name="LAB_SAMP_PREP_END_DT" Type="datetime" />
+    <Property Name="DILUTION_FACTOR" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_WQX_TRANSACTION_LOG">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TABLE_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TABLE_IDX" Type="int" Nullable="false" />
+    <Property Name="SUBMIT_DT" Type="datetime" Nullable="false" />
+    <Property Name="SUBMIT_TYPE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="RESPONSE_FILE" Type="varbinary(max)" />
+    <Property Name="RESPONSE_TXT" Type="varchar(max)" />
+    <Property Name="CDX_SUBMIT_TRANSID" Type="varchar" MaxLength="100" />
+    <Property Name="CDX_SUBMIT_STATUS" Type="varchar" MaxLength="20" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="T_WQX_USER_ORGS">
+    <Key>
+      <PropertyRef Name="USER_IDX" />
+      <PropertyRef Name="ORG_ID" />
+    </Key>
+    <Property Name="USER_IDX" Type="int" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ROLE_CD" Type="varchar" MaxLength="2" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="CREATE_DT" Type="datetime2" Precision="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_66001_ow2.dbo.V_WQX_ACTIVITY_LATEST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_WQX_ACTIVITY_LATEST">
+    <Key>
+      <PropertyRef Name="ACTIVITY_IDX" />
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="PROJECT_IDX" />
+      <PropertyRef Name="MONLOC_NAME" />
+      <PropertyRef Name="ACTIVITY_ID" />
+      <PropertyRef Name="ACT_TYPE" />
+      <PropertyRef Name="ACT_START_DT" />
+    </Key>
+    <Property Name="ACTIVITY_IDX" Type="int" Nullable="false" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PROJECT_IDX" Type="int" Nullable="false" />
+    <Property Name="MONLOC_IDX" Type="int" />
+    <Property Name="MONLOC_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ACTIVITY_ID" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="ACT_TYPE" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ACT_START_DT" Type="datetime" Nullable="false" />
+    <Property Name="WQX_IND" Type="bit" />
+    <Property Name="CREATE_DT" Type="datetime" />
+    <Property Name="CREATE_USERID" Type="varchar" MaxLength="25" />
+    <Property Name="ACT_COMMENT" Type="varchar" MaxLength="4000" />
+    <Property Name="Alkalinity, total" Type="varchar" MaxLength="60" />
+    <Property Name="Ammonia" Type="varchar" MaxLength="60" />
+    <Property Name="Dissolved oxygen (DO)" Type="varchar" MaxLength="60" />
+    <Property Name="Escherichia coli" Type="varchar" MaxLength="60" />
+    <Property Name="Nitrate" Type="varchar" MaxLength="60" />
+    <Property Name="Nitrite" Type="varchar" MaxLength="60" />
+    <Property Name="pH" Type="varchar" MaxLength="60" />
+    <Property Name="Phosphorus" Type="varchar" MaxLength="60" />
+    <Property Name="Salinity" Type="varchar" MaxLength="60" />
+    <Property Name="Specific Conductance" Type="varchar" MaxLength="60" />
+    <Property Name="Temperature, air" Type="varchar" MaxLength="60" />
+    <Property Name="Temperature, water" Type="varchar" MaxLength="60" />
+    <Property Name="Total Dissolved Solids" Type="varchar" MaxLength="60" />
+    <Property Name="Turbidity" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_66001_ow2.dbo.V_WQX_ALL_ORGS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_WQX_ALL_ORGS">
+    <Key>
+      <PropertyRef Name="ORG_ID" />
+      <PropertyRef Name="ORG_FORMAL_NAME" />
+    </Key>
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ORG_FORMAL_NAME" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="SRC" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_66001_ow2.dbo.V_WQX_TRANSACTION_LOG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_WQX_TRANSACTION_LOG">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+      <PropertyRef Name="TABLE_CD" />
+      <PropertyRef Name="TABLE_IDX" />
+      <PropertyRef Name="SUBMIT_DT" />
+      <PropertyRef Name="SUBMIT_TYPE" />
+    </Key>
+    <Property Name="LOG_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TABLE_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TABLE_IDX" Type="int" Nullable="false" />
+    <Property Name="SUBMIT_DT" Type="datetime" Nullable="false" />
+    <Property Name="SUBMIT_TYPE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="RESPONSE_FILE" Type="varbinary(max)" />
+    <Property Name="RESPONSE_TXT" Type="varchar(max)" />
+    <Property Name="CDX_SUBMIT_TRANSID" Type="varchar" MaxLength="100" />
+    <Property Name="CDX_SUBMIT_STATUS" Type="varchar" MaxLength="20" />
+    <Property Name="ORG_ID" Type="varchar" MaxLength="30" />
+    <Property Name="RECORD" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <Association Name="FK__T_OE_USER__ROLE___1B0907CE">
+    <End Role="T_OE_ROLES" Type="Self.T_OE_ROLES" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_OE_USER_ROLES" Type="Self.T_OE_USER_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_ROLES">
+        <PropertyRef Name="ROLE_IDX" />
+      </Principal>
+      <Dependent Role="T_OE_USER_ROLES">
+        <PropertyRef Name="ROLE_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_OE_USER__USER___1BFD2C07">
+    <End Role="T_OE_USERS" Type="Self.T_OE_USERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_OE_USER_ROLES" Type="Self.T_OE_USER_ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_USERS">
+        <PropertyRef Name="USER_IDX" />
+      </Principal>
+      <Dependent Role="T_OE_USER_ROLES">
+        <PropertyRef Name="USER_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__ACTIV__4AB81AF0">
+    <End Role="T_WQX_ACTIVITY" Type="Self.T_WQX_ACTIVITY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_ACTIVITY_METRIC" Type="Self.T_WQX_ACTIVITY_METRIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY_METRIC">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__BIO_H__4BAC3F29">
+    <End Role="T_WQX_BIO_HABITAT_INDEX" Type="Self.T_WQX_BIO_HABITAT_INDEX" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_ACTIVITY_METRIC" Type="Self.T_WQX_ACTIVITY_METRIC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY_METRIC">
+        <PropertyRef Name="BIO_HABITAT_INDEX_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__MONLO__4316F928">
+    <End Role="T_WQX_MONLOC" Type="Self.T_WQX_MONLOC" Multiplicity="0..1" />
+    <End Role="T_WQX_ACTIVITY" Type="Self.T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_MONLOC">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__ORG_I__440B1D61">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1" />
+    <End Role="T_WQX_ACTIVITY" Type="Self.T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ACT__PROJE__4222D4EF">
+    <End Role="T_WQX_PROJECT" Type="Self.T_WQX_PROJECT" Multiplicity="1" />
+    <End Role="T_WQX_ACTIVITY" Type="Self.T_WQX_ACTIVITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_PROJECT">
+        <PropertyRef Name="PROJECT_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="PROJECT_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_BIO__MONLO__46E78A0C">
+    <End Role="T_WQX_MONLOC" Type="Self.T_WQX_MONLOC" Multiplicity="0..1" />
+    <End Role="T_WQX_BIO_HABITAT_INDEX" Type="Self.T_WQX_BIO_HABITAT_INDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_MONLOC">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="MONLOC_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_BIO__ORG_I__47DBAE45">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1" />
+    <End Role="T_WQX_BIO_HABITAT_INDEX" Type="Self.T_WQX_BIO_HABITAT_INDEX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_BIO_HABITAT_INDEX">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_IMP__ORG_I__5CD6CB2B">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_IMPORT_LOG" Type="Self.T_WQX_IMPORT_LOG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_LOG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_IMP__ORG_I__5FB337D6">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_IMPORT_TEMPLATE" Type="Self.T_WQX_IMPORT_TEMPLATE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMPLATE">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_IMP__TEMP___6754599E">
+    <End Role="T_WQX_IMPORT_TEMP_SAMPLE" Type="Self.T_WQX_IMPORT_TEMP_SAMPLE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_IMPORT_TEMP_RESULT" Type="Self.T_WQX_IMPORT_TEMP_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_IMPORT_TEMP_SAMPLE">
+        <PropertyRef Name="TEMP_SAMPLE_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMP_RESULT">
+        <PropertyRef Name="TEMP_SAMPLE_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_IMP__TEMPL__628FA481">
+    <End Role="T_WQX_IMPORT_TEMPLATE" Type="Self.T_WQX_IMPORT_TEMPLATE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_IMPORT_TEMPLATE_DTL" Type="Self.T_WQX_IMPORT_TEMPLATE_DTL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_IMPORT_TEMPLATE">
+        <PropertyRef Name="TEMPLATE_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_IMPORT_TEMPLATE_DTL">
+        <PropertyRef Name="TEMPLATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_MON__ORG_I__3F466844">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_MONLOC" Type="Self.T_WQX_MONLOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_MONLOC">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_ORG__ORG_I__35BCFE0A">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_ORG_ADDRESS" Type="Self.T_WQX_ORG_ADDRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_ORG_ADDRESS">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_PRO__ORG_I__3C69FB99">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_PROJECT" Type="Self.T_WQX_PROJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_PROJECT">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_REF__CHAR___2E1BDC42">
+    <End Role="T_WQX_REF_CHARACTERISTIC" Type="Self.T_WQX_REF_CHARACTERISTIC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_REF_CHAR_LIMITS" Type="Self.T_WQX_REF_CHAR_LIMITS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_CHARACTERISTIC">
+        <PropertyRef Name="CHAR_NAME" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_LIMITS">
+        <PropertyRef Name="CHAR_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_REF__CHAR___5441852A">
+    <End Role="T_WQX_REF_CHARACTERISTIC" Type="Self.T_WQX_REF_CHARACTERISTIC" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_REF_CHAR_ORG" Type="Self.T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_CHARACTERISTIC">
+        <PropertyRef Name="CHAR_NAME" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="CHAR_NAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_REF__ORG_I__534D60F1">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_REF_CHAR_ORG" Type="Self.T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_REF__ORG_I__5812160E">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_REF_TAXA_ORG" Type="Self.T_WQX_REF_TAXA_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_TAXA_ORG">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_RES__ACTIV__4E88ABD4">
+    <End Role="T_WQX_ACTIVITY" Type="Self.T_WQX_ACTIVITY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_RESULT" Type="Self.T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ACTIVITY">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="ACTIVITY_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_RES__ANALY__5070F446">
+    <End Role="T_WQX_REF_ANAL_METHOD" Type="Self.T_WQX_REF_ANAL_METHOD" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_RESULT" Type="Self.T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_ANAL_METHOD">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_RES__LAB_I__4F7CD00D">
+    <End Role="T_WQX_REF_LAB" Type="Self.T_WQX_REF_LAB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_RESULT" Type="Self.T_WQX_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_LAB">
+        <PropertyRef Name="LAB_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_RESULT">
+        <PropertyRef Name="LAB_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_USE__ORG_I__38996AB5">
+    <End Role="T_WQX_ORGANIZATION" Type="Self.T_WQX_ORGANIZATION" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_USER_ORGS" Type="Self.T_WQX_USER_ORGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_ORGANIZATION">
+        <PropertyRef Name="ORG_ID" />
+      </Principal>
+      <Dependent Role="T_WQX_USER_ORGS">
+        <PropertyRef Name="ORG_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__T_WQX_USE__USER___398D8EEE">
+    <End Role="T_OE_USERS" Type="Self.T_OE_USERS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_WQX_USER_ORGS" Type="Self.T_WQX_USER_ORGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_OE_USERS">
+        <PropertyRef Name="USER_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_USER_ORGS">
+        <PropertyRef Name="USER_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_WQX_REF_CHAR_ORG">
+    <End Role="T_WQX_REF_ANAL_METHOD" Type="Self.T_WQX_REF_ANAL_METHOD" Multiplicity="0..1" />
+    <End Role="T_WQX_REF_CHAR_ORG" Type="Self.T_WQX_REF_CHAR_ORG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_WQX_REF_ANAL_METHOD">
+        <PropertyRef Name="ANALYTIC_METHOD_IDX" />
+      </Principal>
+      <Dependent Role="T_WQX_REF_CHAR_ORG">
+        <PropertyRef Name="DEFAULT_ANAL_METHOD_IDX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GenWQXXML_Org" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrgID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GenWQXXML_Single" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypeText" Type="varchar" Mode="In" />
+    <Parameter Name="RecordIDX" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GenWQXXML_Single_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypeText" Type="varchar" Mode="In" />
+    <Parameter Name="RecordIDX" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ImportActivityFromTemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="WQXInd" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="WQXAnalysis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TypeText" Type="varchar" Mode="In" />
+    <Parameter Name="OrgID" Type="varchar" Mode="In" />
+    <Parameter Name="MonLocID" Type="varchar" Mode="In" />
+    <Parameter Name="CharName" Type="varchar" Mode="In" />
+    <Parameter Name="StartDt" Type="datetime" Mode="In" />
+    <Parameter Name="EndDt" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="OpenEnvironmentModelStoreContainer">
+    <EntitySet Name="T_EPA_ORGS" EntityType="Self.T_EPA_ORGS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_ANALYZECONFIG" EntityType="Self.T_OE_ANALYZECONFIG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_APP_SETTINGS" EntityType="Self.T_OE_APP_SETTINGS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_APP_TASKS" EntityType="Self.T_OE_APP_TASKS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_COLUMNCONFIG" EntityType="Self.T_OE_COLUMNCONFIG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_ROLES" EntityType="Self.T_OE_ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_SAVED_COLUMN_CONFIG" EntityType="Self.T_OE_SAVED_COLUMN_CONFIG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_SYS_LOG" EntityType="Self.T_OE_SYS_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_USER_ROLES" EntityType="Self.T_OE_USER_ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OE_USERS" EntityType="Self.T_OE_USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_ACTIVITY" EntityType="Self.T_WQX_ACTIVITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_ACTIVITY_METRIC" EntityType="Self.T_WQX_ACTIVITY_METRIC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_BIO_HABITAT_INDEX" EntityType="Self.T_WQX_BIO_HABITAT_INDEX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_LOG" EntityType="Self.T_WQX_IMPORT_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMP_MONLOC" EntityType="Self.T_WQX_IMPORT_TEMP_MONLOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMP_PROJECT" EntityType="Self.T_WQX_IMPORT_TEMP_PROJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMP_RESULT" EntityType="Self.T_WQX_IMPORT_TEMP_RESULT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMP_SAMPLE" EntityType="Self.T_WQX_IMPORT_TEMP_SAMPLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMPLATE" EntityType="Self.T_WQX_IMPORT_TEMPLATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_IMPORT_TEMPLATE_DTL" EntityType="Self.T_WQX_IMPORT_TEMPLATE_DTL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_MONLOC" EntityType="Self.T_WQX_MONLOC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_ORG_ADDRESS" EntityType="Self.T_WQX_ORG_ADDRESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_ORGANIZATION" EntityType="Self.T_WQX_ORGANIZATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_PROJECT" EntityType="Self.T_WQX_PROJECT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_ANAL_METHOD" EntityType="Self.T_WQX_REF_ANAL_METHOD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_CHAR_LIMITS" EntityType="Self.T_WQX_REF_CHAR_LIMITS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_CHAR_ORG" EntityType="Self.T_WQX_REF_CHAR_ORG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_CHARACTERISTIC" EntityType="Self.T_WQX_REF_CHARACTERISTIC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_COUNTY" EntityType="Self.T_WQX_REF_COUNTY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_DATA" EntityType="Self.T_WQX_REF_DATA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_DEFAULT_TIME_ZONE" EntityType="Self.T_WQX_REF_DEFAULT_TIME_ZONE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_LAB" EntityType="Self.T_WQX_REF_LAB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_SAMP_COL_METHOD" EntityType="Self.T_WQX_REF_SAMP_COL_METHOD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_SAMP_PREP" EntityType="Self.T_WQX_REF_SAMP_PREP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_REF_TAXA_ORG" EntityType="Self.T_WQX_REF_TAXA_ORG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_RESULT" EntityType="Self.T_WQX_RESULT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_TRANSACTION_LOG" EntityType="Self.T_WQX_TRANSACTION_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_WQX_USER_ORGS" EntityType="Self.T_WQX_USER_ORGS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="V_WQX_ACTIVITY_LATEST" EntityType="Self.V_WQX_ACTIVITY_LATEST" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_WQX_ACTIVITY_LATEST].[ACTIVITY_IDX] AS [ACTIVITY_IDX], 
+[V_WQX_ACTIVITY_LATEST].[ORG_ID] AS [ORG_ID], 
+[V_WQX_ACTIVITY_LATEST].[PROJECT_IDX] AS [PROJECT_IDX], 
+[V_WQX_ACTIVITY_LATEST].[MONLOC_IDX] AS [MONLOC_IDX], 
+[V_WQX_ACTIVITY_LATEST].[MONLOC_NAME] AS [MONLOC_NAME], 
+[V_WQX_ACTIVITY_LATEST].[ACTIVITY_ID] AS [ACTIVITY_ID], 
+[V_WQX_ACTIVITY_LATEST].[ACT_TYPE] AS [ACT_TYPE], 
+[V_WQX_ACTIVITY_LATEST].[ACT_START_DT] AS [ACT_START_DT], 
+[V_WQX_ACTIVITY_LATEST].[WQX_IND] AS [WQX_IND], 
+[V_WQX_ACTIVITY_LATEST].[CREATE_DT] AS [CREATE_DT], 
+[V_WQX_ACTIVITY_LATEST].[CREATE_USERID] AS [CREATE_USERID], 
+[V_WQX_ACTIVITY_LATEST].[ACT_COMMENT] AS [ACT_COMMENT], 
+[V_WQX_ACTIVITY_LATEST].[Alkalinity, total] AS [Alkalinity, total], 
+[V_WQX_ACTIVITY_LATEST].[Ammonia] AS [Ammonia], 
+[V_WQX_ACTIVITY_LATEST].[Dissolved oxygen (DO)] AS [Dissolved oxygen (DO)], 
+[V_WQX_ACTIVITY_LATEST].[Escherichia coli] AS [Escherichia coli], 
+[V_WQX_ACTIVITY_LATEST].[Nitrate] AS [Nitrate], 
+[V_WQX_ACTIVITY_LATEST].[Nitrite] AS [Nitrite], 
+[V_WQX_ACTIVITY_LATEST].[pH] AS [pH], 
+[V_WQX_ACTIVITY_LATEST].[Phosphorus] AS [Phosphorus], 
+[V_WQX_ACTIVITY_LATEST].[Salinity] AS [Salinity], 
+[V_WQX_ACTIVITY_LATEST].[Specific Conductance] AS [Specific Conductance], 
+[V_WQX_ACTIVITY_LATEST].[Temperature, air] AS [Temperature, air], 
+[V_WQX_ACTIVITY_LATEST].[Temperature, water] AS [Temperature, water], 
+[V_WQX_ACTIVITY_LATEST].[Total Dissolved Solids] AS [Total Dissolved Solids], 
+[V_WQX_ACTIVITY_LATEST].[Turbidity] AS [Turbidity]
+FROM [dbo].[V_WQX_ACTIVITY_LATEST] AS [V_WQX_ACTIVITY_LATEST]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_WQX_ALL_ORGS" EntityType="Self.V_WQX_ALL_ORGS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_WQX_ALL_ORGS].[ORG_ID] AS [ORG_ID], 
+[V_WQX_ALL_ORGS].[ORG_FORMAL_NAME] AS [ORG_FORMAL_NAME], 
+[V_WQX_ALL_ORGS].[SRC] AS [SRC]
+FROM [dbo].[V_WQX_ALL_ORGS] AS [V_WQX_ALL_ORGS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_WQX_TRANSACTION_LOG" EntityType="Self.V_WQX_TRANSACTION_LOG" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[V_WQX_TRANSACTION_LOG].[LOG_ID] AS [LOG_ID], 
+[V_WQX_TRANSACTION_LOG].[TABLE_CD] AS [TABLE_CD], 
+[V_WQX_TRANSACTION_LOG].[TABLE_IDX] AS [TABLE_IDX], 
+[V_WQX_TRANSACTION_LOG].[SUBMIT_DT] AS [SUBMIT_DT], 
+[V_WQX_TRANSACTION_LOG].[SUBMIT_TYPE] AS [SUBMIT_TYPE], 
+[V_WQX_TRANSACTION_LOG].[RESPONSE_FILE] AS [RESPONSE_FILE], 
+[V_WQX_TRANSACTION_LOG].[RESPONSE_TXT] AS [RESPONSE_TXT], 
+[V_WQX_TRANSACTION_LOG].[CDX_SUBMIT_TRANSID] AS [CDX_SUBMIT_TRANSID], 
+[V_WQX_TRANSACTION_LOG].[CDX_SUBMIT_STATUS] AS [CDX_SUBMIT_STATUS], 
+[V_WQX_TRANSACTION_LOG].[ORG_ID] AS [ORG_ID], 
+[V_WQX_TRANSACTION_LOG].[RECORD] AS [RECORD]
+FROM [dbo].[V_WQX_TRANSACTION_LOG] AS [V_WQX_TRANSACTION_LOG]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__T_OE_USER__ROLE___1B0907CE" Association="Self.FK__T_OE_USER__ROLE___1B0907CE">
+      <End Role="T_OE_ROLES" EntitySet="T_OE_ROLES" />
+      <End Role="T_OE_USER_ROLES" EntitySet="T_OE_USER_ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_OE_USER__USER___1BFD2C07" Association="Self.FK__T_OE_USER__USER___1BFD2C07">
+      <End Role="T_OE_USERS" EntitySet="T_OE_USERS" />
+      <End Role="T_OE_USER_ROLES" EntitySet="T_OE_USER_ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__ACTIV__4AB81AF0" Association="Self.FK__T_WQX_ACT__ACTIV__4AB81AF0">
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+      <End Role="T_WQX_ACTIVITY_METRIC" EntitySet="T_WQX_ACTIVITY_METRIC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__BIO_H__4BAC3F29" Association="Self.FK__T_WQX_ACT__BIO_H__4BAC3F29">
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+      <End Role="T_WQX_ACTIVITY_METRIC" EntitySet="T_WQX_ACTIVITY_METRIC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__MONLO__4316F928" Association="Self.FK__T_WQX_ACT__MONLO__4316F928">
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__ORG_I__440B1D61" Association="Self.FK__T_WQX_ACT__ORG_I__440B1D61">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ACT__PROJE__4222D4EF" Association="Self.FK__T_WQX_ACT__PROJE__4222D4EF">
+      <End Role="T_WQX_PROJECT" EntitySet="T_WQX_PROJECT" />
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_BIO__MONLO__46E78A0C" Association="Self.FK__T_WQX_BIO__MONLO__46E78A0C">
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_BIO__ORG_I__47DBAE45" Association="Self.FK__T_WQX_BIO__ORG_I__47DBAE45">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_BIO_HABITAT_INDEX" EntitySet="T_WQX_BIO_HABITAT_INDEX" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_IMP__ORG_I__5CD6CB2B" Association="Self.FK__T_WQX_IMP__ORG_I__5CD6CB2B">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_IMPORT_LOG" EntitySet="T_WQX_IMPORT_LOG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_IMP__ORG_I__5FB337D6" Association="Self.FK__T_WQX_IMP__ORG_I__5FB337D6">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_IMPORT_TEMPLATE" EntitySet="T_WQX_IMPORT_TEMPLATE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_IMP__TEMP___6754599E" Association="Self.FK__T_WQX_IMP__TEMP___6754599E">
+      <End Role="T_WQX_IMPORT_TEMP_SAMPLE" EntitySet="T_WQX_IMPORT_TEMP_SAMPLE" />
+      <End Role="T_WQX_IMPORT_TEMP_RESULT" EntitySet="T_WQX_IMPORT_TEMP_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_IMP__TEMPL__628FA481" Association="Self.FK__T_WQX_IMP__TEMPL__628FA481">
+      <End Role="T_WQX_IMPORT_TEMPLATE" EntitySet="T_WQX_IMPORT_TEMPLATE" />
+      <End Role="T_WQX_IMPORT_TEMPLATE_DTL" EntitySet="T_WQX_IMPORT_TEMPLATE_DTL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_MON__ORG_I__3F466844" Association="Self.FK__T_WQX_MON__ORG_I__3F466844">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_MONLOC" EntitySet="T_WQX_MONLOC" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_ORG__ORG_I__35BCFE0A" Association="Self.FK__T_WQX_ORG__ORG_I__35BCFE0A">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_ORG_ADDRESS" EntitySet="T_WQX_ORG_ADDRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_PRO__ORG_I__3C69FB99" Association="Self.FK__T_WQX_PRO__ORG_I__3C69FB99">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_PROJECT" EntitySet="T_WQX_PROJECT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_REF__CHAR___2E1BDC42" Association="Self.FK__T_WQX_REF__CHAR___2E1BDC42">
+      <End Role="T_WQX_REF_CHARACTERISTIC" EntitySet="T_WQX_REF_CHARACTERISTIC" />
+      <End Role="T_WQX_REF_CHAR_LIMITS" EntitySet="T_WQX_REF_CHAR_LIMITS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_REF__CHAR___5441852A" Association="Self.FK__T_WQX_REF__CHAR___5441852A">
+      <End Role="T_WQX_REF_CHARACTERISTIC" EntitySet="T_WQX_REF_CHARACTERISTIC" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_REF__ORG_I__534D60F1" Association="Self.FK__T_WQX_REF__ORG_I__534D60F1">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_REF__ORG_I__5812160E" Association="Self.FK__T_WQX_REF__ORG_I__5812160E">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_REF_TAXA_ORG" EntitySet="T_WQX_REF_TAXA_ORG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_RES__ACTIV__4E88ABD4" Association="Self.FK__T_WQX_RES__ACTIV__4E88ABD4">
+      <End Role="T_WQX_ACTIVITY" EntitySet="T_WQX_ACTIVITY" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_RES__ANALY__5070F446" Association="Self.FK__T_WQX_RES__ANALY__5070F446">
+      <End Role="T_WQX_REF_ANAL_METHOD" EntitySet="T_WQX_REF_ANAL_METHOD" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_RES__LAB_I__4F7CD00D" Association="Self.FK__T_WQX_RES__LAB_I__4F7CD00D">
+      <End Role="T_WQX_REF_LAB" EntitySet="T_WQX_REF_LAB" />
+      <End Role="T_WQX_RESULT" EntitySet="T_WQX_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_USE__ORG_I__38996AB5" Association="Self.FK__T_WQX_USE__ORG_I__38996AB5">
+      <End Role="T_WQX_ORGANIZATION" EntitySet="T_WQX_ORGANIZATION" />
+      <End Role="T_WQX_USER_ORGS" EntitySet="T_WQX_USER_ORGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__T_WQX_USE__USER___398D8EEE" Association="Self.FK__T_WQX_USE__USER___398D8EEE">
+      <End Role="T_OE_USERS" EntitySet="T_OE_USERS" />
+      <End Role="T_WQX_USER_ORGS" EntitySet="T_WQX_USER_ORGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_WQX_REF_CHAR_ORG" Association="Self.FK_T_WQX_REF_CHAR_ORG">
+      <End Role="T_WQX_REF_ANAL_METHOD" EntitySet="T_WQX_REF_ANAL_METHOD" />
+      <End Role="T_WQX_REF_CHAR_ORG" EntitySet="T_WQX_REF_CHAR_ORG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

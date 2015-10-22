@@ -1,0 +1,238 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAuth.master.cs" Inherits="OpenEnvironment.SiteAuth" %>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+   <title>TFerst Mvskogee Open Waters - Environmental Data Management</title>
+   <!-- Use Unicode character encoding -->
+  <meta charset="utf-8" />
+  <!-- Tell IE to display content in highest HTML 5 mode available -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Tell mobile browsers to use the device width when rendering -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+<![endif]-->
+
+    <link href="/css/styles2.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css" type="text/css"/> 
+
+
+   <style>
+
+ 
+        .contentArea {
+
+            margin-top:60px;
+            margin-left:40px;
+          
+        }
+
+        .page-content {
+
+            margin-top:60px;
+           
+        }
+
+       .footer {
+           margin-left:5px;
+       }
+
+       #messagesDiv {
+
+       overflow-y: auto;
+       height: 200px;
+
+       }
+
+
+
+             
+   </style>
+
+    <script src="../../js/jquery-1.11.0.min.js"></script>
+    <script src="../../js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+
+
+        <script type="text/javascript" src="../../js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>        
+        
+        <script type="text/javascript" src="../../js/plugins/sparkline/jquery.sparkline.min.js"></script>        
+    
+        <script type="text/javascript" src="../../js/plugins/fancybox/jquery.fancybox.pack.js"></script>                
+
+        <script type="text/javascript" src="../../js/plugins/jquery/jquery-ui.min.js"></script> 
+
+        
+        <script type="text/javascript" src="../../js/plugins/daterangepicker/moment.min.js"></script>
+        <script type="text/javascript" src="../../js/plugins/daterangepicker/daterangepicker.js"></script> 
+
+
+        <script type="text/javascript" src="../../js/demo.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body id="body1" >
+
+  <!-- ********************************** -->
+  <!-- Header Navigation Area -->log
+  <!-- ********************************** -->
+
+
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/App_Pages/Secure/Dashboard.aspx" id="dshBrd" class="navbar-brand" ><span class="glyphicon">
+        </span>&nbsp;Dashboard</a>
+        <button type="button" data-target="#navbarCollapse"
+          data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="dropdown">
+            <a href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown">Upload Excel Data<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/App_Pages/Secure/WQXUploadExcel.aspx">Excel Upload</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/WQXConfigurations.aspx">Excel Configuration</a>
+              </li>
+              <!--
+                <li>
+                <a href="WQXImport.aspx">Custom Import</a>
+              </li>
+               -->
+
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown">Edit Data<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/App_Pages/Secure/WQXOrg.aspx">Organization</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/WQXProject.aspx">Projects</a>
+              </li>
+                <li>
+                <a href="/App_Pages/Secure/WQXMonLoc.aspx">Monitor Locations</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/WQXActivity.aspx">Activities</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/AnalyzeAdmin.aspx">Analyze Config</a>
+              </li>
+          
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown">Analyze Data<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/App_Pages/Secure/SearchAnalyze.aspx">Search & Analyze</a>
+              </li>
+
+               <!--
+              <li>
+                <a href="Maps.aspx">Map</a>
+              </li>
+               -->
+              <!--
+              <li>
+                <a href="/App_Pages/Secure/Charting.aspx">Graphs</a>
+              </li>
+             -->
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#"
+              class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="/App_Pages/Secure/MyAccount.aspx">My Account</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/UserList.aspx">User Management</a>
+              </li>
+              <li>
+                <a href="/App_Pages/Secure/RoleList.aspx">Role Management</a>
+              </li>
+               <li>
+                <a href="/App_Pages/Secure/AppSettings.aspx">App Settings</a>
+              </li>
+               <li>
+                <a href="/App_Pages/Secure/WQX_Mgmt.aspx">WQX Management</a>
+              </li>
+               <li>
+                <a href="/App_Pages/Secure/WQXOrgSettings.aspx">Org Characteristic Settings</a>
+              </li>
+             
+              <li class="divider"></li>
+               <li>
+                <a href="/App_Pages/Secure/ColumnAdmin.aspx">Column Admin</a>
+              </li>
+               <li>
+                <a href="/App_Pages/Secure/RefData.aspx">Synch Data</a>
+              </li>
+            </ul>
+          </li>
+
+
+          <li>
+             <a href="/App_Pages/Secure/Help.aspx">Help</a>
+          </li>
+        
+           
+        </ul>
+        <div align="right">
+            Current Org:
+            <asp:label ID="lblCurrentOrg" runat="server" />
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+        <asp:ObjectDataSource ID="dsOrg" runat="server" SelectMethod="GetWQX_USER_ORGS_ByUserIDX" TypeName="OpenEnvironment.App_Logic.DataAccessLayer.db_WQX">
+        <SelectParameters>
+            <asp:SessionParameter DefaultValue="" Name="UserIDX" SessionField="UserIDX" Type="Int32" />
+        </SelectParameters>
+        </asp:ObjectDataSource>
+
+     <form id="form1"  runat="server">
+       
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+           
+       
+
+    </form>
+
+    <div class="footer">
+        
+        Version: <asp:Label ID="lblVer" runat="server"></asp:Label> | 
+        <asp:HyperLink runat="server" NavigateUrl="~/App_Pages/Public/License.aspx" Text="License"></asp:HyperLink> 
+     </div>
+    
+
+</body>
+</html>

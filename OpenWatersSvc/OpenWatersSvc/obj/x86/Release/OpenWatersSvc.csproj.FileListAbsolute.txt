@@ -1,0 +1,13 @@
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.exe.config
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.exe.manifest
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.application
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.exe
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.XmlSerializers.dll
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenWatersSvc.pdb
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\bin\Release\OpenEnvironment.dll
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.csprojResolveAssemblyReference.cache
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.exe.manifest
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.application
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.exe
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.pdb
+C:\GitHub\ows_livelychanges\OpenWatersSvc\OpenWatersSvc\obj\x86\Release\OpenWatersSvc.XmlSerializers.dll
