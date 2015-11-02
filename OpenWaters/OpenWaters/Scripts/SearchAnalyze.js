@@ -524,17 +524,15 @@ function loadResultsTable() {
                                 tempObject.date = xmlDoc.getElementsByTagName("Activity")[i].getElementsByTagName("ActivityStartDate")[0].childNodes[0].nodeValue;
                             }
 
-                            if (results[r].getElementsByTagName("ResultMeasureValue")[0] != null) {
-                                tempObject.value = results[r].getElementsByTagName("ResultMeasureValue")[0].childNodes[0].nodeValue;
-                            } else {
-                                tempObject.value = 0;
-                            }
-
                             if (results[r].getElementsByTagName("MeasureUnitCode")[0] != null) {
                                 tempObject.unit = results[r].getElementsByTagName("MeasureUnitCode")[0].childNodes[0].nodeValue;
                             }
 
-                            queryResults[listIndex].data.push(tempObject);
+                            if (results[r].getElementsByTagName("ResultMeasureValue")[0] != null) {
+                                tempObject.value = results[r].getElementsByTagName("ResultMeasureValue")[0].childNodes[0].nodeValue;
+                                queryResults[listIndex].data.push(tempObject); //we only want to include values where it's not null
+                            }
+                            
                     }
                 }
                 
@@ -763,8 +761,8 @@ function handleTrends(result) {
             myIndex = myPairedIndex[i];
             firstIndex = myIndex[0];
             secondIndex = myIndex[1];
-            //myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
-            myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex]));
+//            myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
+            myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex])); //this seems to correct the slope
             // myResultsDiff[i] = myResultsArray[firstIndex] - myResultsArray[secondIndex];
             myResultsDiff[i] = myResultsArray[secondIndex] - myResultsArray[firstIndex];
             mySlopeArray[i] = myResultsDiff[i] / myDateDiff[i];
@@ -1015,15 +1013,17 @@ function drawChart(result, counter) {
         //    });
 
         if (result.data.length < 5) {
-            $("#trendCharts").append('<b>Cannot do trend calculations with less than 5 data points.</b><br>');
+            $("#trendCharts").append('Cannot do trend analysis on 4 or less values.<br>');
         }else if (pValue <= .05 && result.data.length > 1) {
-            $("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
+            //$("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
+            $("#trendCharts").append('The Mann-Kendall test for trend is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
         }
         //else if (result.data.length == 1) {
         //    $("#trendCharts").append('There is only one data point.  Need at least two for trend calculations.<br>');
         //}
         else {
-            $("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is not significant at the 0.05 level.<br>');
+            //$("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is not significant at the 0.05 level.<br>');
+            $("#trendCharts").append('The Mann-Kendall test for trend is not significant at the 0.05 level.<br>');
         }
     
     //$(".pvalue").html(pValue.toFixed(4));
