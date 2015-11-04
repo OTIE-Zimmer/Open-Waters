@@ -727,7 +727,7 @@ function sortCheckedResults(a, b) {
 }
 
 function handleTrends(result) {
-    // http://pubs.usgs.gov/twri/twri4a3/html/toc.html good resource
+/*    // http://pubs.usgs.gov/twri/twri4a3/html/toc.html good resource
     var Zcrit
     var posSlope = 0;
     var negSlope = 0;
@@ -853,7 +853,151 @@ function handleTrends(result) {
         //console.log(MannK);
         //console.log(pValue);
         //End Don's code
-    }    
+    }  
+    */
+    var daysBetween = [];
+
+    var myDates = new Array();
+    var myResultsArray = new Array();
+
+    for (var i = 0; i < result.data.length; i++) { //Added by Chuck to populate Don's variables.
+        myResultsArray.push(result.data[i].value);
+        myDates.push(result.data[i].date);
+    }
+
+    var Zcrit;
+
+
+    var posSlope = 0;
+    var negSlope = 0;
+    var numTied = 0;
+
+    var myArrayLength = [];
+    for (var i = 0; i < myDates.length; i++) {
+        myArrayLength.push(i);
+    }
+
+    
+
+    var myDateDiff = [];
+    var myResultsDiff = [];
+    var mySlopeArray = [];
+    var myBArray = [];
+    var myPairedIndex = combinations(myArrayLength, 2);
+    var MannK;
+    var varS;
+    var Zs;
+
+    if (myDates.length >= 5) {
+     //   document.body.innerHTML += '<br /> Five data points are needed to have a p < 0.05 <br />';
+        // sen estimate of slope is the median of all calculated slopes
+        for (var i = 0; i < myPairedIndex.length; i++) {
+            myIndex = myPairedIndex[i];
+            firstIndex = myIndex[0];
+            secondIndex = myIndex[1];
+            //myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
+            myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex]));
+            // myResultsDiff[i] = myResultsArray[firstIndex] - myResultsArray[secondIndex];
+            myResultsDiff[i] = myResultsArray[secondIndex] - myResultsArray[firstIndex];
+            mySlopeArray[i] = myResultsDiff[i] / myDateDiff[i];
+
+            if (mySlopeArray[i] > 0) {
+                posSlope = posSlope + 1;
+            } else if (mySlopeArray[i] < 0) {
+                negSlope = negSlope + 1;
+            } else {
+                numTied = numTied + 1;
+            }
+        }
+        senSlope = median(mySlopeArray);
+        // now get the y-intercept
+        // sen estimate of intercepts is the median of all calculated intercepts through the points using the Sen slope
+
+        //Math.min.apply(null, arr)
+
+        //senB = median(myResultsArray) - (senSlope * (myDateDiff.max() / 2));
+        // now get the y-intercept
+        // Granato, G.E., 2006, Kendall-Theil Robust Line (KTRLine—version 1.0)—A visual basic program for calculating and
+        //graphing robust nonparametric estimates of linear-regression coefficients between two continuous variables:
+        //Techniques and Methods of the U.S. Geological Survey, book 4, chap. A7, 31 p.
+        //
+        // b = Ymedian - m * Xmedian
+        daysBetween[0] = 0;
+        for (var i = 0; i < myDates.length - 1; i++) {
+            daysBetween[i + 1] = daydiff(parseDate(myDates[i + 1]), parseDate(myDates[0]));
+        }
+        senB = median(myResultsArray) - (senSlope * median(daysBetween));
+
+
+        //Mann Kendall test for trends
+        //If n<10, then use the lookup table, below, to determine the critical value of S for various values of n. 
+
+        S = posSlope - negSlope;
+
+
+        if (myDates.length < 10) {
+            switch (myDates.length) {
+                case 5:
+                    Scrit = 10
+                    break;
+                case 6:
+                    Scrit = 13
+                    break;
+                case 7:
+                    Scrit = 15
+                    break;
+                case 8:
+                    Scrit = 18
+                    break;
+                case 9:
+                    Scrit = 20
+                    break;
+                case 10:
+                    Scrit = 23
+                    break;
+            }
+            //  Now the actual test
+            if (S >= Scrit) {
+                MannK = "Sig. increasing";
+                pValue = 0.01;
+            } else if (S <= (-1 * Scrit)) {
+                MannK = "Sig. decreasing";
+                pValue = 0.01;
+            } else {
+                MannK = "No Trend";
+                pValue = 2;
+            }
+
+        }
+            //  If n>=10, then calculate variance of S and use the formula for the normal approximation of the probability of S
+        else {
+            varS = (myDates.length * (myDates.length - 1) * (2 * myDates.length + 5) / 18);
+            //=IF(L26=0,0,IF(L26>0,(L26-1)/K30^0.5,(L26+1)/K30^0.5))
+            if (S > 0) {
+                Zs = (S - 1) / Math.sqrt(varS);
+            } else if (S < 0) {
+                Zs = (S + 1) / Math.sqrt(varS);
+            } else {
+                Zs = 0;
+            }
+
+            //  Now the actual test
+            Zcrit = 1.96; //  1.96 (positive or negative) is the critical value for Z, two-tailed, at p < .05
+
+            if (Zs >= Zcrit) {
+                MannK = "Sig. increasing";
+            } else if (Zs <= (-1 * Zcrit)) {
+                MannK = "Sig. decreasing";
+            } else {
+                MannK = "No Trend";
+            }
+
+        }
+
+    }
+
+
+    
 }
 
 
@@ -885,7 +1029,7 @@ function parseDate(str) {
 }
 
 function daydiff(first, second) {
-    return Math.floor((second - first) / (1000 * 60 * 60 * 24))
+    return Math.floor((first - second) / (1000 * 60 * 60 * 24))
 }
 
 function median(values) {
