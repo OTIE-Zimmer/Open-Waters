@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Project Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXProjectEdit.aspx.cs" Inherits="OpenEnvironment.WQXProjectEdit" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Project Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXProjectEdit.aspx.cs" Inherits="OpenEnvironment.WQXProjectEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ObjectDataSource ID="dsRefData" runat="server" SelectMethod="GetT_WQX_REF_DATA" TypeName="OpenEnvironment.App_Logic.DataAccessLayer.db_Ref">
         <SelectParameters>

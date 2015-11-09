@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Activity Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXActivityEdit.aspx.cs" Inherits="OpenEnvironment.WQXActivityEdit" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Activity Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXActivityEdit.aspx.cs" Inherits="OpenEnvironment.WQXActivityEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../../Scripts/jquery-1.4.1.js" type="text/javascript"></script>

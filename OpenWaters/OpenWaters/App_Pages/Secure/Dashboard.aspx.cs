@@ -69,7 +69,7 @@ namespace OpenEnvironment
                 List<T_WQX_ORGANIZATION> o1s = db_WQX.GetWQX_USER_ORGS_ByUserIDX(UserIDX, false);
                 if (o1s.Count == 0)
                 {
-                    lblWiz1.Text = "To use TFerst Mvskogee Open Waters, you must first be linked with an Organization. This is the water monitoring agency you represent. If you intend to submit your data to EPA, this organization must first be created by EPA in their WQX system. Otherwise, if you never intend to submit your data to EPA, you can create any Organization ID you wish.";
+                    lblWiz1.Text = "To use Tribal-FERST Mvskoke Open Waters Module, you must first be linked with an Organization. This is the water monitoring agency you represent. If you intend to submit your data to EPA, this organization must first be created by EPA in their WQX system. Otherwise, if you never intend to submit your data to EPA, you can create any Organization ID you wish.";
                     spnWiz1.Attributes["class"] = "signup_header_cross";
                     btnWiz1.Text = "Get Started";
                     spnWiz2.Attributes["class"] = "signup_header_crossbw";
@@ -130,7 +130,7 @@ namespace OpenEnvironment
                             else
                             {
                                 spnWiz2.Attributes["class"] = "signup_header_cross";
-                                lblWiz2.Text = "In order to submit data to EPA using TFerst Mvskogee Open Waters, you must contact EPA and request that they authorize Open Waters to submit data.";
+                                lblWiz2.Text = "In order to submit data to EPA using Tribal-FERST Mvskoke Open Waters Module, you must contact EPA and request that they authorize Open Waters to submit data.";
                                 btnWiz2.Text = "Get Started";
                             }
 

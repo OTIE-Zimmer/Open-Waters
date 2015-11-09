@@ -419,7 +419,7 @@ namespace OpenEnvironment.App_Logic.BusinessLogicLayer
 
             List<T_OE_USERS> users = db_WQX.GetWQX_USER_ORGS_AdminsByOrg(OrgID);
             foreach (T_OE_USERS user in users)
-                Utils.SendEmail(null, user.EMAIL.Split(';').ToList(), null, null, "TFerst Mvskogee Open Waters Submit Failure", "Automated submission for " + OrgID + " has been disabled due to a submission failure. Failure details are: " + LogMsg, null);
+                Utils.SendEmail(null, user.EMAIL.Split(';').ToList(), null, null, "Tribal-FERST Mvskoke Open Waters Module Submit Failure", "Automated submission for " + OrgID + " has been disabled due to a submission failure. Failure details are: " + LogMsg, null);
         }
 
 
@@ -494,7 +494,7 @@ namespace OpenEnvironment.App_Logic.BusinessLogicLayer
                     //GET PATH TO PLACE WHERE IMPORT FILE WILL BE STORED
                     string svcPath = db_Ref.GetT_OE_APP_SETTING("Task App Path");
                     if (svcPath.Length == 0)
-                        db_Ref.InsertUpdateWQX_IMPORT_LOG(ImportID, null, null, null, 0, "Failed", "100", "Failed - Administrator must configure TFerst Mvskogee Open Waters task application path.", null, "SYSTEM");
+                        db_Ref.InsertUpdateWQX_IMPORT_LOG(ImportID, null, null, null, 0, "Failed", "100", "Failed - Administrator must configure Tribal-FERST Mvskoke Open Waters Module task application path.", null, "SYSTEM");
 
                     //*******DOWNLOAD RESULTS.XML FROM EPA ****************************************************************************
                     NodeDocumentType[] dlResp = WQXSubmit.DownloadHelper(cred.NodeURL, token, "WQX", solResp.transactionId);

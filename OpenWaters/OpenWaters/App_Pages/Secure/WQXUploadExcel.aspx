@@ -915,7 +915,7 @@
                         <div class="col-sm-6 col-md-6">
                             <div class="block">                          
                              <div class="block-head">
-                                    <h2>TFerst Mvskogee Open Waters Summary Dashboard - <%=Session["OrgID"] %></h2>
+                                    <h2>Tribal-FERST Mvskoke Open Waters Module Summary Dashboard - <%=Session["OrgID"] %></h2>
                                   <ul class="buttons">
                                       
                                     </ul>  

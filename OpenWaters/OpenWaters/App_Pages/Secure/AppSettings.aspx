@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - App Settings" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - App Settings" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true"
     CodeBehind="AppSettings.aspx.cs" Inherits="OpenEnvironment.AppSettings" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="contentArea">

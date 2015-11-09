@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Mon Loc Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXMonLocEdit.aspx.cs" Inherits="OpenEnvironment.WQXMonLocEdit" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Mon Loc Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXMonLocEdit.aspx.cs" Inherits="OpenEnvironment.WQXMonLocEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     

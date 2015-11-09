@@ -2,7 +2,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-   <title>TFerst Mvskogee Open Waters - Environmental Data Management</title>
+   <title>Tribal-FERST Mvskoke Open Waters Module - Environmental Data Management</title>
    <!-- Use Unicode character encoding -->
   <meta charset="utf-8" />
   <!-- Tell IE to display content in highest HTML 5 mode available -->

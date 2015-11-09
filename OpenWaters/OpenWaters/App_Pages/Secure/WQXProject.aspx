@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Projects" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXProject.aspx.cs" Inherits="OpenEnvironment.WQXProject" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Projects" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXProject.aspx.cs" Inherits="OpenEnvironment.WQXProject" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Dashboard" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="OpenEnvironment.Dashboard" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Dashboard" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="OpenEnvironment.Dashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <style>
@@ -654,7 +654,7 @@
                      
                             <div class="block">                          
                              <div class="block-head">
-                                    <h2>TFerst Mvskogee Open Waters Summary Dashboard - <%=Session["OrgID"] %></h2>
+                                    <h2>Tribal-FERST Mvskoke Open Waters Module Summary Dashboard - <%=Session["OrgID"] %></h2>
                                   <ul class="buttons">
                                        <%-- <li><a href="#" class="block-refresh"><span class="fa fa-refresh"></span></a></li>
                                         <li><a href="#" class="block-toggle"><span class="fa fa-chevron-down"></span></a></li>
@@ -676,7 +676,7 @@
            <tbody>
 
                <tr>
-               <td><div class="fldLbl" style="width:250px; ">Organizations Using TFerst Mvskogee Open Waters: </div></td>
+               <td><div class="fldLbl" style="width:250px; ">Organizations Using Tribal-FERST Mvskoke Open Waters Module: </div></td>
                <td><asp:Label ID="lblOrgName" runat="server" CssClass="bold"></asp:Label></td>
                </tr>
               
@@ -816,12 +816,12 @@
 
                                 <h3 class="ui-accordion-header ui-helper-reset ui-corner-all"><span class="ui-icon ui-icon-exp">2</span>
                                     <a target="_blank">
-                                        <span class="signup_tabs_header">Authorize TFerst Mvskogee Open Waters to Submit Data</span>
+                                        <span class="signup_tabs_header">Authorize Tribal-FERST Mvskoke Open Waters Module to Submit Data</span>
                                         <span id="spnWiz2" runat="server" class=""></span>
                                     </a>
                                 </h3>
                                 <div class="signup_container infoSlide ui-accordion-content ui-helper-reset ui-corner-bottom" id="signup_2" style="height: 80px; overflow: auto; padding-top: 13px; padding-bottom: 13px; display: none;">
-                                    <asp:Label ID="lblWiz2" runat="server" CssClass="left" Width="450px" Text="In order to submit data to EPA using TFerst Mvskogee Open Waters, you must contact EPA and request that they authorize Open Waters to submit data."></asp:Label>
+                                    <asp:Label ID="lblWiz2" runat="server" CssClass="left" Width="450px" Text="In order to submit data to EPA using Tribal-FERST Mvskoke Open Waters Module, you must contact EPA and request that they authorize Open Waters to submit data."></asp:Label>
                                     <asp:Button ID="btnWiz2" runat="server" Text="Get Started" CssClass="btn right" OnClick="btnWiz2_Click" />
                                 </div>
 

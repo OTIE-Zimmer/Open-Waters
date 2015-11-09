@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Graphs" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Charting.aspx.cs" Inherits="OpenEnvironment.Charting" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Graphs" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Charting.aspx.cs" Inherits="OpenEnvironment.Charting" %>
 <%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 
 

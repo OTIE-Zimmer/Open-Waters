@@ -9,7 +9,7 @@
         <div class="indent">
             <b>Administration and User's Guide:</b> 
             <div class="indent">
-                <div class="smallnote">Document describes how to use TFerst Mvskogee Open Waters.</div> 
+                <div class="smallnote">Document describes how to use Tribal-FERST Mvskoke Open Waters Module.</div> 
                 <asp:HyperLink ID="hlUsersGuide" runat="server" NavigateUrl="~/App_Docs/UsersGuide.docx" Target="_blank">Link</asp:HyperLink>
             </div>
             <br /><br />

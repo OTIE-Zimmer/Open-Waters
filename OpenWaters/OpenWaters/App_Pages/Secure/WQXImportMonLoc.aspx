@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Import Mon Loc" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXImportMonLoc.aspx.cs" Inherits="OpenEnvironment.WQXImportMonLoc" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Import Mon Loc" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXImportMonLoc.aspx.cs" Inherits="OpenEnvironment.WQXImportMonLoc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         #container { float:left;

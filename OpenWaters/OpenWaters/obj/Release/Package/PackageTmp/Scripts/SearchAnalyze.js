@@ -66,26 +66,36 @@ $(document).ready(function () {
     //$("#submitUsetTaskBtn").on("click", submitUsetData);
     
     // radio listeners
-    $("#RadioAnalyze_box").on("click", function () {
-        document.getElementById("analyzeTrendsArea").style.display = 'none';
-        document.getElementById("analyzeBoxArea").style.display = '';
-       
+        $("#RadioAnalyze_box").on("click", function () {
+            document.getElementById("analyzeTrendsArea").style.display = 'none';
+            document.getElementById("analyzeBoxArea").style.display = '';
     });
 
-    $("#RadioAnalyze_trends").on("click", function () {
-        document.getElementById("analyzeTrendsArea").style.display = '';
-        document.getElementById("analyzeBoxArea").style.display = 'none';
+        $("#RadioAnalyze_trends").on("click", function () {
+            document.getElementById("analyzeTrendsArea").style.display = '';
+            document.getElementById("analyzeBoxArea").style.display = 'none';
     });
     
 
-    $("#checkAllBtn").on("click", function () {
-        $(".resultCheck").attr('checked', true);
-        resultChecked();
+        $("#checkAllBtn").on("click", function () {
+            for (var i = 0; i < queryResults.length; i++) {
+                for (var j = 0; j < queryResults[i].data.length; j++) {
+                    document.getElementById("resultCheck" + i + "_" + j).checked = true;
+                }
+            }
+            
+            //$(".resultCheck").attr('checked', true);
+            resultChecked();
 
-    })
+        })
 
-    $("#uncheckAllBtn").on("click", function () {
-        $(".resultCheck").attr('checked', false);
+        $("#uncheckAllBtn").on("click", function () {
+            for (var i = 0; i < queryResults.length; i++) {
+                for (var j = 0; j < queryResults[i].data.length; j++) {
+                    document.getElementById("resultCheck" + i + "_" + j).checked = false;
+                }
+            }
+            //$(".resultCheck").attr('checked', false);
         resultChecked();
 
     })
@@ -159,7 +169,6 @@ function generateBoxWhisker()
         //console.log(upperQuartile);
         //console.log(max);
     }
-
     var chart1 = new Highcharts.Chart({
         chart: {
             renderTo: 'boxWhiskerPlot',
@@ -226,7 +235,6 @@ function generateBoxWhisker()
         }]
     });
     chart1.reflow();
-    
 //    var margin = { top: 10, right: 50, bottom: 20, left: 50 },
 //    width = 120 - margin.left - margin.right,
 //    height = 500 - margin.top - margin.bottom;
@@ -475,7 +483,6 @@ function loadResultsTable() {
     if ($("#endDateInput").val() != "") {
         endDate = new Date($("#endDateInput").val());
     }
-
     $(".resultCheck").off();
 
     /*while (document.getElementById("resultsTable").rows.length > 1) {
@@ -517,15 +524,15 @@ function loadResultsTable() {
                                 tempObject.date = xmlDoc.getElementsByTagName("Activity")[i].getElementsByTagName("ActivityStartDate")[0].childNodes[0].nodeValue;
                             }
 
-                            if (results[r].getElementsByTagName("ResultMeasureValue")[0] != null) {
-                                tempObject.value = results[r].getElementsByTagName("ResultMeasureValue")[0].childNodes[0].nodeValue;
-                            }
-
                             if (results[r].getElementsByTagName("MeasureUnitCode")[0] != null) {
                                 tempObject.unit = results[r].getElementsByTagName("MeasureUnitCode")[0].childNodes[0].nodeValue;
                             }
 
-                            queryResults[listIndex].data.push(tempObject);
+                            if (results[r].getElementsByTagName("ResultMeasureValue")[0] != null) {
+                                tempObject.value = results[r].getElementsByTagName("ResultMeasureValue")[0].childNodes[0].nodeValue;
+                                queryResults[listIndex].data.push(tempObject); //we only want to include values where it's not null
+                            }
+                            
                     }
                 }
                 
@@ -611,7 +618,6 @@ function loadResultsTable() {
         cell.width = 100;
         cell.innerHTML = "<b>Unit</b>";
 
-
         for (var j = 0; j < queryResults[i].data.length; j++)
         {
             row = table.insertRow(j + 1);
@@ -631,19 +637,26 @@ function loadResultsTable() {
 
         $("#collapse" + i + " .panel-body").append(table);
 
-        $("#checkAllBtn" + i).on("click", function () {     
-            $(".resultCheck" + $(this).val()).attr('checked', true);
+        $("#checkAllBtn" + i).on("click", function () {
+            for (var j = 0; j < queryResults[$(this).val()].data.length; j++) {
+                document.getElementById("resultCheck" + $(this).val() + "_" + j).checked = true;
+            }
+
+            //$(".resultCheck" + $(this).val()).attr('checked', true);
             resultChecked();
         });
 
         $("#deselectAllBtn" + i).on("click", function () {
-            $(".resultCheck" + $(this).val()).attr('checked', false);
+            for (var j = 0; j < queryResults[$(this).val()].data.length; j++) {
+                document.getElementById("resultCheck" + $(this).val() + "_" + j).checked = false;
+            }
+            //$(".resultCheck" + $(this).val()).attr('checked', false);
             resultChecked();
         });      
     }
 
 
-    $(".resultCheck").on("change", resultChecked);
+    $(".resultCheck").on("click", resultChecked);
 
 }
 
@@ -655,7 +668,6 @@ function resultChecked() {
     clearAllCharts();
 
     checkedResults = new Array();
-
     for (var i = 0; i < queryResults.length; i++)
     {
                
@@ -666,7 +678,6 @@ function resultChecked() {
         checkedResults.push(tempObject);
             
         for (var j = 0; j < queryResults[i].data.length; j++) {
-                
             if (document.getElementById("resultCheck" + i + "_" + j).checked == true) {
                 tempObject = new Object();
                 tempObject.date = queryResults[i].data[j].date;
@@ -676,7 +687,7 @@ function resultChecked() {
                 checkedResults[checkedResults.length-1].data.push(tempObject);
             }
         }
-   
+        
         // if nothing is checked, remove it
         if(checkedResults[checkedResults.length-1].data.length == 0)
         {
@@ -684,107 +695,21 @@ function resultChecked() {
         }
         
     }
-
     generateBoxWhisker();
-
     makeMasterChart();
-    
-//    var createCarousel = "<div id='myCarousel' class='carousel slide' style='height:500px' data-ride='carousel'>"
-//                        + "<ol id='carouselol' class='carousel-indicators'>"
-//                        + "<li id='carouselPlaceholderLi' data-target='#myCarousel' data-slide-to='0' class='active'></li>"
-//                        + "</ol>"
-//                        + "<div id='carouselInner' class='carousel-inner' style='height:inherit'>"
-//                        + "<div id='carouselPlaceholderDiv' class='item active' style='height:inherit; '>"
-//                        + "<div class='container'>"
-//                        + "<div class='carousel-caption'>"
-//                        + "<h1>END</h1>"
-//                        + "<p></p>"
-//                        + "<p></p>"
-//                        + "</div>"
-//                        + "</div>"
-//                        + "</div>"
-//                        + "</div>"
-//                        + "<a class='left carousel-control' href='#myCarousel' role='button' data-slide='prev'><span class='glyphicon glyphicon-chevron-left'></span></a>"
-//                        + "<a class='right carousel-control' href='#myCarousel' role='button' data-slide='next'><span class='glyphicon glyphicon-chevron-right'></span></a>"
-//                        + "</div>";
-//    document.getElementById("carouselDiv").innerHTML = createCarousel;
+
     for (var i = 0; i < checkedResults.length; i++) {
-           if (checkedResults[i].data.length >= 2) {
-               handleTrends(checkedResults[i]);
-           }
-           else {
-               senSlope = 0;
-               senB = 0;
-               pValue = 0;
-           }
-                
-           drawChart(checkedResults[i], i);  
-    }
-    
-    /*
-    for (var i = 1, len = document.getElementById("resultsTable").rows.length; i < len; i++) {
-        if (document.getElementById("resultCheck" + i).checked == true) {
-            tempObject = new Object();
-
-            tempObject.date = document.getElementById("resultsTable").rows[i].cells[1].innerHTML;
-            tempObject.value = Number(document.getElementById("resultsTable").rows[i].cells[2].innerHTML);
-            tempObject.location = document.getElementById("resultsTable").rows[i].cells[4].innerHTML;
-
-            if (locationList.indexOf(tempObject.location) != -1)
-            {
-                tempObject.locationIndex = locationList.indexOf(tempObject.location);
-            }
-            else
-            {
-                locationList.push(tempObject.location);
-                tempObject.locationIndex = locationList.indexOf(tempObject.location);
-            }
-
-            checkedResults.push(tempObject);
-        }
-
-    }
-
-    checkedResults.sort(sortCheckedResults);
-
-    generateBoxWhisker();
-
-    var data = [];
-    var current;
-
-    for (var i = 0; i < checkedResults.length; i++)
-    {
-        if (i == 0 || current != checkedResults[i].locationIndex)
-        {
-            current = checkedResults[i].locationIndex;
-            tempObject = new Array();
-            tempObject.push(checkedResults[i]);
-            data.push(tempObject);
-        }
-        else
-        {
-            data[data.length-1].push(checkedResults[i]);
-        }
-    }
-
-    
-
-    for (var i = 0; i < data.length; i++)
-    {
-
-        if (data[i].length >= 2) {
-             handleTrends(data, i);
+        if (checkedResults[i].data.length >= 2) {
+            handleTrends(checkedResults[i]);
         }
         else {
             senSlope = 0;
             senB = 0;
             pValue = 0;
         }
-
-        drawChart(data, i);
+                
+        drawChart(checkedResults[i], i);  
     }
-
-    */
 }
 
 function sortCheckedResults(a, b) {
@@ -802,10 +727,8 @@ function sortCheckedResults(a, b) {
 }
 
 function handleTrends(result) {
-    // http://pubs.usgs.gov/twri/twri4a3/html/toc.html good resource
-    
+/*    // http://pubs.usgs.gov/twri/twri4a3/html/toc.html good resource
     var Zcrit
-
     var posSlope = 0;
     var negSlope = 0;
     var numTied = 0;
@@ -817,11 +740,144 @@ function handleTrends(result) {
         myResultsArray.push(result.data[i].value);
         myDates.push(result.data[i].date);
     }
+    if (myDates.length >= 5) //Five data point are required for trend analysis
+    {
+        var myArrayLength = [];
+        for (var i = 0; i < myDates.length; i++) {
+            myArrayLength.push(i);
+        }
+        var myDateDiff = [];
+        var myResultsDiff = [];
+        var mySlopeArray = [];
+        var myBArray = [];
+        var myPairedIndex = combinations(myArrayLength, 2);
+        var MannK;
+        var varS;
+        var Zs;
+
+
+        // sen estimate of slope is the median of all calculated slopes
+        for (var i = 0; i < myPairedIndex.length; i++) {
+            myIndex = myPairedIndex[i];
+            firstIndex = myIndex[0];
+            secondIndex = myIndex[1];
+//            myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
+            myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex])); //this seems to correct the slope
+            // myResultsDiff[i] = myResultsArray[firstIndex] - myResultsArray[secondIndex];
+            myResultsDiff[i] = myResultsArray[secondIndex] - myResultsArray[firstIndex];
+            mySlopeArray[i] = myResultsDiff[i] / myDateDiff[i];
+
+            if (mySlopeArray[i] > 0) {
+                posSlope = posSlope + 1;
+            } else if (mySlopeArray[i] < 0) {
+                negSlope = negSlope + 1;
+            } else {
+                numTied = numTied + 1;
+            }
+        }
+        senSlope = median(mySlopeArray);
+        // now get the y-intercept
+        // sen estimate of intercepts is the median of all calculated intercepts through the points using the Sen slope
+
+        //Math.min.apply(null, arr)
+
+        senB = median(myResultsArray) - (senSlope * (myDateDiff.max() / 2));
+        //Mann Kendall test for trends
+        //If n<10, then use the lookup table, below, to determine the critical value of S for various values of n. 
+
+        S = posSlope - negSlope;
+
+        Scrit = 0;
+        if (myDates.length <= 10) {
+            switch (myDates.length) {
+                case 5:
+                    Scrit = 10
+                    break;
+                case 6:
+                    Scrit = 13
+                    break;
+                case 7:
+                    Scrit = 15
+                    break;
+                case 8:
+                    Scrit = 18
+                    break;
+                case 9:
+                    Scrit = 20
+                    break;
+                case 10:
+                    Scrit = 23
+                    break;
+            }
+            //  Now the actual test
+            if (S >= Scrit) {
+                MannK = "Sig. increasing";
+                pValue = .01;
+            } else if (S <= (-1 * Scrit)) {
+                MannK = "Sig. decreasing";
+                pValue = .01;
+            } else {
+                MannK = "No Trend";
+                pValue = 2;
+            }
+
+        }
+            //  If n>=10, then calculate variance of S and use the formula for the normal approximation of the probability of S
+        else {
+            varS = (myDates.length * (myDates.length - 1) * (2 * myDates.length + 5) / 18);
+            //=IF(L26=0,0,IF(L26>0,(L26-1)/K30^0.5,(L26+1)/K30^0.5))
+            if (S > 0) {
+                Zs = (S - 1) / Math.sqrt(varS);
+            } else if (S < 0) {
+                Zs = (S + 1) / Math.sqrt(varS);
+            } else {
+                Zs = 0;
+            }
+            //  Now the actual test
+            Zcrit = 1.96; //  1.96 (positive or negative) is the critical value for Z, two-tailed, at p < .05
+
+            if (Zs >= Zcrit) {
+                MannK = "Sig. increasing";
+                pValue = .01; //Update global variable to show it IS significant
+            } else if (Zs <= (-1 * Zcrit)) {
+                MannK = "Sig. decreasing";
+                pValue = .01; //Update global variable to show it IS significant
+            } else {
+                MannK = "No Trend";
+                pValue = 2; //Update global variable to show it is NOT significant
+            }
+
+        }
+        //console.log(S);
+        //console.log(Zs);
+        //console.log(MannK);
+        //console.log(pValue);
+        //End Don's code
+    }  
+    */
+    var daysBetween = [];
+
+    var myDates = new Array();
+    var myResultsArray = new Array();
+
+    for (var i = 0; i < result.data.length; i++) { //Added by Chuck to populate Don's variables.
+        myResultsArray.push(result.data[i].value);
+        myDates.push(result.data[i].date);
+    }
+
+    var Zcrit;
+
+
+    var posSlope = 0;
+    var negSlope = 0;
+    var numTied = 0;
 
     var myArrayLength = [];
     for (var i = 0; i < myDates.length; i++) {
         myArrayLength.push(i);
     }
+
+    
 
     var myDateDiff = [];
     var myResultsDiff = [];
@@ -832,217 +888,115 @@ function handleTrends(result) {
     var varS;
     var Zs;
 
-    if (myDates.length < 5) {
-        document.body.innerHTML += '<br /> Five data points are needed to have a p < 0.05 <br />';
+    if (myDates.length >= 5) {
+     //   document.body.innerHTML += '<br /> Five data points are needed to have a p < 0.05 <br />';
+        // sen estimate of slope is the median of all calculated slopes
+        for (var i = 0; i < myPairedIndex.length; i++) {
+            myIndex = myPairedIndex[i];
+            firstIndex = myIndex[0];
+            secondIndex = myIndex[1];
+            //myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
+            myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex]));
+            // myResultsDiff[i] = myResultsArray[firstIndex] - myResultsArray[secondIndex];
+            myResultsDiff[i] = myResultsArray[secondIndex] - myResultsArray[firstIndex];
+            mySlopeArray[i] = myResultsDiff[i] / myDateDiff[i];
+
+            if (mySlopeArray[i] > 0) {
+                posSlope = posSlope + 1;
+            } else if (mySlopeArray[i] < 0) {
+                negSlope = negSlope + 1;
+            } else {
+                numTied = numTied + 1;
+            }
+        }
+        senSlope = median(mySlopeArray);
+        // now get the y-intercept
+        // sen estimate of intercepts is the median of all calculated intercepts through the points using the Sen slope
+
+        //Math.min.apply(null, arr)
+
+        //senB = median(myResultsArray) - (senSlope * (myDateDiff.max() / 2));
+        // now get the y-intercept
+        // Granato, G.E., 2006, Kendall-Theil Robust Line (KTRLine—version 1.0)—A visual basic program for calculating and
+        //graphing robust nonparametric estimates of linear-regression coefficients between two continuous variables:
+        //Techniques and Methods of the U.S. Geological Survey, book 4, chap. A7, 31 p.
+        //
+        // b = Ymedian - m * Xmedian
+        daysBetween[0] = 0;
+        for (var i = 0; i < myDates.length - 1; i++) {
+            daysBetween[i + 1] = daydiff(parseDate(myDates[i + 1]), parseDate(myDates[0]));
+        }
+        senB = median(myResultsArray) - (senSlope * median(daysBetween));
+
+
+        //Mann Kendall test for trends
+        //If n<10, then use the lookup table, below, to determine the critical value of S for various values of n. 
+
+        S = posSlope - negSlope;
+
+
+        if (myDates.length < 10) {
+            switch (myDates.length) {
+                case 5:
+                    Scrit = 10
+                    break;
+                case 6:
+                    Scrit = 13
+                    break;
+                case 7:
+                    Scrit = 15
+                    break;
+                case 8:
+                    Scrit = 18
+                    break;
+                case 9:
+                    Scrit = 20
+                    break;
+                case 10:
+                    Scrit = 23
+                    break;
+            }
+            //  Now the actual test
+            if (S >= Scrit) {
+                MannK = "Sig. increasing";
+                pValue = 0.01;
+            } else if (S <= (-1 * Scrit)) {
+                MannK = "Sig. decreasing";
+                pValue = 0.01;
+            } else {
+                MannK = "No Trend";
+                pValue = 2;
+            }
+
+        }
+            //  If n>=10, then calculate variance of S and use the formula for the normal approximation of the probability of S
+        else {
+            varS = (myDates.length * (myDates.length - 1) * (2 * myDates.length + 5) / 18);
+            //=IF(L26=0,0,IF(L26>0,(L26-1)/K30^0.5,(L26+1)/K30^0.5))
+            if (S > 0) {
+                Zs = (S - 1) / Math.sqrt(varS);
+            } else if (S < 0) {
+                Zs = (S + 1) / Math.sqrt(varS);
+            } else {
+                Zs = 0;
+            }
+
+            //  Now the actual test
+            Zcrit = 1.96; //  1.96 (positive or negative) is the critical value for Z, two-tailed, at p < .05
+
+            if (Zs >= Zcrit) {
+                MannK = "Sig. increasing";
+            } else if (Zs <= (-1 * Zcrit)) {
+                MannK = "Sig. decreasing";
+            } else {
+                MannK = "No Trend";
+            }
+
+        }
+
     }
 
 
-    // sen estimate of slope is the median of all calculated slopes
-    for (var i = 0; i < myPairedIndex.length; i++) {
-        myIndex = myPairedIndex[i];
-        firstIndex = myIndex[0];
-        secondIndex = myIndex[1];
-        //myDateDiff[i] = daydiff(parseDate(myDates[firstIndex]), parseDate(myDates[secondIndex]));
-        myDateDiff[i] = daydiff(parseDate(myDates[secondIndex]), parseDate(myDates[firstIndex]));
-        // myResultsDiff[i] = myResultsArray[firstIndex] - myResultsArray[secondIndex];
-        myResultsDiff[i] = myResultsArray[secondIndex] - myResultsArray[firstIndex];
-        mySlopeArray[i] = myResultsDiff[i] / myDateDiff[i];
-
-        if (mySlopeArray[i] > 0) {
-            posSlope = posSlope + 1;
-        } else if (mySlopeArray[i] < 0) {
-            negSlope = negSlope + 1;
-        } else {
-            numTied = numTied + 1;
-        }
-    }
-    senSlope = median(mySlopeArray);
-    // now get the y-intercept
-    // sen estimate of intercepts is the median of all calculated intercepts through the points using the Sen slope
-
-    //Math.min.apply(null, arr)
-
-    senB = median(myResultsArray) - (senSlope * (myDateDiff.max() / 2));
-
-    //Mann Kendall test for trends
-    //If n<10, then use the lookup table, below, to determine the critical value of S for various values of n. 
-
-    S = posSlope - negSlope;
-
-
-    if (myDates.length < 10) {
-        switch (myDates.length) {
-            case 5:
-                Scrit = 10
-                break;
-            case 6:
-                Scrit = 13
-                break;
-            case 7:
-                Scrit = 15
-                break;
-            case 8:
-                Scrit = 18
-                break;
-            case 9:
-                Scrit = 20
-                break;
-            case 10:
-                Scrit = 23
-                break;
-        }
-        //  Now the actual test
-        if (S >= Scrit) {
-            MannK = "Sig. increasing";
-            pValue = .01;
-        } else if (S <= (-1 * Scrit)) {
-            MannK = "Sig. decreasing";
-            pValue = .01;
-        } else {
-            MannK = "No Trend";
-            pValue = 2;
-        }
-
-    }
-        //  If n>=10, then calculate variance of S and use the formula for the normal approximation of the probability of S
-    else {
-        varS = (myDates.length * (myDates.length - 1) * (2 * myDates.length + 5) / 18);
-        //=IF(L26=0,0,IF(L26>0,(L26-1)/K30^0.5,(L26+1)/K30^0.5))
-        if (S > 0) {
-            Zs = (S - 1) / Math.sqrt(varS);
-        } else if (S < 0) {
-            Zs = (S + 1) / Math.sqrt(varS);
-        } else {
-            Zs = 0;
-        }
-
-        //  Now the actual test
-        Zcrit = 1.96; //  1.96 (positive or negative) is the critical value for Z, two-tailed, at p < .05
-
-        if (Zs >= Zcrit) {
-            MannK = "Sig. increasing";
-            pValue = .01; //Update global variable to show it IS significant
-        } else if (Zs <= (-1 * Zcrit)) {
-            MannK = "Sig. decreasing";
-            pValue = .01; //Update global variable to show it IS significant
-        } else {
-            MannK = "No Trend";
-            pValue = 2; //Update global variable to show it is NOT significant
-        }
-
-    }
-    //End Don's code
-
-    //var mySlopeArray = [];
-    //var mySlopeArraySort = [];
-    //var myBArray = [];
-
-    //var myDiff;
-    //var myDiv;
-
-    //var posSlope = 0;
-    //var negSlope = 0;
-    //var numTied = 0;
-
-    //var varS;
-    ////var Zcrit = 1.645; //  when  90% Confidence Interval (CI), use Zcrit=1.645; when 95% CI is desired use Zcrit=1.96
-    //var cAlpha;
-    //var nPrime;
-
-    //var senSlopeLower; // when Zcrit=1.645 it is lower 90% Confidence Interval of Sen Slope
-    //var senSlopeUpper; // when Zcrit=1.645 it is upper 90% Confidence Interval of Sen Slope
-    //var M1;
-    //var M2;
-
-    //var S; // for Mann-Kendall test for trend if S< 0 downward trend; if S>0 upward trend; S=0 no trend
-    //var Z; // for Mann-Kendall test for trend
-
-    //var splitResult;
-
-    //var myArray = new Array();
-    //var myDateArray = new Array();
-   // alert(result[index][0].value + " " + index);
-    //for (var i = 0; i < result.data.length; i++) {
-    //   // splitResult = checkedResults[i].value.split(" ");
-
-    //    myArray.push(result.data[i].value);
-    //    myDateArray.push(result.data[i].date);
-    //}
-    
-
-    //for (var j = 0; j < myArray.length - 1; j++) {
-    //    for (var i = 1; i < myArray.length; i++) {
-    //        if (j < i) {
-    //            myDiff = (myArray[i] - myArray[j]);
-    //            myDiv = (myArray[i] - myArray[j]) / (daydiff(parseDate(myDateArray[j]), parseDate(myDateArray[i])));
-    //            mySlopeArray.push(myDiv);
-
-
-    //            if (myDiv > 0) {
-    //                posSlope = posSlope + 1;
-    //            } else if (myDiv < 0) {
-    //                negSlope = negSlope + 1;
-    //            } else {
-    //                numTied = numTied + 1;
-    //            }
-    //        }
-    //    }
-    //}
-    
-    //mySlopeArraySort = mySlopeArray.sort(function (a, b) {
-    //    return a - b;
-    //});
-
-    //Mann Kendall test for trends
-    //S = posSlope - negSlope;
-    
-    //varS = (myArray.length * (myArray.length - 1) * (2 * myArray.length + 5) / 18);
-    // varS could add the number of tied values to make it better you would add http://www.webapps.cee.vt.edu/ewr/environmental/teach/smprimer/sen/sen.html
-    //varS = 211.67
-    
-    // sen estimate of slope is the median of all calculated slopes
-    //senSlope = median(mySlopeArray);
-   
-    //var myDateArrayDiff = [];
-    //var myDateArrayD;
-
-    //for (var i = 0; i < myDateArray.length; i++) {
-    //    myDateArrayD = daydiff(parseDate(myDateArray[0]), parseDate(myDateArray[i]));
-    //    myDateArrayDiff.push(myDateArrayD);
-
-    //}
-
-    // now get the y-intercept
-    //for (var i = 0; i < myArray.length; i++) {
-    //    //myBArray.push(myArray[i] - senSlope * i);
-    //    myBArray.push(myArray[i] - senSlope * myDateArrayDiff[i]);
-    //}
- 
-    //senB = median(myBArray);
-  
-    // calculate Z statistic and get Pvalue
-    // From MAKESENS 1.0
-    //if (S > 0) {
-    //    Z = (S - 1) / Math.pow(varS, .5);
-    //} else if (S < 0) {
-    //    Z = (S + 1) / Math.pow(varS, .5);
-    //} else {
-    //    Z = 0;
-    //}
-    //// End from MAKESENS 1.0
-    //pValue = 1 - GetZPercent(Z);
-   
-    // calculate the Upper/Lower Confidence Intervals around Sen Slope
-    //cAlpha = Zcrit * Math.pow(varS, .5);
-    //nPrime = mySlopeArray.length;
-    //M1 = (nPrime - cAlpha) / 2;
-    //M2 = (nPrime + cAlpha) / 2;
-    // From MAKESENS 1.0
-    //M1F = mySlopeArraySort[Math.floor(M1)];
-    //M1F1 = mySlopeArraySort[Math.floor(M1) + 1];
-    //senSlopeLower = M1F + (M1 - Math.floor(M1)) * (M1F1 - M1F);
-    //senSlopeUpper = mySlopeArraySort[Math.floor(M2)] + (M2 + 1 - Math.floor(M2)) * (mySlopeArraySort[Math.floor(M2) + 1] - mySlopeArraySort[Math.floor(M2)]);
-    // End from MAKESENS 1.0
     
 }
 
@@ -1061,13 +1015,21 @@ function combinations(arr, size) {
     }, []);
 }
 
+Array.prototype.max = function () {
+    return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function () {
+    return Math.min.apply(null, this);
+};
+
 function parseDate(str) {
     var mdy = str.split('-')
     return new Date(mdy[0], mdy[1] - 1, mdy[2]);
 }
 
 function daydiff(first, second) {
-    return Math.floor((second - first) / (1000 * 60 * 60 * 24))
+    return Math.floor((first - second) / (1000 * 60 * 60 * 24))
 }
 
 function median(values) {
@@ -1112,97 +1074,101 @@ function GetZPercent(z) {
 // instantiates the pie chart, passes in the data and
 // draws it.
 function drawChart(result, counter) {
-    var data = new google.visualization.DataTable();
+        var data = new google.visualization.DataTable();
 
-    var splitResult;
-    var splitDate;
-    var x;
-    var columnIndex = 2;
-
-
-    // Declare columns
-    data.addColumn('date', 'Date');
-    data.addColumn('number', selectedParameter + ' (' + result.data[0].unit + ')');
-
-    if (pValue <= .05 && result.data.length > 1) {
-        data.addColumn('number', 'Trend');
-        columnIndex = columnIndex + 1;
-    }
+        var splitResult;
+        var splitDate;
+        var x;
+        var columnIndex = 2;
 
 
- 
-    for (var i = 0; i < result.data.length; i++) {
-        //splitResult = checkedResults[i].value.split(" ");
-        splitDate = result.data[i].date.split("-");
-
-        x = daydiff(parseDate(result.data[0].date), parseDate(result.data[i].date));
+        // Declare columns
+        data.addColumn('date', 'Date');
+        data.addColumn('number', selectedParameter + ' (' + result.data[0].unit + ')');
 
         if (pValue <= .05 && result.data.length > 1) {
-             data.addRow([new Date(splitDate[0], splitDate[1] - 1,splitDate[2]), result.data[i].value, (senSlope * (x) + senB)]);
-        }
-        else
-        {
-            data.addRow([new Date(splitDate[0], splitDate[1] - 1,splitDate[2]), result.data[i].value]);
+            data.addColumn('number', 'Trend');
+            columnIndex = columnIndex + 1;
         }
 
-    }
-   
-    if ($.isNumeric($("#lowThreshChartsInput").val())) {
-        data.addColumn('number', 'Lower Threshold');
-        data.setCell(0, columnIndex, $("#lowThreshChartsInput").val());
-        data.setCell(result.data.length - 1, columnIndex, $("#lowThreshChartsInput").val());
-        columnIndex = columnIndex + 1;
-    }
 
-    if ($.isNumeric($("#upperThreshChartsInput").val())) {
-        data.addColumn('number', 'Upper Threshold');
-        data.setCell(0, columnIndex, $("#upperThreshChartsInput").val());
-        data.setCell(result.data.length - 1, columnIndex, $("#upperThreshChartsInput").val());
-    }
+        for (var i = 0; i < result.data.length; i++) {
+            //splitResult = checkedResults[i].value.split(" ");
+            splitDate = result.data[i].date.split("-");
 
-    var options = {
-        // chartArea: {'width': '67%', 'height': '60%'},
-        title: result.location,
-        hAxis: { title: 'Date (M/Y)', format: 'M/yy' },
-        vAxis: { title: selectedParameter + ' (' + result.data[0].unit + ')' },
-        legend: {textStyle: {fontSize: 10}},
-        interpolateNulls: true,
-        chartArea: {  width: "60%", height: "70%" },
-        series: { 0: { lineWidth: 0, pointSize: 5 }, 1: { lineWidth: 1, pointSize: 0 }, 2: { lineWidth: 1, pointSize: 0 }, 3: { lineWidth: 1, pointSize: 0 } },
-        height: 400,
-        width: 850
+            //x = daydiff(parseDate(result.data[0].date), parseDate(result.data[i].date));
+            x = daydiff(parseDate(result.data[i].date), parseDate(result.data[0].date));
+           
+            if (pValue <= .05 && result.data.length > 1) {
+                var slopeVal = (senSlope * (x) + senB);
+                //slopeVal = slopeVal * -1;
+                data.addRow([new Date(splitDate[0], splitDate[1] - 1, splitDate[2]), result.data[i].value, slopeVal]);
+            }
+            else {
+                data.addRow([new Date(splitDate[0], splitDate[1] - 1, splitDate[2]), result.data[i].value]);
+            }
 
-    };
+        }
 
-     $("#trendCharts").append('Location: <b>' + result.location + '</b><br>');
-   
-//    var tempLi = "<li data-target='#myCarousel' data-slide-to=" + counter + " class='active'></li>"
-//    $("#carouselol").append(tempLi);
-    
-//    var tempDiv = "<div class='item' style='height:inherit'><div class='container'><div class='carousel-caption'><div id='carouselCharts" + result.location + "'></div></div></div></div>"
-//    $("#carouselInner").append(tempDiv);
+        if ($.isNumeric($("#lowThreshChartsInput").val())) {
+            data.addColumn('number', 'Lower Threshold');
+            data.setCell(0, columnIndex, $("#lowThreshChartsInput").val());
+            data.setCell(result.data.length - 1, columnIndex, $("#lowThreshChartsInput").val());
+            columnIndex = columnIndex + 1;
+        }
 
-    $("#trendCharts").append('<div id="trendCharts' + result.location + '"></div>');
-    
-    var chart = new google.visualization.LineChart(document.getElementById('trendCharts' + result.location));
-    chart.draw(data, options);
+        if ($.isNumeric($("#upperThreshChartsInput").val())) {
+            data.addColumn('number', 'Upper Threshold');
+            data.setCell(0, columnIndex, $("#upperThreshChartsInput").val());
+            data.setCell(result.data.length - 1, columnIndex, $("#upperThreshChartsInput").val());
+        }
 
-//    var chart = new google.visualization.LineChart(document.getElementById('carouselCharts' + result.location));
-//    chart.draw(data, options);
-//    $(window).resize(function () {
-//        chart.draw(data, options);
-//    });
+        var options = {
+            // chartArea: {'width': '67%', 'height': '60%'},
+            title: result.location,
+            hAxis: { title: 'Date (M/Y)', format: 'M/yy' },
+            vAxis: { title: selectedParameter + ' (' + result.data[0].unit + ')' },
+            legend: { textStyle: { fontSize: 10 } },
+            interpolateNulls: true,
+            chartArea: { width: "60%", height: "70%" },
+            series: { 0: { lineWidth: 0, pointSize: 5 }, 1: { lineWidth: 1, pointSize: 0 }, 2: { lineWidth: 1, pointSize: 0 }, 3: { lineWidth: 1, pointSize: 0 } },
+            height: 400,
+            width: 850
 
-    if (pValue <= .05 && result.data.length > 1) {
-        $("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
-    }
-   else if(result.data.length == 1)
-    {
-        $("#trendCharts").append('There is only one data point.  Need at least two for trend calculations.<br>');
-    }
-    else {
-        $("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is not significant at the 0.05 level.<br>');
-    }
+        };
+
+        $("#trendCharts").append('Location: <b>' + result.location + '</b><br>');
+
+        //    var tempLi = "<li data-target='#myCarousel' data-slide-to=" + counter + " class='active'></li>"
+        //    $("#carouselol").append(tempLi);
+
+        //    var tempDiv = "<div class='item' style='height:inherit'><div class='container'><div class='carousel-caption'><div id='carouselCharts" + result.location + "'></div></div></div></div>"
+        //    $("#carouselInner").append(tempDiv);
+
+        $("#trendCharts").append('<div id="trendCharts' + result.location + '"></div>');
+
+        var chart = new google.visualization.LineChart(document.getElementById('trendCharts' + result.location));
+        chart.draw(data, options);
+
+        //    var chart = new google.visualization.LineChart(document.getElementById('carouselCharts' + result.location));
+        //    chart.draw(data, options);
+        //    $(window).resize(function () {
+        //        chart.draw(data, options);
+        //    });
+
+        if (result.data.length < 5) {
+            $("#trendCharts").append('Cannot do trend analysis on 4 or less values.<br>');
+        }else if (pValue <= .05 && result.data.length > 1) {
+            //$("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
+            $("#trendCharts").append('The Mann-Kendall test for trend is significant at the 0.05 level.  The Theil-Sen estimate of slope is ' + senSlope.toFixed(4) + ' and the intercept is ' + senB.toFixed(4) + '.<br>');
+        }
+        //else if (result.data.length == 1) {
+        //    $("#trendCharts").append('There is only one data point.  Need at least two for trend calculations.<br>');
+        //}
+        else {
+            //$("#trendCharts").append('The Mann-Kendall test for trend has a p-value of ' + pValue.toFixed(4) + ' and is not significant at the 0.05 level.<br>');
+            $("#trendCharts").append('The Mann-Kendall test for trend is not significant at the 0.05 level.<br>');
+        }
     
     //$(".pvalue").html(pValue.toFixed(4));
     //$(".slope").html(senSlope.toFixed(4));

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Reference Data" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="RefData.aspx.cs" Inherits="OpenEnvironment.RefData" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Reference Data" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="RefData.aspx.cs" Inherits="OpenEnvironment.RefData" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxtoolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

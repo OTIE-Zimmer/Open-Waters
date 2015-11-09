@@ -43,7 +43,7 @@
         </asp:Panel>
         <br />
         <div class="smallnote row">
-            By signing up for TFerst Mvskogee Open Waters, you agree to the <a href="../App_Pages/Public/Terms.aspx" target="_blank">Terms of Service</a>.
+            By signing up for Tribal-FERST Mvskoke Open Waters Module, you agree to the <a href="../App_Pages/Public/Terms.aspx" target="_blank">Terms of Service</a>.
         </div>
         <div class="btnRibbon">
             <asp:Button ID="btnBack" runat="server" CssClass="btn" OnClick="btnBack_Click" Text="Go Back" />

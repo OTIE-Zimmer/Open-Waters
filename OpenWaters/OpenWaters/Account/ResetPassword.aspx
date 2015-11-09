@@ -12,7 +12,7 @@
         <asp:Label ID="lblMsg" runat="server" ForeColor="#CC0000"></asp:Label>
     </p>
     <fieldset>
-        <legend>Reset your TFerst Mvskogee Open Waters password</legend>
+        <legend>Reset your Tribal-FERST Mvskoke Open Waters Module password</legend>
         <div class="row">
             <asp:Label ID="EmailLabel" runat="server" CssClass="fldLbl" AssociatedControlID="UserID">Username:</asp:Label>
             <br />

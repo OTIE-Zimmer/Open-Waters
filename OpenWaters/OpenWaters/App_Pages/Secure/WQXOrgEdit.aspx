@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Organization Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXOrgEdit.aspx.cs" Inherits="OpenEnvironment.WQXOrgEdit" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Organization Details" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXOrgEdit.aspx.cs" Inherits="OpenEnvironment.WQXOrgEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script>
         jQuery(document).ready(function () {
@@ -80,7 +80,7 @@
             </div></div>
             <asp:RadioButtonList ID="rbCDX" runat="server">
                 <asp:ListItem Text="Submit to EPA using my own NAAS credentials" Value="1"></asp:ListItem>
-                <asp:ListItem Text="Submit to EPA using TFerst Mvskogee Open Waters global NAAS credentials" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Submit to EPA using Tribal-FERST Mvskoke Open Waters Module global NAAS credentials" Value="2"></asp:ListItem>
             </asp:RadioButtonList>
             <div id="divCDXme" style="display:none; padding: 0px 0px 0px 17px">
                 <div class="form-group"><div class="input-group">
@@ -95,7 +95,7 @@
                 <br />
             </div>
             <div id="divCDXglobal"  style="display:none">
-                <asp:Button ID="btnTestNAASGlobal" runat="server" Text="Check if TFerst Mvskogee Open Waters is Authorized to Submit for Your Organization"  CssClass="btn btn-primary" OnClick="btnTestNAASGlobal_Click" />
+                <asp:Button ID="btnTestNAASGlobal" runat="server" Text="Check if Tribal-FERST Mvskoke Open Waters Module is Authorized to Submit for Your Organization"  CssClass="btn btn-primary" OnClick="btnTestNAASGlobal_Click" />
             </div>
             <br />
 

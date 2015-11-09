@@ -221,7 +221,7 @@ namespace OpenEnvironment
                         if (typ == "LOCAL")
                             lblSubmitResult.Text = "The NAAS account you supplied is not authorized to submit for this organization. Please contact the STORET Helpdesk to request access.";
                         else
-                            lblSubmitResult.Text = "TFerst Mvskogee Open Waters is not authorized to submit for your organization. Please contact the STORET Helpdesk to request access.";
+                            lblSubmitResult.Text = "Tribal-FERST Mvskoke Open Waters Module is not authorized to submit for your organization. Please contact the STORET Helpdesk to request access.";
 
                         lblCDXSubmitInd.CssClass = "fldErr";
                         lblCDXSubmitInd.Text = "This Organization is unable to submit to EPA. Please correct this below.";

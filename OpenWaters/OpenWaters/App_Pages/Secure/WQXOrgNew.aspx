@@ -31,7 +31,7 @@
         <div class="divHelp" style="font-size:14px; font-style:normal">
             From the list below, select the Organization that you are affiliated with. 
             <br /><br />
-            <span style="color:red; font-weight: bold">Do not request to join an TFerst Mvskogee Organization to which you do not belong. Doing so may result in termination of your Open Waters account.</span>
+            <span style="color:red; font-weight: bold">Do not request to join an Tribal-FERST Mvskoke Organization to which you do not belong. Doing so may result in termination of your Open Waters account.</span>
         </div>
         <div id="users">
             <input class="search" placeholder="Search" style="height:20px; width: 200px; font-size: 14px;" />

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="">
         <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
-        An error has been encountered in the TFerst Mvskogee Open Waters application.
+        An error has been encountered in the Tribal-FERST Mvskoke Open Waters Module application.
         <br />
         <asp:Button ID="btnReturn" runat="server" Text="Return" CssClass="btn" />
     </div>

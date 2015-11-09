@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Import Samples" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXImportSample.aspx.cs" Inherits="OpenEnvironment.WQXImportSample" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Import Samples" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="WQXImportSample.aspx.cs" Inherits="OpenEnvironment.WQXImportSample" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <style>
     #gridwrap { height: calc(100vh - 320px); }

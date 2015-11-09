@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <!-- Tell mobile browsers to use the device width when rendering -->
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>TFerst Mvskogee Open Waters - Environmental Data Management</title>
+    <title>Tribal-FERST Mvskoke Open Waters Module - Environmental Data Management</title>
 
    <link href="css/styles2.css" rel="stylesheet" />
 
@@ -39,7 +39,7 @@
                                      
           <div class="block-login-content">
 
-          <h2><span style="color: #fff; font-weight: bold;"><i>Log into TFerst Mvskogee Open Waters</i></span></h2>
+          <h2><span style="color: #fff; font-weight: bold;"><i>Log into Tribal-FERST Mvskoke Open Waters Module</i></span></h2>
       
           <div class="form-group">
             <asp:ValidationSummary ID="valSummary" 

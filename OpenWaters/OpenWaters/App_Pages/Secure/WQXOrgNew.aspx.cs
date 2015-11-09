@@ -31,10 +31,10 @@ namespace OpenEnvironment
                 T_WQX_ORGANIZATION org = db_WQX.GetWQX_ORGANIZATION_ByID(e.CommandArgument.ToString());
                 if (org != null)
                     //Case 1: org is already in Open Waters
-                    lblConfirmText.Text = org.ORG_FORMAL_NAME + " (" + org.ORG_ID + ") is already using TFerst Mvskogee Open Waters. Click 'Confirm' to notify an Administrator for this Organization to approve your access request.";
+                    lblConfirmText.Text = org.ORG_FORMAL_NAME + " (" + org.ORG_ID + ") is already using Tribal-FERST Mvskoke Open Waters Module. Click 'Confirm' to notify an Administrator for this Organization to approve your access request.";
                 else  
                     //Case 2: org doesn't exist in Open Waters
-                    lblConfirmText.Text = "This Organization does not yet exist in TFerst Mvskogee Open Waters. Click 'Confirm' to request access to this organization. ";
+                    lblConfirmText.Text = "This Organization does not yet exist in Tribal-FERST Mvskoke Open Waters Module. Click 'Confirm' to request access to this organization. ";
 
                 pnl1.Visible = false;
                 pnlNewOrgConfirm.Visible = true;
@@ -119,8 +119,8 @@ namespace OpenEnvironment
 
             //send email with request
             string msg = "A user has requested to join an organization for which you are an administrator." + "\r\n\r\n";
-            msg += "The following user account (" + User.Identity.Name + ") has requested to join your organization (" + OrgID + "). Please log into TFerst Mvskogee Open Waters and either accept or reject this request." + "\r\n\r\n";
-            bool eMailSucc = Utils.SendEmail(null, emailTo, null, null, "TFerst Mvskogee Open Waters: User Requesting to Join Organization", msg, null);
+            msg += "The following user account (" + User.Identity.Name + ") has requested to join your organization (" + OrgID + "). Please log into Tribal-FERST Mvskoke Open Waters Module and either accept or reject this request." + "\r\n\r\n";
+            bool eMailSucc = Utils.SendEmail(null, emailTo, null, null, "Tribal-FERST Mvskoke Open Waters Module: User Requesting to Join Organization", msg, null);
 
             pnlNewOrgConfirm.Visible = false;
             lblMsg.Text = "Your request has been made. You will be emailed when your request has been approved.";

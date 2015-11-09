@@ -1,4 +1,4 @@
-﻿<%@ Page Title="TFerst Mvskogee Open Waters - Map" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Maps.aspx.cs" Inherits="OpenEnvironment.Map2" %>
+﻿<%@ Page Title="Tribal-FERST Mvskoke Open Waters Module - Map" Language="C#" MasterPageFile="SiteAuth.Master" AutoEventWireup="true" CodeBehind="Maps.aspx.cs" Inherits="OpenEnvironment.Map2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server" >
     <script src="../../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>

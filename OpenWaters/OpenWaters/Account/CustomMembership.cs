@@ -148,14 +148,14 @@ namespace OpenEnvironment.Account
                     encryptOauth = System.Web.HttpUtility.UrlEncode(encryptOauth);
 
                     //send verification email to user
-                    string message = "Welcome to TFerst Mvskogee Open Waters. TFerst Mvskogee Open Waters allows you to manage your water quality data and synchronize it with EPA-WQX.  "
+                    string message = "Welcome to Tribal-FERST Mvskoke Open Waters Module. Tribal-FERST Mvskoke Open Waters Module allows you to manage your water quality data and synchronize it with EPA-WQX.  "
                         + "\r\n\r\n Your username is: " + username
                         + "\r\n\r\n You must activate your account by clicking the following link: "
                         + "\r\n\r\n " + db_Ref.GetT_OE_APP_SETTING("Public App Path") + "Account/Verify.aspx?oauthcrd=" + encryptOauth
                         + "\r\n\r\n After verifying your account you will be prompted to enter a permanent password.";
 
 
-                    bool EmailStatus = Utils.SendEmail(null, email.Split(';').ToList(), null, null, "Confirm Your TFerst Mvskogee Open Waters Account", message, null);
+                    bool EmailStatus = Utils.SendEmail(null, email.Split(';').ToList(), null, null, "Confirm Your Tribal-FERST Mvskoke Open Waters Module", message, null);
                     if (EmailStatus == false)
                     {
                         status = MembershipCreateStatus.InvalidEmail;
@@ -269,7 +269,7 @@ namespace OpenEnvironment.Account
                         msg += "When you login for the first time you will be asked to set a permanent password.";
                         if (u.EMAIL == null)
                             return "User does not have email address.";
-                        if (Utils.SendEmail(null, u.EMAIL.Split(';').ToList(), null, null, "TFerst Mvskogee Open Waters Password Reset", msg, null))
+                        if (Utils.SendEmail(null, u.EMAIL.Split(';').ToList(), null, null, "Tribal-FERST Mvskoke Open Waters Module Password Reset", msg, null))
                             return "Email has been sent.";
                         else
                             return "Error in sending email";
